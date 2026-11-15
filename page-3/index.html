@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <!-- Style Sheet -->
+    <link href="style.css" rel="stylesheet" />
+    <title>Page 3</title>
+  </head>
+  <body>
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div class="announcement">
+      <div class="container">
+        <div class="announcement__inner">
+          <p class="announcement__item announcement__item--start">
+            <i class="fa-solid fa-truck-fast"></i>
+            Free Shipping On Orders Over $10
+          </p>
+
+          <p class="announcement__item announcement__item--center">
+            <i class="fa-solid fa-leaf"></i>
+            100% Natural Ingredients | Premium Loose Leaf Teas
+          </p>
+
+          <div class="announcement__item announcement__item--end">
+            <a href="#" class="announcement__link">
+              <i class="fa-solid fa-location-dot"></i> Store Locator
+            </a>
+            <button class="announcement__link" type="button">
+              <i class="fa-solid fa-globe"></i> EN
+              <i class="fa-solid fa-chevron-down announcement__chevron"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar__inner">
+          <!-- Burger (mobile) -->
+          <button
+            class="navbar__icon navbar__burger"
+            type="button"
+            id="openMenu"
+            aria-label="Open menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Logo -->
+          <a href="#" class="logo" aria-label="Teavana home">
+            <span class="logo__text">HARVEST</span>
+            <span class="logo__tagline">NATURALLY YOURS</span>
+          </a>
+
+          <!-- Desktop nav -->
+          <nav class="navbar__links" aria-label="Main">
+            <a href="#" class="navbar__link active">Home</a>
+
+            <div class="navbar__item has-menu">
+              <a href="#" class="navbar__link">
+                Shop <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="menu">
+                <a href="#">All Teas</a>
+                <a href="#">Green Tea</a>
+                <a href="#">Black Tea</a>
+                <a href="#">Herbal Tea</a>
+                <a href="#">Gift Sets</a>
+              </div>
+            </div>
+
+            <div class="navbar__item has-menu">
+              <a href="#" class="navbar__link">
+                Tea Collections <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="menu">
+                <a href="#">Loose Leaf</a>
+                <a href="#">Tea Bags</a>
+                <a href="#">Matcha</a>
+                <a href="#">Oolong</a>
+                <a href="#">Floral</a>
+              </div>
+            </div>
+
+            <a href="#" class="navbar__link">Teaware</a>
+            <a href="#" class="navbar__link">About Us</a>
+            <a href="#" class="navbar__link">Blog</a>
+            <a href="#" class="navbar__link">Contact</a>
+          </nav>
+
+          <!-- Actions -->
+          <div class="navbar__actions">
+            <button
+              class="navbar__icon"
+              type="button"
+              id="searchToggle"
+              aria-label="Search"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button
+              class="navbar__icon navbar__icon--account"
+              type="button"
+              aria-label="Account"
+            >
+              <i class="fa-regular fa-user"></i>
+            </button>
+
+            <button
+              class="navbar__icon wishlist"
+              type="button"
+              aria-label="Wishlist"
+            >
+              <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <button
+              class="navbar__icon"
+              type="button"
+              id="cartBtn"
+              aria-label="Shopping cart"
+            >
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ Mobile drawer ============ -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__backdrop" data-close-menu></div>
+
+      <aside class="drawer__panel">
+        <div class="drawer__head">
+          <a href="#" class="logo" aria-label="Teavana home">
+            <span class="logo__text">HARVEST</span>
+            <span class="logo__tagline">NATURALLY YOURS</span>
+          </a>
+          <button
+            class="navbar__icon"
+            type="button"
+            data-close-menu
+            aria-label="Close menu"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="drawer__links" aria-label="Mobile">
+          <a href="#" class="drawer__link active">Home</a>
+
+          <details class="drawer__group">
+            <summary class="drawer__link">
+              Shop <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="drawer__sub">
+              <a href="#">All Teas</a>
+              <a href="#">Green Tea</a>
+              <a href="#">Black Tea</a>
+              <a href="#">Herbal Tea</a>
+              <a href="#">Gift Sets</a>
+            </div>
+          </details>
+
+          <details class="drawer__group">
+            <summary class="drawer__link">
+              Tea Collections <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="drawer__sub">
+              <a href="#">Loose Leaf</a>
+              <a href="#">Tea Bags</a>
+              <a href="#">Matcha</a>
+              <a href="#">Oolong</a>
+              <a href="#">Floral</a>
+            </div>
+          </details>
+
+          <a href="#" class="drawer__link">Teaware</a>
+          <a href="#" class="drawer__link">About Us</a>
+          <a href="#" class="drawer__link">Blog</a>
+          <a href="#" class="drawer__link">Contact</a>
+        </nav>
+
+        <div class="drawer__foot">
+          <a href="#" class="drawer__account">
+            <i class="fa-regular fa-user"></i> My Account
+          </a>
+          <a href="#" class="drawer__account">
+            <i class="fa-regular fa-heart"></i> Wishlist
+          </a>
+          <a href="#" class="drawer__account">
+            <i class="fa-solid fa-location-dot"></i> Store Locator
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <main>
+      <!-- ==================== HERO ==================== -->
+      <section class="hero" aria-labelledby="heroTitle">
+        <!-- غيّر المسار لصورة الهيرو بتاعتك -->
+        <img
+          class="hero__bg"
+          src="images/hero tea.webp"
+          alt=""
+          loading="eager"
+        />
+        <div class="hero__overlay"></div>
+
+        <div class="container hero__container">
+          <div class="hero__content">
+            <p class="hero__eyebrow fade-in-up">
+              Good tea. Good mood. Good life.
+            </p>
+
+            <h1 class="hero__title fade-in-up delay-200" id="heroTitle">
+              Sip Nature.<i class="fa-solid fa-leaf hero__leaf"></i><br />
+              Feel Better.
+            </h1>
+
+            <p class="hero__desc fade-in-up delay-400">
+              Discover the perfect blend of flavor, aroma and wellness in every
+              cup.
+            </p>
+
+            <div class="hero__buttons fade-in-up delay-500">
+              <a href="#" class="btn btn--primary">
+                Shop Now <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#" class="btn btn--outline">Explore Collections</a>
+            </div>
+
+            <ul class="hero__features fade-in-up delay-700">
+              <li class="hero__feature">
+                <span class="hero__feature-icon"
+                  ><i class="fa-solid fa-leaf"></i
+                ></span>
+                <strong>100% Natural</strong>
+                <span>Pure &amp; Safe</span>
+              </li>
+              <li class="hero__feature">
+                <span class="hero__feature-icon">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                </span>
+                <strong>Premium Quality</strong>
+                <span>Finest Leaf Teas</span>
+              </li>
+              <li class="hero__feature">
+                <span class="hero__feature-icon"
+                  ><i class="fa-regular fa-heart"></i
+                ></span>
+                <strong>Good For You</strong>
+                <span>Health &amp; Wellness</span>
+              </li>
+              <li class="hero__feature">
+                <span class="hero__feature-icon">
+                  <i class="fa-solid fa-box-open"></i>
+                </span>
+                <strong>Sustainable</strong>
+                <span>Eco-Friendly</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CATEGORIES ==================== -->
+      <section class="categories" aria-label="Shop by category">
+        <div class="container">
+          <ul class="categories__card">
+            <li>
+              <a href="#" class="category">
+                <span class="category__thumb">
+                  <img
+                    src="images/category/1 black tea.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </span>
+                <span class="category__name">Black Tea</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="category">
+                <span class="category__thumb">
+                  <img
+                    src="images/category/2 green tea.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </span>
+                <span class="category__name">Green Tea</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="category">
+                <span class="category__thumb">
+                  <img
+                    src="images/category/3 prlack tea.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </span>
+                <span class="category__name">Prlack Tea</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="category">
+                <span class="category__thumb">
+                  <img
+                    src="images/category/4 herbal tea.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </span>
+                <span class="category__name">Herbal Tea</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="category">
+                <span class="category__thumb">
+                  <img
+                    src="images/category/5 oolong tea.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </span>
+                <span class="category__name">Oolong Tea</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="category">
+                <span class="category__thumb">
+                  <img
+                    src="images/category/6 floral tea.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </span>
+                <span class="category__name">Floral Tea</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="category">
+                <span class="category__thumb">
+                  <img
+                    src="images/category/8 Matcha.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                </span>
+                <span class="category__name">Matcha</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="category category--all">
+                <span class="category__thumb category__thumb--all">
+                  <i class="fa-solid fa-table-cells-large"></i>
+                </span>
+                <span class="category__name">View All<br />Categories</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ==================== PROMO CARDS ==================== -->
+      <section class="promos" aria-label="Featured collections">
+        <div class="container">
+          <div class="promos__grid">
+            <!-- Card 1 -->
+            <article class="promo promo--1">
+              <img
+                class="promo__image"
+                src="images/product 1.jpg"
+                alt=""
+                loading="lazy"
+              />
+              <div class="promo__content">
+                <h3 class="promo__title">Fresh Teas<br />For Fresh You</h3>
+                <p class="promo__text">
+                  Handpicked leaves.<br />Unmatched freshness.
+                </p>
+                <a href="#" class="btn btn--primary btn--sm">
+                  Shop Loose Leaf <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="promo promo--2">
+              <img
+                class="promo__image"
+                src="images/product 5.jpg"
+                alt=""
+                loading="lazy"
+              />
+              <div class="promo__content">
+                <h3 class="promo__title">Wellness<br />In Every Sip</h3>
+                <p class="promo__text">
+                  Herbal blends for your<br />mind, body &amp; soul.
+                </p>
+                <a href="#" class="btn btn--primary btn--sm">
+                  Explore Blends <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="promo promo--3">
+              <img
+                class="promo__image"
+                src="images/product 4.jpg"
+                alt=""
+                loading="lazy"
+              />
+              <div class="promo__content">
+                <h3 class="promo__title">
+                  Beautiful Teaware<br />For Your Moments
+                </h3>
+                <p class="promo__text">
+                  Elevate your tea experience<br />with our teaware.
+                </p>
+                <a href="#" class="btn btn--primary btn--sm">
+                  Shop Teaware <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== BEST SELLERS ==================== -->
+      <section class="best-sellers" aria-labelledby="bestSellersTitle">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-head__title" id="bestSellersTitle">
+              Best Sellers
+            </h2>
+            <a href="#" class="section-head__link">
+              View All Products <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="best-sellers__carousel">
+            <button
+              class="best-sellers__arrow best-sellers__arrow--prev"
+              type="button"
+              aria-label="Previous products"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="best-sellers__grid" id="bestSellersGrid"></div>
+
+            <button
+              class="best-sellers__arrow best-sellers__arrow--next"
+              type="button"
+              aria-label="Next products"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <!-- Brand -->
+          <div class="site-footer__brand">
+            <a href="#" class="logo" aria-label="Harvest home">
+              <span class="logo__text">HARVEST</span>
+              <span class="logo__tagline">NATURALLY YOURS</span>
+            </a>
+
+            <p class="site-footer__tagline">
+              Good tea. Good mood.<br />Good life.
+            </p>
+
+            <div class="site-footer__socials" aria-label="Social media">
+              <a href="#" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Shop -->
+          <nav class="site-footer__col" aria-label="Shop">
+            <h3 class="site-footer__title">Shop</h3>
+            <ul>
+              <li><a href="#">All Teas</a></li>
+              <li><a href="#">Green Tea</a></li>
+              <li><a href="#">Black Tea</a></li>
+              <li><a href="#">Herbal Tea</a></li>
+              <li><a href="#">Tea Collections</a></li>
+            </ul>
+          </nav>
+
+          <!-- Customer care -->
+          <nav class="site-footer__col" aria-label="Customer care">
+            <h3 class="site-footer__title">Customer Care</h3>
+            <ul>
+              <li><a href="#">Help &amp; FAQs</a></li>
+              <li><a href="#">Shipping &amp; Delivery</a></li>
+              <li><a href="#">Returns &amp; Refunds</a></li>
+              <li><a href="#">Track Order</a></li>
+              <li><a href="#">Terms &amp; Conditions</a></li>
+            </ul>
+          </nav>
+
+          <!-- About -->
+          <nav class="site-footer__col" aria-label="About us">
+            <h3 class="site-footer__title">About Us</h3>
+            <ul>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <p>© 2026 Harvest. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="floating-links" aria-label="Page shortcuts">
+      <a
+        class="floating-link"
+        href="../page-4/index.html"
+        aria-label="Open page 2"
+      >
+        <i class="fa-solid fa-angle-left"></i>
+      </a>
+
+      <a
+        class="floating-link"
+        href="../page-2/index.html"
+        aria-label="Open page 5"
+      >
+        <i class="fa-solid fa-angle-right"></i>
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

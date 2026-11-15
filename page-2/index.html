@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <!-- Style Sheet -->
+    <link href="style.css" rel="stylesheet" />
+    <title>Page 2</title>
+  </head>
+  <body>
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar__inner">
+          <!-- Logo + desktop links -->
+          <div class="navbar__start">
+            <!-- Logo (placeholder بدل LogoMark) -->
+            <a href="#" class="logo" aria-label="TechNova home">
+              <span class="logo__mark"><i class="fa-solid fa-bolt"></i></span>
+              <span class="logo__text">TechNova</span>
+            </a>
+
+            <nav class="navbar__links" aria-label="Main">
+              <a href="#" class="navbar__link active">Home</a>
+              <a href="#" class="navbar__link">Smartphones</a>
+              <a href="#" class="navbar__link">Laptops</a>
+              <a href="#" class="navbar__link">Audio</a>
+              <a href="#" class="navbar__link">Accessories</a>
+              <a href="#" class="navbar__link">
+                Deals <span class="badge-hot">HOT</span>
+              </a>
+            </nav>
+          </div>
+
+          <!-- Actions -->
+          <div class="navbar__actions">
+            <!-- Search (desktop) -->
+            <button
+              class="navbar__search"
+              type="button"
+              data-open-search
+              aria-label="Search products"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Search products…</span>
+            </button>
+
+            <!-- Search (mobile) -->
+            <button
+              class="navbar__icon navbar__icon--search-mobile"
+              type="button"
+              data-open-search
+              aria-label="Search"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <!-- Account -->
+            <button
+              class="navbar__icon navbar__icon--account"
+              type="button"
+              aria-label="Account"
+            >
+              <i class="fa-regular fa-user"></i>
+            </button>
+
+            <!-- Wishlist -->
+            <button class="navbar__icon" type="button" aria-label="Wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <!-- Cart -->
+            <button
+              class="navbar__icon"
+              type="button"
+              id="cartBtn"
+              aria-label="Shopping cart"
+            >
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="cart-badge" id="cartBadge" hidden>0</span>
+            </button>
+
+            <!-- Burger (mobile) -->
+            <button
+              class="navbar__icon navbar__icon--burger"
+              type="button"
+              id="openMenu"
+              aria-label="Open menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search panel -->
+      <div class="search-panel" id="searchPanel" hidden>
+        <div class="container">
+          <form class="search-panel__form" id="searchForm">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Search products…"
+              autocomplete="off"
+            />
+            <button
+              class="navbar__icon"
+              type="button"
+              id="closeSearch"
+              aria-label="Close search"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ Mobile drawer ============ -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__backdrop" data-close-menu></div>
+
+      <aside class="drawer__panel">
+        <div class="drawer__head">
+          <a href="#" class="logo" aria-label="TechNova home">
+            <span class="logo__mark"><i class="fa-solid fa-bolt"></i></span>
+            <span class="logo__text">TechNova</span>
+          </a>
+          <button
+            class="navbar__icon"
+            type="button"
+            data-close-menu
+            aria-label="Close menu"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="drawer__links" aria-label="Mobile">
+          <a href="#" class="drawer__link active">Home</a>
+          <a href="#" class="drawer__link">Smartphones</a>
+          <a href="#" class="drawer__link">Laptops</a>
+          <a href="#" class="drawer__link">Audio</a>
+          <a href="#" class="drawer__link">Accessories</a>
+          <a href="#" class="drawer__link">
+            Deals <span class="badge-hot badge-hot--lg">HOT</span>
+          </a>
+        </nav>
+
+        <div class="drawer__foot">
+          <a href="#" class="drawer__account">
+            <i class="fa-regular fa-user"></i> My Account
+          </a>
+          <a href="#" class="drawer__account">
+            <i class="fa-regular fa-heart"></i> Wishlist
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <main>
+      <!-- ==================== HERO ==================== -->
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="container">
+          <div class="hero__card">
+            <!-- Text -->
+            <div class="hero__content">
+              <h1 class="hero__title fade-in-up" id="heroTitle">
+                Closer to <br />the future
+              </h1>
+
+              <p class="hero__desc fade-in-up delay-200">
+                Smartphones, laptops and audio for your everyday life.
+              </p>
+
+              <a href="#" class="hero__button fade-in-up delay-400">
+                Shop Tech
+              </a>
+            </div>
+
+            <!-- Visual -->
+            <div class="hero__visual fade-in delay-200">
+              <img
+                class="hero__image"
+                src="images/hero3.webp"
+                alt="iPhone 16 Pro with AirPods and MagSafe charger"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SHOP BY CATEGORY ============ -->
+      <section class="categories" aria-labelledby="categoriesTitle">
+        <div class="container">
+          <h2 class="categories__title" id="categoriesTitle">Find your tech</h2>
+
+          <div class="categories__grid">
+            <a class="category-card category-card--phones" href="#">
+              <span class="category-card__name">Smartphones</span>
+              <span class="category-card__arrow" aria-hidden="true">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+              <img
+                class="category-card__image"
+                src="images/Samsung Galaxy S26.webp"
+                alt="Smartphone"
+                loading="lazy"
+              />
+            </a>
+
+            <a class="category-card category-card--laptops" href="#">
+              <span class="category-card__name">Laptops</span>
+              <span class="category-card__arrow" aria-hidden="true">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+              <img
+                class="category-card__image"
+                src="images/laptop.webp"
+                alt="Laptop"
+                loading="lazy"
+              />
+            </a>
+
+            <a class="category-card category-card--headphones" href="#">
+              <span class="category-card__name">Headphones</span>
+              <span class="category-card__arrow" aria-hidden="true">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+              <img
+                class="category-card__image"
+                src="images/headphone.webp"
+                alt="Headphones"
+                loading="lazy"
+              />
+            </a>
+
+            <a class="category-card category-card--accessories" href="#">
+              <span class="category-card__name">Accessories</span>
+              <span class="category-card__arrow" aria-hidden="true">
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+              <img
+                class="category-card__image"
+                src="images/accessories.webp"
+                alt="Tech accessories"
+                loading="lazy"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ POPULAR PRODUCTS ============ -->
+      <section class="popular-products" aria-labelledby="popularTitle">
+        <div class="container">
+          <h2 class="popular-products__title" id="popularTitle">
+            Popular right now
+          </h2>
+
+          <div class="popular-products__grid">
+            <article class="popular-card">
+              <div class="popular-card__top">
+                <h3 class="popular-card__name">iPhone 16</h3>
+                <button
+                  class="popular-card__button"
+                  type="button"
+                  aria-label="Add iPhone 16"
+                >
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+              <img
+                class="popular-card__image"
+                src="images/Apple_IPhone_16.webp"
+                alt="iPhone 16"
+                loading="lazy"
+              />
+              <p class="popular-card__price">From <strong>LE 69,990</strong></p>
+            </article>
+
+            <article class="popular-card">
+              <div class="popular-card__top">
+                <h3 class="popular-card__name">MacBook Air</h3>
+                <button
+                  class="popular-card__button"
+                  type="button"
+                  aria-label="Add MacBook Air"
+                >
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+              <img
+                class="popular-card__image"
+                src="images/Apple_MacBook_Air.webp"
+                alt="MacBook Air"
+                loading="lazy"
+              />
+              <p class="popular-card__price">From <strong>LE 89,990</strong></p>
+            </article>
+
+            <article class="popular-card">
+              <div class="popular-card__top">
+                <h3 class="popular-card__name">AirPods Pro</h3>
+                <button
+                  class="popular-card__button"
+                  type="button"
+                  aria-label="Add AirPods Pro"
+                >
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+              <img
+                class="popular-card__image"
+                src="images/Apple_AirPods_Pro_2_Wireless.webp"
+                alt="AirPods Pro"
+                loading="lazy"
+              />
+              <p class="popular-card__price">From <strong>LE 19,990</strong></p>
+            </article>
+
+            <article class="popular-card">
+              <div class="popular-card__top">
+                <h3 class="popular-card__name">Apple Watch</h3>
+                <button
+                  class="popular-card__button"
+                  type="button"
+                  aria-label="Add Apple Watch"
+                >
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+              <img
+                class="popular-card__image"
+                src="images/Shop_Apple_Watch.webp"
+                alt="Apple Watch"
+                loading="lazy"
+              />
+              <p class="popular-card__price">From <strong>LE 29,990</strong></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ LIMITED-TIME DEAL ============ -->
+      <section class="deal-section" id="deals">
+        <div class="container">
+          <div class="deal-banner">
+            <div class="deal-banner__glow deal-banner__glow--top"></div>
+            <div class="deal-banner__glow deal-banner__glow--bottom"></div>
+
+            <div class="deal-banner__content">
+              <div class="deal-banner__copy">
+                <span class="deal-banner__eyebrow">
+                  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+                  Limited-time Bundle
+                </span>
+
+                <h2 class="deal-banner__title">
+                  Save 30% on the<br />
+                  <span>Pro Creator Bundle</span>
+                </h2>
+
+                <p class="deal-banner__description">
+                  Pair the Pulse 14 Pro laptop with Studio One headphones and
+                  get a free Buds Air — a complete setup for less.
+                </p>
+
+                <p class="deal-banner__end-date">
+                  <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                  <span>Offer ends December 31, 2026</span>
+                </p>
+
+                <a class="deal-banner__button" href="#popular-products">
+                  Shop the bundle
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+
+              <div class="deal-banner__preview">
+                <div class="deal-banner__products">
+                  <article class="deal-product">
+                    <div class="deal-product__image-wrap">
+                      <img
+                        src="https://images.pexels.com/photos/18311089/pexels-photo-18311089.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=400&amp;w=400"
+                        alt="Pulse 14 Pro laptop"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3>Pulse 14 Pro</h3>
+                    <p><del>40000EGP</del></p>
+                  </article>
+
+                  <article class="deal-product deal-product--offset">
+                    <div class="deal-product__image-wrap">
+                      <img
+                        src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=400&amp;w=400"
+                        alt="Studio One headphones"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3>Studio One</h3>
+                    <p><del>20999EGP</del></p>
+                  </article>
+                </div>
+
+                <div class="deal-banner__price">
+                  <p>Bundle price</p>
+                  <strong>60999EGP</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <div class="site-footer__brand">
+            <a href="#" class="logo" aria-label="TechNova home">
+              <span class="logo__mark">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+              </span>
+              <span class="logo__text">TechNova</span>
+            </a>
+
+            <p class="site-footer__description">
+              The latest smartphones, laptops, audio and accessories—carefully
+              selected to bring more technology to your everyday life.
+            </p>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Explore</h2>
+            <a href="#">Smartphones</a>
+            <a href="#">Laptops</a>
+            <a href="#">Audio</a>
+            <a href="#">Accessories</a>
+            <a href="#">Deals</a>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Customer care</h2>
+            <a href="#">Contact us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Shipping information</a>
+            <a href="#">Returns & exchanges</a>
+            <a href="#">Track your order</a>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Follow us</h2>
+
+            <div class="site-footer__socials">
+              <a href="#" aria-label="Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+              </a>
+              <a href="#" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+              </a>
+              <a href="#" aria-label="YouTube">
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© 2026 TechNova. All rights reserved.</p>
+          <p>Designed for your everyday tech.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ======= Arrows ======= -->
+    <div class="floating-links" aria-label="Page shortcuts">
+      <a
+        class="floating-link"
+        href="../page-3/index.html"
+        aria-label="Open page 2"
+      >
+        <i class="fa-solid fa-angle-left"></i>
+      </a>
+
+      <a class="floating-link" href="../index.html" aria-label="Open page 5">
+        <i class="fa-solid fa-angle-right"></i>
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
