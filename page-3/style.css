@@ -14,7 +14,7 @@
   11. Buttons
   12. Hero
   13. Categories
-  14.promo cards
+  14. Promo cards
   15. Section head
   16. Best sellers carousel
   17. Product card
@@ -25,32 +25,9 @@
    1. Variables & reset
 ========================= */
 :root {
-  /* Tailwind CSS Color*/
-  --primary: #2d3d17; /* announcement bar + footer */
-  --primary-hover: #3f5522; /* buttons hover */
-  --accent: #5f7d34; /* leaf / highlights */
-  --on-primary: #f6f3e8;
-
-  /* Surfaces */
-  --bg: #fbf9f4; /* navbar */
-  --surface: #ffffff;
-  --surface-soft: #f2eee2; /* cream */
-  --surface-hover: #ece6d4;
-  --overlay: rgba(35, 40, 28, 0.45);
-
-  /* Text */
-  --text: #23281c;
-  --text-muted: #5d6254;
-  --text-soft: #8d9082;
-
-  /* Borders */
-  --border: #e6e1d3;
-  --border-strong: #d6d0bd;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(35, 40, 28, 0.08);
-  --shadow-md: 0 12px 28px -8px rgba(35, 40, 28, 0.18);
-  --shadow-xl: 0 25px 50px -12px rgba(35, 40, 28, 0.3);
+  --primary: #2d3d17;
+  --secondary: #23281c;
+  --light: #fbf9f4;
 
   /* Fonts */
   --font-logo: "Cormorant Garamond", Georgia, serif; /* logo */
@@ -60,19 +37,6 @@
   /* Layout */
   --container: 1400px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-
-  /* Hero */
-  --hero-fade: rgba(251, 249, 244, 0.94); /* التدرج فوق صورة الهيرو */
-  --hero-fade-mid: rgba(251, 249, 244, 0.6);
-  --glass: rgba(255, 255, 255, 0.6); /* خلفية الزرار الـ outline */
-  --badge-bg: rgba(251, 249, 244, 0.92);
-  --shadow-card: 0 20px 40px -14px rgba(35, 40, 28, 0.2);
-  --shadow-circle: 0 4px 12px rgba(35, 40, 28, 0.16);
-
-  /* Promo Cards */
-  --promo-1: #e8e6d1; /* Fresh Teas */
-  --promo-2: #f0ead9; /* Wellness */
-  --promo-3: #e4e5ce; /* Teaware */
 }
 
 *,
@@ -89,8 +53,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--text);
-  background: var(--bg);
+  color: var(--secondary);
+  background: var(--light);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -165,10 +129,10 @@ summary::-webkit-details-marker {
   place-items: center;
   border-radius: 50%;
   background: var(--primary);
-  color: #fff;
+  color: var(--light);
   font-size: 16px;
   font-weight: 700;
-  box-shadow: 0 3px 12px rgb(0 0 0 / 22%);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--secondary) 22%, transparent);
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
@@ -176,7 +140,7 @@ summary::-webkit-details-marker {
 
 .floating-link:hover {
   transform: translateY(-3px);
-  background: var(--hover);
+  background: color-mix(in srgb, var(--primary) 82%, var(--light));
 }
 
 @media (max-width: 600px) {
@@ -197,7 +161,7 @@ summary::-webkit-details-marker {
 ========================= */
 .announcement {
   background: var(--primary);
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
   font-size: 12px;
   line-height: 1;
 }
@@ -288,7 +252,7 @@ summary::-webkit-details-marker {
 .logo__icon {
   margin-bottom: 2px;
   font-size: 14px;
-  color: var(--accent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
 }
 
 .logo__text {
@@ -305,7 +269,7 @@ summary::-webkit-details-marker {
   font-weight: 500;
   letter-spacing: 0.3em;
   margin-right: -0.3em;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
 }
 
 /* =========================
@@ -315,7 +279,7 @@ summary::-webkit-details-marker {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--bg);
+  background: var(--light);
   border-bottom: 1px solid transparent;
   transition:
     box-shadow 0.3s,
@@ -323,8 +287,8 @@ summary::-webkit-details-marker {
 }
 
 .navbar.is-scrolled {
-  border-bottom-color: var(--border);
-  box-shadow: var(--shadow-sm);
+  border-bottom-color: color-mix(in srgb, var(--secondary) 12%, transparent);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--secondary) 8%, transparent);
 }
 
 /* موبايل: burger | logo | actions */
@@ -366,14 +330,14 @@ summary::-webkit-details-marker {
   place-items: center;
   font-size: 18px;
   border-radius: 999px;
-  color: var(--text);
+  color: var(--secondary);
   transition:
     background-color 0.2s,
     color 0.2s;
 }
 
 .navbar__icon:hover {
-  background: var(--surface-soft);
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
   color: var(--primary);
 }
 
@@ -402,7 +366,7 @@ summary::-webkit-details-marker {
   line-height: 1;
   border-radius: 999px;
   background: var(--primary);
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
 }
 
 .cart-badge.pop {
@@ -470,7 +434,7 @@ summary::-webkit-details-marker {
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--secondary);
   transition: color 0.2s;
 }
 
@@ -493,7 +457,7 @@ summary::-webkit-details-marker {
 }
 
 .navbar__link:hover {
-  color: var(--accent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
 }
 
 .navbar__link:hover::after,
@@ -517,10 +481,11 @@ summary::-webkit-details-marker {
   min-width: 190px;
   padding: 8px;
   margin-top: 12px;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
   border-radius: 12px;
-  background: var(--surface);
-  box-shadow: var(--shadow-md);
+  background: color-mix(in srgb, var(--light) 35%, white);
+  box-shadow: 0 12px 28px -8px
+    color-mix(in srgb, var(--secondary) 18%, transparent);
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, 8px);
@@ -550,14 +515,14 @@ summary::-webkit-details-marker {
   padding: 10px 14px;
   font-size: 13px;
   border-radius: 8px;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   transition:
     background-color 0.2s,
     color 0.2s;
 }
 
 .menu a:hover {
-  background: var(--surface-soft);
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
   color: var(--primary);
 }
 
@@ -591,7 +556,7 @@ summary::-webkit-details-marker {
 .drawer__backdrop {
   position: absolute;
   inset: 0;
-  background: var(--overlay);
+  background: color-mix(in srgb, var(--secondary) 45%, transparent);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -610,8 +575,9 @@ summary::-webkit-details-marker {
   max-width: 85vw;
   height: 100%;
   overflow-y: auto;
-  background: var(--bg);
-  box-shadow: var(--shadow-xl);
+  background: var(--light);
+  box-shadow: 0 25px 50px -12px
+    color-mix(in srgb, var(--secondary) 30%, transparent);
   transform: translateX(-100%);
   transition: transform 0.3s var(--ease);
 }
@@ -625,7 +591,7 @@ summary::-webkit-details-marker {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
 }
 
 .drawer__links {
@@ -643,14 +609,14 @@ summary::-webkit-details-marker {
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--border);
-  color: var(--text);
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
+  color: var(--secondary);
   transition: color 0.2s;
 }
 
 .drawer__link:hover,
 .drawer__link.active {
-  color: var(--accent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
 }
 
 .drawer__link i {
@@ -666,13 +632,13 @@ summary::-webkit-details-marker {
   display: flex;
   flex-direction: column;
   padding: 6px 0 6px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
 }
 
 .drawer__sub a {
   padding: 10px 8px;
   font-size: 14px;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   transition: color 0.2s;
 }
 
@@ -683,8 +649,8 @@ summary::-webkit-details-marker {
 .drawer__foot {
   margin-top: auto;
   padding: 16px;
-  border-top: 1px solid var(--border);
-  background: var(--surface-soft);
+  border-top: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
 }
 
 .drawer__account {
@@ -693,7 +659,7 @@ summary::-webkit-details-marker {
   gap: 12px;
   padding: 12px 8px;
   font-size: 14px;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   transition: color 0.2s;
 }
 
@@ -712,7 +678,7 @@ summary::-webkit-details-marker {
 .page-placeholder {
   min-height: 200vh;
   padding: 48px 16px;
-  color: var(--text-soft);
+  color: color-mix(in srgb, var(--secondary) 45%, transparent);
   text-align: center;
 }
 
@@ -807,21 +773,21 @@ summary::-webkit-details-marker {
 
 .btn--primary {
   background: var(--primary);
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
 }
 
 .btn--primary:hover {
-  background: var(--primary-hover);
+  background: color-mix(in srgb, var(--primary) 82%, var(--light));
 }
 
 .btn--outline {
-  background: var(--glass);
-  border-color: var(--border-strong);
-  color: var(--text);
+  background: color-mix(in srgb, white 60%, transparent);
+  border-color: color-mix(in srgb, var(--secondary) 22%, transparent);
+  color: var(--secondary);
 }
 
 .btn--outline:hover {
-  background: var(--surface);
+  background: white;
   border-color: var(--primary);
 }
 
@@ -834,7 +800,7 @@ summary::-webkit-details-marker {
   align-items: center;
   overflow: hidden;
   padding: 44px 0 128px;
-  background: var(--surface-soft);
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
 }
 
 .hero__bg {
@@ -852,8 +818,8 @@ summary::-webkit-details-marker {
   inset: 0;
   background: linear-gradient(
     to top,
-    var(--hero-fade),
-    var(--hero-fade-mid) 38%,
+    color-mix(in srgb, var(--light) 94%, transparent),
+    color-mix(in srgb, var(--light) 60%, transparent) 38%,
     transparent 68%
   );
 }
@@ -869,7 +835,7 @@ summary::-webkit-details-marker {
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
 }
 
 .hero__title {
@@ -878,7 +844,7 @@ summary::-webkit-details-marker {
   font-weight: 500;
   line-height: 1.04;
   letter-spacing: -0.02em;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .hero__leaf {
@@ -888,7 +854,7 @@ summary::-webkit-details-marker {
   font-size: 0.3em;
   vertical-align: top;
   transform: rotate(18deg);
-  color: var(--accent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
 }
 
 .hero__desc {
@@ -896,7 +862,7 @@ summary::-webkit-details-marker {
   margin-top: 22px;
   font-size: 15px;
   line-height: 1.6;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .hero__buttons {
@@ -922,7 +888,7 @@ summary::-webkit-details-marker {
   text-align: center;
   font-size: 10px;
   line-height: 1.5;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
 }
 
 .hero__feature strong {
@@ -931,7 +897,7 @@ summary::-webkit-details-marker {
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .hero__feature-icon {
@@ -940,10 +906,10 @@ summary::-webkit-details-marker {
   height: 38px;
   place-items: center;
   font-size: 14px;
-  border: 1px solid var(--accent);
+  border: 1px solid color-mix(in srgb, var(--primary) 65%, var(--light));
   border-radius: 50%;
-  background: var(--glass);
-  color: var(--accent);
+  background: color-mix(in srgb, white 60%, transparent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
 }
 
 @media (min-width: 640px) {
@@ -956,7 +922,7 @@ summary::-webkit-details-marker {
 
   .hero__feature {
     padding: 0 22px;
-    border-left: 1px solid var(--border-strong);
+    border-left: 1px solid color-mix(in srgb, var(--secondary) 22%, transparent);
   }
 
   .hero__feature:first-child {
@@ -967,8 +933,8 @@ summary::-webkit-details-marker {
   .hero__overlay {
     background: linear-gradient(
       to right,
-      var(--hero-fade) 0%,
-      var(--hero-fade-mid) 38%,
+      color-mix(in srgb, var(--light) 94%, transparent) 0%,
+      color-mix(in srgb, var(--light) 60%, transparent) 38%,
       transparent 68%
     );
   }
@@ -987,8 +953,8 @@ summary::-webkit-details-marker {
   .hero__overlay {
     background: linear-gradient(
       to right,
-      var(--hero-fade) 0%,
-      var(--hero-fade-mid) 38%,
+      color-mix(in srgb, var(--light) 94%, transparent) 0%,
+      color-mix(in srgb, var(--light) 60%, transparent) 38%,
       transparent 68%
     );
   }
@@ -1030,10 +996,11 @@ summary::-webkit-details-marker {
   padding: 18px 20px 20px;
   overflow-x: auto;
   list-style: none;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
   border-radius: 16px;
-  background: var(--surface);
-  box-shadow: var(--shadow-card);
+  background: white;
+  box-shadow: 0 20px 40px -14px
+    color-mix(in srgb, var(--secondary) 20%, transparent);
   scroll-snap-type: x proximity;
   scrollbar-width: none;
 }
@@ -1076,10 +1043,10 @@ summary::-webkit-details-marker {
   height: 72px;
   place-items: center;
   overflow: hidden;
-  border: 4px solid var(--surface);
+  border: 4px solid white;
   border-radius: 50%;
-  background: var(--surface-soft);
-  box-shadow: var(--shadow-circle);
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 16%, transparent);
 }
 
 .category__thumb img {
@@ -1100,20 +1067,20 @@ summary::-webkit-details-marker {
   line-height: 1.5;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--secondary);
   transition: color 0.2s;
 }
 
 .category:hover .category__name {
-  color: var(--accent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
 }
 
 /* View all */
 .category__thumb--all {
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
   box-shadow: none;
   font-size: 22px;
-  color: var(--accent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
   transition:
     background-color 0.25s,
     color 0.25s;
@@ -1121,7 +1088,7 @@ summary::-webkit-details-marker {
 
 .category--all:hover .category__thumb--all {
   background: var(--primary);
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
 }
 
 @media (min-width: 1024px) {
@@ -1138,13 +1105,6 @@ summary::-webkit-details-marker {
     font-size: 26px;
   }
 }
-/* ======================================================
-  ضيف الملف ده فى آخر style.css (بعد hero.css)
-  مفيش متغيرات جديدة: بيستخدم --surface-soft و --surface-hover الموجودين
-
-  TOC الجديد:
-  14. Promo cards
-====================================================== */
 
 /* =========================
    14. Promo cards
@@ -1174,13 +1134,13 @@ summary::-webkit-details-marker {
   min-height: 50px;
   padding: 28px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
   border-radius: 14px;
-  background: var(--surface-soft);
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
 }
 
 .promo--2 {
-  background: var(--surface-hover);
+  background: color-mix(in srgb, var(--secondary) 11%, var(--light));
 }
 
 .promo__image {
@@ -1219,7 +1179,7 @@ summary::-webkit-details-marker {
   margin: 12px 0 20px;
   font-size: 12px;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
 }
 
 .btn--sm {
@@ -1274,7 +1234,7 @@ summary::-webkit-details-marker {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .section-head__link {
@@ -1295,7 +1255,7 @@ summary::-webkit-details-marker {
 }
 
 .section-head__link:hover {
-  color: var(--accent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
 }
 
 .section-head__link:hover i {
@@ -1360,8 +1320,8 @@ summary::-webkit-details-marker {
   font-size: 12px;
   border-radius: 50%;
   background: var(--primary);
-  color: var(--on-primary);
-  box-shadow: var(--shadow-circle);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 16%, transparent);
   transform: translateY(-50%);
   transition:
     background-color 0.2s,
@@ -1369,7 +1329,7 @@ summary::-webkit-details-marker {
 }
 
 .best-sellers__arrow:hover {
-  background: var(--primary-hover);
+  background: color-mix(in srgb, var(--primary) 82%, var(--light));
 }
 
 .best-sellers__arrow:disabled {
@@ -1400,9 +1360,9 @@ summary::-webkit-details-marker {
   flex-direction: column;
   min-width: 0;
   padding: 12px;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
   border-radius: 10px;
-  background: var(--surface-soft);
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
   scroll-snap-align: start;
 }
 
@@ -1417,7 +1377,7 @@ summary::-webkit-details-marker {
   place-items: center;
   font-size: 14px;
   border-radius: 50%;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   transition:
     background-color 0.2s,
     color 0.2s,
@@ -1425,7 +1385,7 @@ summary::-webkit-details-marker {
 }
 
 .product-card__wish:hover {
-  background: var(--glass);
+  background: color-mix(in srgb, white 60%, transparent);
   color: var(--primary);
 }
 
@@ -1463,17 +1423,17 @@ summary::-webkit-details-marker {
   font-size: 12px;
   font-weight: 700;
   line-height: 1.35;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .product-card__name a:hover {
-  color: var(--accent);
+  color: color-mix(in srgb, var(--primary) 65%, var(--light));
 }
 
 .product-card__type {
   margin-top: 2px;
   font-size: 11px;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
 }
 
 .product-card__rating {
@@ -1482,20 +1442,20 @@ summary::-webkit-details-marker {
   gap: 6px;
   margin-top: 8px;
   font-size: 10px;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
 }
 
 .product-card__stars {
   display: flex;
   gap: 1px;
-  color: var(--star);
+  color: color-mix(in srgb, var(--primary) 75%, var(--light));
 }
 
 .product-card__price {
   margin-top: 8px;
   font-size: 15px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .product-card__add {
@@ -1510,7 +1470,7 @@ summary::-webkit-details-marker {
   margin-top: 56px;
   padding-top: 52px;
   background: var(--primary);
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
 }
 
 .site-footer__grid {
@@ -1527,17 +1487,17 @@ summary::-webkit-details-marker {
 .site-footer__tagline,
 .site-footer__col a,
 .site-footer__bottom {
-  color: color-mix(in srgb, var(--on-primary) 72%, transparent);
+  color: color-mix(in srgb, var(--light) 72%, transparent);
 }
 
 /* Brand */
 .site-footer .logo {
   align-items: flex-start;
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
 }
 
 .site-footer .logo__tagline {
-  color: color-mix(in srgb, var(--on-primary) 65%, transparent);
+  color: color-mix(in srgb, var(--light) 65%, transparent);
 }
 
 .site-footer__tagline {
@@ -1557,9 +1517,9 @@ summary::-webkit-details-marker {
   height: 34px;
   place-items: center;
   font-size: 14px;
-  border: 1px solid color-mix(in srgb, var(--on-primary) 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--light) 35%, transparent);
   border-radius: 50%;
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
   transition:
     background-color 0.25s,
     color 0.25s,
@@ -1567,8 +1527,8 @@ summary::-webkit-details-marker {
 }
 
 .site-footer__socials a:hover {
-  border-color: var(--on-primary);
-  background: var(--on-primary);
+  border-color: color-mix(in srgb, var(--light) 96%, var(--primary));
+  background: color-mix(in srgb, var(--light) 96%, var(--primary));
   color: var(--primary);
 }
 
@@ -1579,7 +1539,7 @@ summary::-webkit-details-marker {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
 }
 
 .site-footer__col ul {
@@ -1596,7 +1556,7 @@ summary::-webkit-details-marker {
 }
 
 .site-footer__col a:hover {
-  color: var(--on-primary);
+  color: color-mix(in srgb, var(--light) 96%, var(--primary));
 }
 
 /* Bottom bar */
@@ -1604,7 +1564,7 @@ summary::-webkit-details-marker {
   text-align: center;
   padding: 18px 0;
   font-size: 11px;
-  border-top: 1px solid color-mix(in srgb, var(--on-primary) 16%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--light) 16%, transparent);
 }
 
 @media (min-width: 900px) {

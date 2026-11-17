@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Raleway:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome -->
@@ -16,10 +16,188 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <!-- Style Sheet -->
-    <link href="styles.css" rel="stylesheet" />
-    <title>Page 2</title>
+    <link href="style.css" rel="stylesheet" />
+    <title>Page 4</title>
   </head>
   <body>
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar__pill">
+          <!-- Logo -->
+          <a href="#" class="logo" aria-label="Sage home">
+            <span class="logo__mark">S</span>
+          </a>
+
+          <!-- Desktop nav -->
+          <nav class="navbar__links" aria-label="Main">
+            <a href="#" class="navbar__link">About us</a>
+            <a href="#" class="navbar__link">Catalog</a>
+            <a href="#" class="navbar__link">Skincare</a>
+            <a href="#" class="navbar__link">Hair&amp;Body</a>
+            <a href="#" class="navbar__link">Accessories</a>
+            <a href="#" class="navbar__link">Blog</a>
+          </nav>
+
+          <!-- Actions -->
+          <div class="navbar__actions">
+            <button
+              class="navbar__icon"
+              type="button"
+              id="cartBtn"
+              aria-label="Shopping cart"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-badge" id="cartBadge" hidden>0</span>
+            </button>
+
+            <button
+              class="navbar__icon navbar__burger"
+              type="button"
+              id="openMenu"
+              aria-label="Open menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ Mobile drawer ============ -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__backdrop" data-close-menu></div>
+
+      <aside class="drawer__panel">
+        <div class="drawer__head">
+          <a href="#" class="logo logo--dark" aria-label="Sage home">
+            <span class="logo__mark">S</span>
+          </a>
+          <button
+            class="navbar__icon"
+            type="button"
+            data-close-menu
+            aria-label="Close menu"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="drawer__links" aria-label="Mobile">
+          <a href="#" class="drawer__link">About us</a>
+          <a href="#" class="drawer__link">Catalog</a>
+          <a href="#" class="drawer__link">Skincare</a>
+          <a href="#" class="drawer__link">Hair&amp;Body</a>
+          <a href="#" class="drawer__link">Accessories</a>
+          <a href="#" class="drawer__link">Blog</a>
+        </nav>
+      </aside>
+    </div>
+
+    <main>
+      <!-- ==================== HERO ==================== -->
+      <section class="hero" id="hero" aria-labelledby="heroTitle">
+        <h1 class="sr-only" id="heroTitle">Sage — healthy skin &amp; hair</h1>
+
+        <picture>
+          <source
+            media="(min-width: 1024px)"
+            srcset="./images/Gemini_Generated_Image_24xrrv24xrrv24xr.jpg"
+          />
+          <img class="hero__bg" src="images/hero.jpg" alt="" loading="eager" />
+        </picture>
+        <div class="hero__shade"></div>
+
+        <svg
+          class="hero__wordmark"
+          viewBox="0 0 1000 440"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <text x="0" y="290" textLength="1000">
+            sage
+          </text>
+        </svg>
+
+        <div class="hero__waves" aria-hidden="true">
+          <svg
+            class="wave wave--back"
+            viewBox="0 0 2880 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,50 C300,95 520,100 720,60 S1180,5 1440,50 C1740,95 1960,100 2160,60 S2620,5 2880,50 V120 H0 Z"
+            />
+          </svg>
+          <svg
+            class="wave wave--front"
+            viewBox="0 0 2880 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,70 C240,20 480,20 720,62 S1200,115 1440,70 C1680,20 1920,20 2160,62 S2640,115 2880,70 V120 H0 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- ==================== FEATURED COLLECTION ==================== -->
+      <section class="collection" aria-labelledby="collectionTitle">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Featured Collection</p>
+              <h2 class="section-head__title" id="collectionTitle">
+                Gentle by Nature, Effective by Science
+              </h2>
+            </div>
+            <a href="#" class="btn btn--outline">View All</a>
+          </div>
+
+          <!-- الكروت بتتعمل من sections.js (collections) -->
+          <div class="collection__grid" id="collectionGrid"></div>
+        </div>
+      </section>
+
+      <!-- ==================== INGREDIENTS ==================== -->
+      <section class="ingredients" aria-labelledby="ingredientsTitle">
+        <div class="container">
+          <div class="ingredients__panel">
+            <!-- الحافة الموجية فوق -->
+            <svg
+              class="ingredients__wave"
+              viewBox="0 0 1440 80"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M0,0 H1440 V34 C1180,6 960,64 700,40 C460,18 220,62 0,26 Z"
+              />
+            </svg>
+
+            <!-- ورقة شجر ديكور -->
+            <i
+              class="fa-solid fa-leaf ingredients__leaf"
+              aria-hidden="true"
+            ></i>
+
+            <div class="ingredients__inner">
+              <div class="ingredients__intro">
+                <p class="eyebrow eyebrow--light">Powered by Nature</p>
+                <h2 class="ingredients__title" id="ingredientsTitle">
+                  Thoughtful Ingredients,<br />Visible Results
+                </h2>
+                <a href="#" class="btn btn--light">Our Ingredients</a>
+              </div>
+
+              <!-- المكونات بتتعمل من sections.js (ingredients) -->
+              <ul class="ingredients__list" id="ingredientList"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>

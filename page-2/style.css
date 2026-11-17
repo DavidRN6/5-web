@@ -20,43 +20,9 @@
    1. Variables & reset
 ========================= */
 :root {
-  /* Tailwind CSS Color*/
-  --accent: #2563eb;
-  --on-accent: #ffffff;
-  --accent-hover: #1d4ed8;
-
-  /* Hero */
-  --hero-bg: #ededef;
-  --sphere-light: #5b82ff;
-  --sphere-dark: #1e40c8;
-
-  /* Surfaces */
-  --bg: #ffffff;
-  --surface-soft: #f9fafb; /* gray-50 */
-  --surface-hover: #f3f4f6; /* gray-100 */
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --overlay: rgba(17, 24, 39, 0.4);
-
-  /* Text */
-  --text: #111827; /* gray-900 */
-  --text-strong: #374151; /* gray-700 */
-  --text-muted: #4b5563; /* gray-600 */
-  --text-soft: #9ca3af; /* gray-400 */
-
-  /* Borders */
-  --border: #e5e7eb; /* gray-200 */
-  --border-hover: #d1d5db; /* gray-300 */
-  --border-soft: #f3f4f6; /* gray-100 */
-  --border-glass: rgba(229, 231, 235, 0.7);
-
-  /* Hot badge */
-  --hot-bg: #fff1f2; /* rose-50 */
-  --hot-text: #e11d48; /* rose-600 */
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-sphere: 0 18px 30px -10px rgba(30, 64, 200, 0.55);
+  --primary: #2563eb;
+  --secondary: #111827;
+  --light: #ffffff;
 
   /* Type */
   --font-sans: "Inter", system-ui, sans-serif;
@@ -80,8 +46,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--text);
-  background: var(--bg);
+  color: var(--secondary);
+  background: var(--light);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -140,8 +106,8 @@ button {
   font-weight: 700;
   line-height: 1.2;
   border-radius: 4px;
-  background: var(--hot-bg);
-  color: var(--hot-text);
+  background: color-mix(in srgb, var(--primary) 10%, var(--light));
+  color: var(--primary);
 }
 
 .badge-hot--lg {
@@ -206,11 +172,11 @@ button {
   height: 50px;
   place-items: center;
   border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
+  background: var(--primary);
+  color: var(--light);
   font-size: 16px;
   font-weight: 700;
-  box-shadow: 0 3px 12px rgb(0 0 0 / 22%);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--secondary) 22%, transparent);
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
@@ -218,7 +184,7 @@ button {
 
 .floating-link:hover {
   transform: translateY(-3px);
-  background: var(--accent-hover);
+  background: color-mix(in srgb, var(--primary) 85%, var(--secondary));
 }
 
 @media (max-width: 600px) {
@@ -241,7 +207,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .logo__mark {
@@ -251,8 +217,8 @@ button {
   place-items: center;
   font-size: 14px;
   border-radius: 8px;
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--primary);
+  color: var(--light);
 }
 
 .logo__text {
@@ -268,7 +234,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--bg);
+  background: var(--light);
   border-bottom: 1px solid transparent;
   transition:
     background-color 0.3s,
@@ -278,11 +244,11 @@ button {
 
 /* glass effect عند الـ scroll */
 .navbar.is-scrolled {
-  background: var(--glass-bg);
+  background: color-mix(in srgb, var(--light) 80%, transparent);
   backdrop-filter: blur(12px) saturate(1.4);
   -webkit-backdrop-filter: blur(12px) saturate(1.4);
-  border-bottom-color: var(--border-glass);
-  box-shadow: var(--shadow-sm);
+  border-bottom-color: color-mix(in srgb, var(--secondary) 10%, transparent);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--secondary) 6%, transparent);
 }
 
 .navbar__inner {
@@ -318,13 +284,13 @@ button {
   font-size: 14px;
   font-weight: 500;
   border-radius: 8px;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   transition: color 0.2s;
 }
 
 .navbar__link:hover,
 .navbar__link.active {
-  color: var(--text);
+  color: var(--secondary);
 }
 
 /* Actions */
@@ -348,12 +314,12 @@ button {
   place-items: center;
   font-size: 18px;
   border-radius: 12px;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   transition: background-color 0.2s;
 }
 
 .navbar__icon:hover {
-  background: var(--surface-hover);
+  background: color-mix(in srgb, var(--secondary) 6%, transparent);
 }
 
 /* Search (desktop pill) */
@@ -363,17 +329,17 @@ button {
   gap: 8px;
   padding: 8px 12px;
   font-size: 14px;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--secondary) 14%, transparent);
   border-radius: 12px;
-  color: var(--text-soft);
+  color: color-mix(in srgb, var(--secondary) 45%, transparent);
   transition:
     border-color 0.2s,
     color 0.2s;
 }
 
 .navbar__search:hover {
-  border-color: var(--border-hover);
-  color: var(--text-muted);
+  border-color: color-mix(in srgb, var(--secondary) 25%, transparent);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
 }
 
 .navbar__search i {
@@ -431,8 +397,8 @@ button {
   font-size: 11px;
   font-weight: 700;
   border-radius: 999px;
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--primary);
+  color: var(--light);
 }
 
 .cart-badge.pop {
@@ -455,15 +421,15 @@ button {
 ========================= */
 .search-panel {
   padding: 12px 0;
-  background: var(--bg);
-  border-top: 1px solid var(--border-soft);
+  background: var(--light);
+  border-top: 1px solid color-mix(in srgb, var(--secondary) 7%, transparent);
 }
 
 .search-panel__form {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--text-soft);
+  color: color-mix(in srgb, var(--secondary) 45%, transparent);
 }
 
 .search-panel__form input {
@@ -474,11 +440,11 @@ button {
   background: transparent;
   font: inherit;
   font-size: 16px;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .search-panel__form input::placeholder {
-  color: var(--text-soft);
+  color: color-mix(in srgb, var(--secondary) 45%, transparent);
 }
 
 /* =========================
@@ -505,7 +471,7 @@ button {
 .drawer__backdrop {
   position: absolute;
   inset: 0;
-  background: var(--overlay);
+  background: color-mix(in srgb, var(--secondary) 40%, transparent);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -523,8 +489,9 @@ button {
   width: 320px;
   max-width: 85vw;
   height: 100%;
-  background: var(--bg);
-  box-shadow: var(--shadow-2xl);
+  background: var(--light);
+  box-shadow: 0 25px 50px -12px
+    color-mix(in srgb, var(--secondary) 25%, transparent);
   transform: translateX(100%);
   transition: transform 0.3s var(--ease);
 }
@@ -538,12 +505,12 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary) 7%, transparent);
 }
 
 .drawer__head .navbar__icon {
   font-size: 20px;
-  color: var(--text-soft);
+  color: color-mix(in srgb, var(--secondary) 45%, transparent);
 }
 
 .drawer__links {
@@ -561,19 +528,19 @@ button {
   font-size: 16px;
   font-weight: 500;
   border-radius: 12px;
-  color: var(--text-strong);
+  color: color-mix(in srgb, var(--secondary) 82%, transparent);
   transition: background-color 0.2s;
 }
 
 .drawer__link:hover,
 .drawer__link.active {
-  background: var(--surface-soft);
+  background: color-mix(in srgb, var(--secondary) 4%, var(--light));
 }
 
 .drawer__foot {
   margin-top: auto;
   padding: 16px;
-  border-top: 1px solid var(--border-soft);
+  border-top: 1px solid color-mix(in srgb, var(--secondary) 7%, transparent);
 }
 
 .drawer__account {
@@ -584,12 +551,12 @@ button {
   font-size: 14px;
   font-weight: 500;
   border-radius: 12px;
-  color: var(--text-strong);
+  color: color-mix(in srgb, var(--secondary) 82%, transparent);
   transition: background-color 0.2s;
 }
 
 .drawer__account:hover {
-  background: var(--surface-soft);
+  background: color-mix(in srgb, var(--secondary) 4%, var(--light));
 }
 
 .drawer__account i {
@@ -616,7 +583,7 @@ button {
   flex-direction: column;
   overflow: hidden;
   border-radius: 20px;
-  background: var(--hero-bg);
+  background: color-mix(in srgb, var(--secondary) 8%, var(--light));
   isolation: isolate;
 }
 
@@ -632,7 +599,7 @@ button {
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.045em;
-  color: var(--text);
+  color: var(--secondary);
 }
 
 .hero__desc {
@@ -640,7 +607,7 @@ button {
   margin-top: 24px;
   font-size: 15px;
   line-height: 1.5;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
 }
 
 .hero__button {
@@ -652,15 +619,15 @@ button {
   font-size: 14px;
   font-weight: 500;
   border-radius: 999px;
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--primary);
+  color: var(--light);
   transition:
     background-color 0.2s,
     transform 0.2s;
 }
 
 .hero__button:hover {
-  background: var(--accent-hover);
+  background: color-mix(in srgb, var(--primary) 85%, var(--secondary));
   transform: translateY(-2px);
 }
 
@@ -750,10 +717,11 @@ button {
     border-radius: 50%;
     background: radial-gradient(
       circle at 32% 28%,
-      var(--sphere-light),
-      var(--sphere-dark) 75%
+      color-mix(in srgb, var(--primary) 72%, var(--light)),
+      color-mix(in srgb, var(--primary) 82%, var(--secondary)) 75%
     );
-    box-shadow: var(--shadow-sphere);
+    box-shadow: 0 18px 30px -10px
+      color-mix(in srgb, var(--primary) 55%, transparent);
   }
 
   .hero__label {
@@ -765,13 +733,13 @@ button {
     align-items: center;
     gap: 14px;
     font-size: 14px;
-    color: var(--text-muted);
+    color: color-mix(in srgb, var(--secondary) 70%, transparent);
   }
 
   .hero__label-line {
     width: 32px;
     height: 1px;
-    background: var(--text-soft);
+    background: color-mix(in srgb, var(--secondary) 40%, transparent);
   }
 }
 
@@ -781,7 +749,7 @@ button {
 .page-placeholder {
   min-height: 200vh;
   padding: 48px 16px;
-  color: var(--text-soft);
+  color: color-mix(in srgb, var(--secondary) 45%, transparent);
   text-align: center;
 }
 
@@ -807,7 +775,7 @@ button {
 
 .categories__title {
   margin: 0 0 18px;
-  color: var(--text);
+  color: var(--secondary);
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -827,7 +795,7 @@ button {
   overflow: hidden;
   border-radius: 22px;
   background: transparent;
-  color: var(--text);
+  color: var(--secondary);
   isolation: isolate;
 }
 
@@ -868,8 +836,8 @@ button {
   height: 34px;
   place-items: center;
   border-radius: 50%;
-  background: #fff;
-  color: var(--text);
+  background: var(--light);
+  color: var(--secondary);
   font-size: 13px;
   transition:
     transform 0.2s ease,
@@ -878,8 +846,8 @@ button {
 
 .category-card:hover .category-card__arrow {
   transform: translateX(3px);
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--primary);
+  color: var(--light);
 }
 
 .category-card__image {
@@ -969,7 +937,7 @@ button {
 
 .popular-products__title {
   margin: 0 0 18px;
-  color: var(--text);
+  color: var(--secondary);
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -988,9 +956,9 @@ button {
   flex-direction: column;
   padding: 14px;
   overflow: hidden;
-  border: 1px solid var(--border-soft);
+  border: 1px solid color-mix(in srgb, var(--secondary) 7%, transparent);
   border-radius: 20px;
-  background: var(--surface-soft);
+  background: color-mix(in srgb, var(--secondary) 4%, var(--light));
 }
 
 .popular-card__top {
@@ -1002,7 +970,7 @@ button {
 
 .popular-card__name {
   overflow: hidden;
-  color: var(--text-strong);
+  color: color-mix(in srgb, var(--secondary) 82%, transparent);
   font-size: 14px;
   font-weight: 500;
   text-overflow: ellipsis;
@@ -1016,8 +984,8 @@ button {
   flex: 0 0 30px;
   place-items: center;
   border-radius: 50%;
-  background: #fff;
-  color: var(--text);
+  background: var(--light);
+  color: var(--secondary);
   font-size: 12px;
   transition:
     background-color 0.2s ease,
@@ -1027,8 +995,8 @@ button {
 
 .popular-card__button:hover {
   transform: rotate(90deg);
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--primary);
+  color: var(--light);
 }
 
 .popular-card__image {
@@ -1041,13 +1009,13 @@ button {
 
 .popular-card__price {
   margin-top: auto;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   font-size: 13px;
   text-align: center;
 }
 
 .popular-card__price strong {
-  color: var(--text);
+  color: var(--secondary);
   font-weight: 700;
 }
 
@@ -1085,7 +1053,7 @@ button {
   overflow: hidden;
   padding: 48px 40px;
   border-radius: 28px;
-  background: #111827;
+  background: var(--secondary);
   isolation: isolate;
 }
 
@@ -1102,13 +1070,13 @@ button {
 .deal-banner__glow--top {
   top: -150px;
   right: -70px;
-  background: rgb(37 99 235 / 35%);
+  background: color-mix(in srgb, var(--primary) 35%, transparent);
 }
 
 .deal-banner__glow--bottom {
   bottom: -170px;
   left: -70px;
-  background: rgb(59 130 246 / 25%);
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
 }
 
 .deal-banner__content {
@@ -1120,7 +1088,7 @@ button {
 }
 
 .deal-banner__copy {
-  color: #fff;
+  color: var(--light);
 }
 
 .deal-banner__eyebrow {
@@ -1128,18 +1096,20 @@ button {
   align-items: center;
   gap: 8px;
   padding: 7px 12px;
-  border: 1px solid rgb(255 255 255 / 20%);
+  border: 1px solid color-mix(in srgb, var(--light) 20%, transparent);
   border-radius: 999px;
-  background: rgb(255 255 255 / 10%);
-  color: #fff;
+  background: color-mix(in srgb, var(--light) 10%, transparent);
+  color: var(--light);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.deal-banner__eyebrow i {
-  color: #93b4ff;
+.deal-banner__eyebrow i,
+.deal-banner__title span,
+.deal-banner__end-date i {
+  color: color-mix(in srgb, var(--primary) 55%, var(--light));
 }
 
 .deal-banner__title {
@@ -1150,14 +1120,10 @@ button {
   letter-spacing: -0.045em;
 }
 
-.deal-banner__title span {
-  color: #93b4ff;
-}
-
 .deal-banner__description {
   max-width: 480px;
   margin: 16px 0 0;
-  color: #d1d5db;
+  color: color-mix(in srgb, var(--light) 80%, transparent);
   font-size: 15px;
   line-height: 1.75;
 }
@@ -1167,12 +1133,11 @@ button {
   align-items: center;
   gap: 9px;
   margin: 22px 0 0;
-  color: #d1d5db;
+  color: color-mix(in srgb, var(--light) 80%, transparent);
   font-size: 13px;
 }
 
 .deal-banner__end-date i {
-  color: #93b4ff;
   font-size: 16px;
 }
 
@@ -1184,8 +1149,8 @@ button {
   margin-top: 28px;
   padding: 14px 24px;
   border-radius: 12px;
-  background: #fff;
-  color: #111827;
+  background: var(--light);
+  color: var(--secondary);
   font-size: 14px;
   font-weight: 700;
   transition:
@@ -1195,7 +1160,7 @@ button {
 
 .deal-banner__button:hover {
   transform: translateY(-2px);
-  background: #eff6ff;
+  background: color-mix(in srgb, var(--primary) 8%, var(--light));
 }
 
 .deal-banner__button i {
@@ -1221,9 +1186,9 @@ button {
 
 .deal-product {
   padding: 12px;
-  border: 1px solid rgb(255 255 255 / 10%);
+  border: 1px solid color-mix(in srgb, var(--light) 10%, transparent);
   border-radius: 18px;
-  background: rgb(255 255 255 / 6%);
+  background: color-mix(in srgb, var(--light) 6%, transparent);
 }
 
 .deal-product--offset {
@@ -1244,14 +1209,14 @@ button {
 
 .deal-product h3 {
   margin: 10px 0 4px;
-  color: #fff;
+  color: var(--light);
   font-size: 13px;
   font-weight: 600;
 }
 
 .deal-product p {
   margin: 0;
-  color: #9ca3af;
+  color: color-mix(in srgb, var(--light) 60%, transparent);
   font-size: 12px;
 }
 
@@ -1261,14 +1226,14 @@ button {
   bottom: 0;
   padding: 14px 22px;
   border-radius: 16px;
-  background: var(--accent);
-  color: var(--on-accent);
-  box-shadow: 0 12px 28px rgb(0 0 0 / 25%);
+  background: var(--primary);
+  color: var(--light);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--secondary) 35%, transparent);
 }
 
 .deal-banner__price p {
   margin: 0 0 5px;
-  color: rgb(255 255 255 / 80%);
+  color: color-mix(in srgb, var(--light) 80%, transparent);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1320,8 +1285,8 @@ button {
 .site-footer {
   margin-top: 48px;
   padding: 48px 0 20px;
-  border-top: 1px solid var(--border);
-  background: var(--surface-soft);
+  border-top: 1px solid color-mix(in srgb, var(--secondary) 14%, transparent);
+  background: color-mix(in srgb, var(--secondary) 4%, var(--light));
 }
 
 .site-footer__main {
@@ -1337,7 +1302,7 @@ button {
 
 .site-footer__description {
   max-width: 340px;
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   font-size: 14px;
   line-height: 1.8;
 }
@@ -1351,19 +1316,19 @@ button {
 
 .site-footer__heading {
   margin: 0 0 4px;
-  color: var(--text);
+  color: var(--secondary);
   font-size: 14px;
   font-weight: 700;
 }
 
 .site-footer__column > a {
-  color: var(--text-muted);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   font-size: 13px;
   transition: color 0.2s ease;
 }
 
 .site-footer__column > a:hover {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .site-footer__socials {
@@ -1377,10 +1342,10 @@ button {
   width: 38px;
   height: 38px;
   place-items: center;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--secondary) 14%, transparent);
   border-radius: 50%;
-  background: var(--bg);
-  color: var(--text-strong);
+  background: var(--light);
+  color: color-mix(in srgb, var(--secondary) 82%, transparent);
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
@@ -1388,9 +1353,9 @@ button {
 }
 
 .site-footer__socials a:hover {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--on-accent);
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--light);
 }
 
 .site-footer__bottom {
@@ -1398,8 +1363,8 @@ button {
   justify-content: space-between;
   gap: 16px;
   padding-top: 18px;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
+  border-top: 1px solid color-mix(in srgb, var(--secondary) 14%, transparent);
+  color: color-mix(in srgb, var(--secondary) 70%, transparent);
   font-size: 12px;
 }
 

@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WANDA — Shop Collection</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body data-page="catalog">
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__inner">
+        <span class="preloader__logo">WANDA</span>
+        <div class="preloader__bar">
+          <span class="preloader__progress"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== HEADER & ANNOUNCEMENT ==================== -->
+    <div class="site-header-wrap" id="headerWrap">
+      <div class="announcement">
+        <div class="marquee" id="marquee">
+          <div class="marquee-group">
+            <span>FREE SHIPPING ON ORDERS OVER 1500 EGP</span>
+            <span>&bull;</span>
+            <span>NEW COLLECTION AVAILABLE NOW</span>
+            <span>&bull;</span>
+            <span>CASH ON DELIVERY AVAILABLE</span>
+            <span>&bull;</span>
+          </div>
+        </div>
+      </div>
+
+      <header class="site-header" id="siteHeader">
+        <div class="container">
+          <div class="header-inner">
+            <button
+              class="icon-btn burger"
+              id="openMenu"
+              type="button"
+              aria-label="Open menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Desktop nav -->
+            <nav class="desktop-nav" aria-label="Main">
+              <a href="index.html" class="nav-link">HOME</a>
+
+              <div class="nav-dropdown">
+                <a
+                  href="products.html"
+                  class="nav-link nav-dropdown__trigger active"
+                >
+                  SHOP <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <div class="nav-dropdown__menu">
+                  <div class="nav-dropdown__list">
+                    <a href="products.html" class="nav-dropdown__item"
+                      >All Products</a
+                    >
+                    <a
+                      href="products.html?category=hoodies"
+                      class="nav-dropdown__item"
+                      >Hoodies</a
+                    >
+                    <a
+                      href="products.html?category=t-shirts"
+                      class="nav-dropdown__item"
+                      >T-Shirts &amp; Shirts</a
+                    >
+                    <a
+                      href="products.html?category=jackets"
+                      class="nav-dropdown__item"
+                      >Jackets</a
+                    >
+                    <a
+                      href="products.html?category=pullover"
+                      class="nav-dropdown__item"
+                      >Pullovers</a
+                    >
+                    <a
+                      href="products.html?category=pants"
+                      class="nav-dropdown__item"
+                      >Pants</a
+                    >
+                    <a
+                      href="products.html?category=shoes"
+                      class="nav-dropdown__item"
+                      >Shoes</a
+                    >
+                    <a
+                      href="products.html?category=bags"
+                      class="nav-dropdown__item"
+                      >Bags</a
+                    >
+                    <a
+                      href="products.html?category=accessories"
+                      class="nav-dropdown__item"
+                      >Accessories</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <a href="products.html" class="nav-link">NEW ARRIVALS</a>
+              <a href="index.html#footer" class="nav-link">CONTACT</a>
+            </nav>
+
+            <!-- Logo -->
+            <a href="index.html" class="logo">WANDA</a>
+
+            <!-- Right icons -->
+            <div class="header-actions">
+              <button
+                class="icon-btn"
+                id="searchToggle"
+                type="button"
+                aria-label="Search"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+
+              <div class="profile" id="profileMenu">
+                <button
+                  class="icon-btn"
+                  id="authTriggerBtn"
+                  type="button"
+                  aria-label="Account"
+                >
+                  <i class="fa-regular fa-user"></i>
+                </button>
+              </div>
+
+              <button
+                class="icon-btn"
+                id="cartBtn"
+                type="button"
+                aria-label="Shopping bag"
+              >
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search bar -->
+        <div class="search-panel" id="searchPanel" hidden>
+          <div class="container">
+            <form class="search-form" id="searchForm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products in this collection..."
+                autocomplete="off"
+              />
+              <button
+                class="icon-btn"
+                id="searchClose"
+                type="button"
+                aria-label="Close search"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <!-- ==================== Mobile Menu ==================== -->
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="mobile-backdrop" data-close-menu></div>
+      <div class="mobile-panel">
+        <div class="mobile-head">
+          <a href="index.html" class="mobile-logo">WANDA</a>
+          <button
+            class="icon-btn"
+            type="button"
+            data-close-menu
+            aria-label="Close menu"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="mobile-nav" aria-label="Mobile">
+          <a href="index.html" class="mobile-link">HOME</a>
+
+          <div class="mobile-accordion">
+            <button
+              type="button"
+              class="mobile-link mobile-accordion__btn"
+              id="mobileShopToggle"
+              aria-expanded="true"
+            >
+              <span>SHOP</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="mobile-accordion__panel" id="mobileShopPanel">
+              <a href="products.html" class="mobile-sublink">All Products</a>
+              <a href="products.html?category=hoodies" class="mobile-sublink"
+                >Hoodies</a
+              >
+              <a href="products.html?category=t-shirts" class="mobile-sublink"
+                >T-Shirts &amp; Shirts</a
+              >
+              <a href="products.html?category=jackets" class="mobile-sublink"
+                >Jackets</a
+              >
+              <a href="products.html?category=pullover" class="mobile-sublink"
+                >Pullovers</a
+              >
+              <a href="products.html?category=pants" class="mobile-sublink"
+                >Pants</a
+              >
+              <a href="products.html?category=shoes" class="mobile-sublink"
+                >Shoes</a
+              >
+              <a href="products.html?category=bags" class="mobile-sublink"
+                >Bags</a
+              >
+              <a
+                href="products.html?category=accessories"
+                class="mobile-sublink"
+                >Accessories</a
+              >
+            </div>
+          </div>
+
+          <a href="products.html" class="mobile-link">NEW ARRIVALS</a>
+          <a href="index.html#footer" class="mobile-link">CONTACT</a>
+        </nav>
+
+        <div class="mobile-foot">
+          <a href="#" class="mobile-login" id="mobileAuthTrigger"
+            >Login / Register</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CATALOG HEADER & FILTERS ==================== -->
+    <main>
+      <section class="catalog-hero">
+        <div class="container">
+          <p class="catalog-hero__eyebrow">WANDA COLLECTION</p>
+          <h1 class="catalog-hero__title" id="catalogTitle">ALL PRODUCTS</h1>
+          <p class="catalog-hero__count" id="catalogCount">Showing 0 items</p>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="catalog-toolbar">
+          <div class="filter-pills" id="categoryFilters">
+            <button type="button" class="filter-pill is-active" data-cat="all">
+              All
+            </button>
+            <button type="button" class="filter-pill" data-cat="hoodies">
+              Hoodies
+            </button>
+            <button type="button" class="filter-pill" data-cat="t-shirts">
+              T-Shirts &amp; Shirts
+            </button>
+            <button type="button" class="filter-pill" data-cat="jackets">
+              Jackets
+            </button>
+            <button type="button" class="filter-pill" data-cat="pullover">
+              Pullovers
+            </button>
+            <button type="button" class="filter-pill" data-cat="pants">
+              Pants
+            </button>
+            <button type="button" class="filter-pill" data-cat="shoes">
+              Shoes
+            </button>
+            <button type="button" class="filter-pill" data-cat="bags">
+              Bags
+            </button>
+            <button type="button" class="filter-pill" data-cat="accessories">
+              Accessories
+            </button>
+          </div>
+
+          <div class="catalog-sort">
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid"></div>
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer" id="footer">
+      <div class="site-footer__inner">
+        <a href="index.html" class="site-footer__logo">WANDA</a>
+        <p class="site-footer__description">
+          Modern everyday essentials crafted for comfort, clean silhouettes, and
+          timeless streetwear style.
+        </p>
+        <div class="site-footer__links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Shop All</a>
+          <a href="products.html?category=hoodies">Hoodies</a>
+          <a href="products.html?category=jackets">Jackets</a>
+        </div>
+        <div class="site-footer__socials">
+          <a href="#" aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="TikTok"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+        </div>
+        <p class="site-footer__copyright">
+          &copy; 2026 WANDA. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ==================== AUTH MODAL (LOGIN / REGISTER) ==================== -->
+    <div
+      class="auth-modal"
+      id="authModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="authModalTitle"
+      aria-hidden="true"
+    >
+      <div class="auth-modal__backdrop" data-close-auth></div>
+      <div class="auth-modal__card">
+        <button
+          class="auth-modal__close"
+          type="button"
+          data-close-auth
+          aria-label="Close modal"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="auth-modal__head">
+          <span class="auth-modal__eyebrow">WANDA ACCOUNT</span>
+          <h2 class="auth-modal__title" id="authModalTitle">Welcome Back</h2>
+          <p class="auth-modal__subtitle" id="authModalSubtitle">
+            Sign in to access your bag and faster checkout.
+          </p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="auth-tabs" role="tablist">
+          <button
+            type="button"
+            class="auth-tab is-active"
+            data-auth-tab="login"
+            role="tab"
+            aria-selected="true"
+          >
+            Login
+          </button>
+          <button
+            type="button"
+            class="auth-tab"
+            data-auth-tab="register"
+            role="tab"
+            aria-selected="false"
+          >
+            Create Account
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form" id="loginForm">
+          <div class="auth-field">
+            <label for="loginEmail">Email Address</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div class="auth-field">
+            <label for="loginPassword">Password</label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="••••••••"
+              minlength="6"
+              required
+            />
+          </div>
+
+          <button type="submit" class="auth-submit">Sign In</button>
+        </form>
+
+        <!-- Register Form -->
+        <form class="auth-form" id="registerForm" hidden>
+          <div class="auth-field">
+            <label for="regName">Full Name</label>
+            <input
+              type="text"
+              id="regName"
+              placeholder="Ahmed Mohamed"
+              required
+            />
+          </div>
+
+          <div class="auth-field">
+            <label for="regEmail">Email Address</label>
+            <input
+              type="email"
+              id="regEmail"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div class="auth-field">
+            <label for="regPassword">Password</label>
+            <input
+              type="password"
+              id="regPassword"
+              placeholder="At least 6 characters"
+              minlength="6"
+              required
+            />
+          </div>
+
+          <button type="submit" class="auth-submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================== SALE POPUP ==================== -->
+    <div
+      class="sale-modal"
+      id="saleModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="saleModalTitle"
+      aria-hidden="true"
+    >
+      <div class="sale-modal__backdrop" data-close-sale></div>
+      <div class="sale-modal__card">
+        <button
+          class="sale-modal__close"
+          type="button"
+          data-close-sale
+          aria-label="Close promotion"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="sale-modal__media">
+          <img src="images/hero.webp" alt="End of Season Sale" />
+        </div>
+
+        <div class="sale-modal__body">
+          <span class="sale-modal__eyebrow">LIMITED TIME OFFER</span>
+          <h2 class="sale-modal__title" id="saleModalTitle">
+            Season Sale <br /><span>Up to 30% Off</span>
+          </h2>
+          <p class="sale-modal__desc">
+            Enjoy an extra 15% off your first order on our new collection. Use
+            the code below at checkout.
+          </p>
+
+          <button
+            class="sale-modal__code"
+            type="button"
+            id="copyPromoCode"
+            data-code="WANDA15"
+            aria-label="Copy promo code WANDA15"
+          >
+            <span>WANDA15</span>
+            <i class="fa-regular fa-copy"></i>
+          </button>
+
+          <a href="products.html" class="sale-modal__cta" data-close-sale>
+            Shop The Sale
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== QUICK ORDER MODAL ==================== -->
+    <div
+      class="order-modal"
+      id="orderModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="orderModalTitle"
+      aria-hidden="true"
+    >
+      <div class="order-modal__backdrop" data-close-order></div>
+      <div class="order-modal__card">
+        <button
+          class="order-modal__close"
+          type="button"
+          data-close-order
+          aria-label="Close modal"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="order-modal__media">
+          <img id="orderModalImg" src="" alt="Product Preview" />
+        </div>
+
+        <div class="order-modal__body">
+          <span class="order-modal__eyebrow">SELECT OPTIONS</span>
+          <h2 class="order-modal__title" id="orderModalTitle">Product Name</h2>
+          <p class="order-modal__price" id="orderModalPrice">LE 0</p>
+
+          <div class="order-modal__group" id="orderColorGroup">
+            <label class="order-modal__label">
+              Color / Style: <strong id="selectedColorLabel">Option 1</strong>
+            </label>
+            <div class="order-modal__colors" id="orderModalColors"></div>
+          </div>
+
+          <div class="order-modal__group">
+            <label class="order-modal__label">Size:</label>
+            <div class="order-modal__sizes" id="orderModalSizes">
+              <button type="button" class="size-btn" data-size="S">S</button>
+              <button type="button" class="size-btn is-selected" data-size="M">
+                M
+              </button>
+              <button type="button" class="size-btn" data-size="L">L</button>
+              <button type="button" class="size-btn" data-size="XL">XL</button>
+            </div>
+          </div>
+
+          <div class="order-modal__group">
+            <label class="order-modal__label">Quantity:</label>
+            <div class="qty-selector">
+              <button
+                type="button"
+                class="qty-btn"
+                id="qtyMinus"
+                aria-label="Decrease quantity"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <span class="qty-value" id="orderQty">1</span>
+              <button
+                type="button"
+                class="qty-btn"
+                id="qtyPlus"
+                aria-label="Increase quantity"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="order-modal__submit"
+            id="confirmAddToCart"
+          >
+            Add To Bag — <span id="orderTotalBtn">LE 0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== RIGHT CART DRAWER ==================== -->
+    <div
+      class="cart-drawer"
+      id="cartDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cartDrawerTitle"
+      aria-hidden="true"
+    >
+      <div class="cart-drawer__backdrop" data-close-cart></div>
+      <aside class="cart-drawer__panel">
+        <div class="cart-drawer__head">
+          <h2 class="cart-drawer__title" id="cartDrawerTitle">
+            Shopping Bag (<span id="drawerCartCount">0</span>)
+          </h2>
+          <button
+            type="button"
+            class="icon-btn"
+            data-close-cart
+            aria-label="Close bag"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="cart-drawer__items" id="cartItemsContainer"></div>
+
+        <div class="cart-drawer__foot" id="cartDrawerFooter" hidden>
+          <div class="cart-drawer__subtotal">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">LE 0</strong>
+          </div>
+          <p class="cart-drawer__note">
+            Shipping &amp; taxes calculated at checkout.
+          </p>
+          <button type="button" class="cart-drawer__checkout" id="checkoutBtn">
+            Proceed to Checkout
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div class="toast-notify" id="toastNotify" role="status" aria-live="polite">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="toastMessage">Added to your bag successfully!</span>
+    </div>
+
+    <script src="products-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
