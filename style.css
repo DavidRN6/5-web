@@ -1481,13 +1481,12 @@ body[data-page="home"] .header-spacer {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 6px;
-  background: color-mix(in srgb, var(--secondary) 4%, var(--light));
 }
 
 .category-box__media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s var(--ease);
 }
 
