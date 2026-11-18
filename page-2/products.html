@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <title>Products - TechNova</title>
+  </head>
+  <body>
+        <!-- ==================== NAVBAR ==================== -->
+        <header class="navbar" id="navbar">
+          <div class="container">
+            <div class="navbar__inner">
+              <!-- Logo + desktop links -->
+              <div class="navbar__start">
+                <a href="index.html" class="logo" aria-label="TechNova home">
+                  <span class="logo__mark"
+                    ><i class="fa-solid fa-bolt"></i
+                  ></span>
+                  <span class="logo__text">TechNova</span>
+                </a>
+
+                <nav class="navbar__links" aria-label="Main">
+                  <a href="index.html" class="navbar__link active">Home</a>
+                  <a href="products.html" class="navbar__link">All Tech</a>
+
+                  <!-- Categories Dropdown -->
+                  <div class="nav-dropdown" id="navDropdown">
+                    <button
+                      class="navbar__link nav-dropdown__toggle"
+                      type="button"
+                      aria-expanded="false"
+                    >
+                      Categories
+                      <i
+                        class="fa-solid fa-chevron-down"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                    <div class="nav-dropdown__menu">
+                      <div class="nav-dropdown__grid">
+                        <a
+                          href="products.html?category=smartphones"
+                          class="nav-dropdown__item"
+                        >
+                          <i class="fa-solid fa-mobile-screen"></i> Smartphones
+                        </a>
+                        <a
+                          href="products.html?category=laptops"
+                          class="nav-dropdown__item"
+                        >
+                          <i class="fa-solid fa-laptop"></i> Laptops
+                        </a>
+                        <a
+                          href="products.html?category=tablets"
+                          class="nav-dropdown__item"
+                        >
+                          <i class="fa-solid fa-tablet-screen-button"></i>
+                          Tablets
+                        </a>
+                        <a
+                          href="products.html?category=headphones"
+                          class="nav-dropdown__item"
+                        >
+                          <i class="fa-solid fa-headphones"></i> Headphones
+                        </a>
+                        <a
+                          href="products.html?category=smartwatches"
+                          class="nav-dropdown__item"
+                        >
+                          <i class="fa-solid fa-clock"></i> Smartwatches
+                        </a>
+                        <a
+                          href="products.html?category=gaming"
+                          class="nav-dropdown__item"
+                        >
+                          <i class="fa-solid fa-gamepad"></i> Gaming
+                        </a>
+                        <a
+                          href="products.html?category=cameras"
+                          class="nav-dropdown__item"
+                        >
+                          <i class="fa-solid fa-camera"></i> Cameras
+                        </a>
+                        <a
+                          href="products.html?category=accessories"
+                          class="nav-dropdown__item"
+                        >
+                          <i class="fa-solid fa-plug"></i> Accessories
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <a href="orders.html" class="navbar__link">My Orders</a>
+                </nav>
+              </div>
+
+              <!-- Actions -->
+              <div class="navbar__actions">
+                <!-- Direct Search Input in Navbar -->
+                <div class="navbar__search-box">
+                  <i
+                    class="fa-solid fa-magnifying-glass"
+                    aria-hidden="true"
+                  ></i>
+                  <input
+                    type="search"
+                    id="navbarSearchInput"
+                    placeholder="Search products..."
+                    autocomplete="off"
+                  />
+                </div>
+
+                <!-- Mobile Search Icon -->
+                <button
+                  class="navbar__icon navbar__icon--search-mobile"
+                  type="button"
+                  id="mobileSearchTrigger"
+                  aria-label="Search"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- Account -->
+                <button
+                  class="navbar__icon navbar__icon--account"
+                  type="button"
+                  aria-label="Account"
+                >
+                  <i class="fa-regular fa-user"></i>
+                </button>
+
+                <!-- Wishlist Button -->
+                <button
+                  class="navbar__icon"
+                  type="button"
+                  id="wishlistBtn"
+                  aria-label="Wishlist"
+                >
+                  <i class="fa-regular fa-heart"></i>
+                  <span class="cart-badge" id="wishlistBadge" hidden>0</span>
+                </button>
+
+                <!-- Cart Button -->
+                <button
+                  class="navbar__icon"
+                  type="button"
+                  id="cartBtn"
+                  aria-label="Shopping cart"
+                >
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  <span class="cart-badge" id="cartBadge" hidden>0</span>
+                </button>
+
+                <!-- Burger (mobile) -->
+                <button
+                  class="navbar__icon navbar__icon--burger"
+                  type="button"
+                  id="openMenu"
+                  aria-label="Open menu"
+                >
+                  <i class="fa-solid fa-bars"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ Mobile drawer ============ -->
+        <div class="drawer" id="drawer" aria-hidden="true">
+          <div class="drawer__backdrop" data-close-menu></div>
+
+          <aside class="drawer__panel">
+            <div class="drawer__head">
+              <a href="index.html" class="logo" aria-label="TechNova home">
+                <span class="logo__mark"><i class="fa-solid fa-bolt"></i></span>
+                <span class="logo__text">TechNova</span>
+              </a>
+              <button
+                class="navbar__icon"
+                type="button"
+                data-close-menu
+                aria-label="Close menu"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <nav class="drawer__links" aria-label="Mobile">
+              <a href="index.html" class="drawer__link active">Home</a>
+              <a href="products.html" class="drawer__link">All Tech</a>
+              <div class="drawer__accordion">
+                <button
+                  class="drawer__link drawer__accordion-toggle"
+                  type="button"
+                >
+                  Categories <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="drawer__sublinks">
+                  <a
+                    href="products.html?category=smartphones"
+                    class="drawer__link"
+                    >Smartphones</a
+                  >
+                  <a href="products.html?category=laptops" class="drawer__link"
+                    >Laptops</a
+                  >
+                  <a href="products.html?category=tablets" class="drawer__link"
+                    >Tablets</a
+                  >
+                  <a
+                    href="products.html?category=headphones"
+                    class="drawer__link"
+                    >Headphones</a
+                  >
+                  <a
+                    href="products.html?category=smartwatches"
+                    class="drawer__link"
+                    >Smartwatches</a
+                  >
+                  <a href="products.html?category=gaming" class="drawer__link"
+                    >Gaming</a
+                  >
+                  <a href="products.html?category=cameras" class="drawer__link"
+                    >Cameras</a
+                  >
+                  <a
+                    href="products.html?category=accessories"
+                    class="drawer__link"
+                    >Accessories</a
+                  >
+                </div>
+              </div>
+              <a href="orders.html" class="drawer__link">My Orders</a>
+            </nav>
+
+            <div class="drawer__foot">
+              <a href="#" class="drawer__account">
+                <i class="fa-regular fa-user"></i> My Account
+              </a>
+              <a href="#" class="drawer__account" id="drawerWishlist">
+                <i class="fa-regular fa-heart"></i> Wishlist
+              </a>
+            </div>
+          </aside>
+        </div>
+
+    <!-- ==================== SIDEBAR CART & WISHLIST DRAWERS ==================== -->
+    <div class="side-drawer-overlay" id="sideDrawerOverlay" hidden></div>
+
+    <aside
+      class="side-panel"
+      id="cartPanel"
+      aria-label="Shopping Cart Drawer"
+      aria-hidden="true"
+    >
+      <div class="side-panel__header">
+        <div class="side-panel__title-wrap">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <h2>Your Cart</h2>
+          <span class="side-panel__count" id="cartDrawerCount">0 items</span>
+        </div>
+        <button
+          class="navbar__icon"
+          type="button"
+          id="closeCartPanel"
+          aria-label="Close cart"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="side-panel__body" id="cartItemsContainer"></div>
+      <div class="side-panel__footer" id="cartFooter">
+        <div class="side-panel__summary">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">LE 0</strong>
+        </div>
+        <p class="side-panel__tax-note">
+          Taxes and shipping calculated at checkout
+        </p>
+        <div class="side-panel__actions">
+          <button class="side-panel__btn-checkout" type="button">
+            Proceed to Checkout
+          </button>
+          <button class="side-panel__btn-clear" type="button" id="clearCartBtn">
+            Clear Cart
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      class="side-panel"
+      id="wishlistPanel"
+      aria-label="Wishlist Drawer"
+      aria-hidden="true"
+    >
+      <div class="side-panel__header">
+        <div class="side-panel__title-wrap">
+          <i class="fa-regular fa-heart"></i>
+          <h2>Wishlist</h2>
+          <span class="side-panel__count" id="wishlistDrawerCount"
+            >0 items</span
+          >
+        </div>
+        <button
+          class="navbar__icon"
+          type="button"
+          id="closeWishlistPanel"
+          aria-label="Close wishlist"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="side-panel__body" id="wishlistItemsContainer"></div>
+      <div class="side-panel__footer">
+        <button
+          class="side-panel__btn-checkout"
+          type="button"
+          id="moveAllToCartBtn"
+        >
+          Move All to Cart
+        </button>
+      </div>
+    </aside>
+
+    <!-- ==================== PRODUCTS CATALOG & FILTERS ==================== -->
+    <main class="catalog-page">
+      <div class="container">
+        <!-- Page Header -->
+        <div class="catalog-header">
+          <div>
+            <nav class="catalog-breadcrumb" aria-label="Breadcrumb">
+              <a href="index.html">Home</a>
+              <span>/</span>
+              <span id="breadcrumbCategory">All Products</span>
+            </nav>
+            <h1 class="catalog-title" id="catalogTitle">All Products</h1>
+          </div>
+
+          <div class="catalog-controls">
+            <span class="catalog-count" id="productsCountLabel"
+              >Showing 0 products</span
+            >
+            <select
+              id="sortSelect"
+              class="catalog-sort"
+              aria-label="Sort products"
+            >
+              <option value="featured">Sort by: Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="catalog-layout">
+          <!-- Sidebar Filters -->
+          <aside class="catalog-sidebar" aria-label="Filters">
+            <div class="filter-group">
+              <div class="filter-group__head">
+                <h3>Categories</h3>
+                <button
+                  type="button"
+                  class="filter-reset-btn"
+                  id="resetFiltersBtn"
+                >
+                  Reset
+                </button>
+              </div>
+              <div class="filter-pills" id="categoryFilterList">
+                <button type="button" class="filter-pill active" data-cat="all">
+                  All Tech
+                </button>
+                <button
+                  type="button"
+                  class="filter-pill"
+                  data-cat="smartphones"
+                >
+                  Smartphones
+                </button>
+                <button type="button" class="filter-pill" data-cat="laptops">
+                  Laptops
+                </button>
+                <button type="button" class="filter-pill" data-cat="tablets">
+                  Tablets
+                </button>
+                <button type="button" class="filter-pill" data-cat="headphones">
+                  Headphones
+                </button>
+                <button
+                  type="button"
+                  class="filter-pill"
+                  data-cat="smartwatches"
+                >
+                  Smartwatches
+                </button>
+                <button type="button" class="filter-pill" data-cat="gaming">
+                  Gaming
+                </button>
+                <button type="button" class="filter-pill" data-cat="cameras">
+                  Cameras
+                </button>
+                <button
+                  type="button"
+                  class="filter-pill"
+                  data-cat="accessories"
+                >
+                  Accessories
+                </button>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h3>
+                Max Price: <strong id="priceRangeValue">LE 120,000</strong>
+              </h3>
+              <input
+                type="range"
+                id="priceRangeInput"
+                class="filter-range"
+                min="2000"
+                max="120000"
+                step="1000"
+                value="120000"
+              />
+              <div class="filter-range-labels">
+                <span>LE 2,000</span>
+                <span>LE 120,000</span>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Products Grid -->
+          <section class="catalog-content" aria-label="Product results">
+            <div
+              class="popular-products__grid catalog-grid"
+              id="catalogProductsGrid"
+            >
+              <!-- Cards injected dynamically via script.js -->
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <div class="site-footer__brand">
+            <a href="index.html" class="logo" aria-label="TechNova home">
+              <span class="logo__mark">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+              </span>
+              <span class="logo__text">TechNova</span>
+            </a>
+            <p class="site-footer__description">
+              The latest smartphones, laptops, audio and accessories—carefully
+              selected to bring more technology to your everyday life.
+            </p>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Explore</h2>
+            <a href="products.html?category=smartphones">Smartphones</a>
+            <a href="products.html?category=laptops">Laptops</a>
+            <a href="products.html?category=tablets">Tablets</a>
+            <a href="products.html?category=headphones">Audio</a>
+            <a href="products.html?category=accessories">Accessories</a>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Customer care</h2>
+            <a href="#">Contact us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Shipping information</a>
+            <a href="#">Returns & exchanges</a>
+            <a href="#">Track your order</a>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Follow us</h2>
+            <div class="site-footer__socials">
+              <a href="#" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p>© 2026 TechNova. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== CHECKOUT POPUP MODAL ==================== -->
+    <div class="checkout-modal" id="checkoutModal" aria-hidden="true" hidden>
+      <div class="checkout-modal__backdrop" id="closeCheckoutModal"></div>
+      <div class="checkout-modal__content">
+        <div class="checkout-modal__header">
+          <h2>Complete Your Order</h2>
+          <button
+            class="navbar__icon"
+            type="button"
+            id="closeCheckoutBtn"
+            aria-label="Close"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <form class="checkout-form" id="checkoutForm">
+          <div class="checkout-form__group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div class="checkout-form__group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required placeholder="010XXXXXXXX" />
+          </div>
+          <div class="checkout-form__group">
+            <label for="address">Shipping Address</label>
+            <textarea
+              id="address"
+              rows="3"
+              required
+              placeholder="Enter your address"
+            ></textarea>
+          </div>
+          <div class="checkout-form__total-box">
+            <span>Total Amount to Pay:</span>
+            <strong id="checkoutModalTotal">LE 0</strong>
+          </div>
+          <button type="submit" class="checkout-form__submit-btn">
+            Submit Order
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================== NOTIFICATION TOAST ==================== -->
+    <div class="toast-notification" id="toastNotification" hidden>
+      <i class="fa-solid fa-circle-check"></i>
+      <div class="toast-notification__text">
+        <strong id="toastTitle">Success!</strong>
+        <p id="toastMessage">Product added successfully.</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
