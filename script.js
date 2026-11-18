@@ -12,6 +12,7 @@
   8. Mobile menu (open / close)
   9. Promo Banner Slider
   10. Products Rendering (Home & Catalog Filter Page)
+  11. Checkout & Orders Logic
 */
 
 (() => {
@@ -903,18 +904,26 @@
 
       if (!imageButton) return;
 
+      // 1. جلب الترتيب الحقيقي للصورة من الـ dataset المضمون
       const imageIndex = Number(imageButton.dataset.imageIndex);
       const primaryImgEl = card.querySelector(".product-card__image--primary");
       const secondaryImgEl = card.querySelector(
         ".product-card__image--secondary",
       );
 
-      if (primaryImgEl) primaryImgEl.src = product.image[imageIndex];
+      // 2. تغيير الصورة الرئيسية فوراً بالصورة المطلوبة بدقة
+      if (primaryImgEl && product.image[imageIndex]) {
+        primaryImgEl.src = product.image[imageIndex];
+      }
+
+      // 3. تحديث الصورة الثانوية لتكون الصورة التالية أو الأولى لضمان عدم حدوث تضارب
       if (secondaryImgEl) {
         const nextImg = product.image[imageIndex + 1] || product.image[0];
         secondaryImgEl.src = nextImg;
       }
 
+      // 4. تمييز الزرار الحالي بأنه المختار (is-selected)
+      card.querySelectorAll(".product-card__color").cache = true;
       card.querySelectorAll(".product-card__color").forEach((button) => {
         const selected = button === imageButton;
         button.classList.toggle("is-selected", selected);
@@ -922,4 +931,142 @@
       });
     });
   });
+
+  //=======================
+  // 11. Checkout & Orders Logic
+  //=======================
+  const checkoutForm = $("#checkoutForm");
+  const checkoutItemsList = $("#checkoutItemsList");
+
+  if (checkoutForm || checkoutItemsList) {
+    const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    const checkoutTotal = $("#checkoutTotal");
+    if (checkoutTotal) checkoutTotal.textContent = `LE ${subtotal}`;
+
+    if (checkoutItemsList) {
+      if (cart.length === 0) {
+        checkoutItemsList.innerHTML = `<p class="checkout-empty-msg">Your cart is empty.</p>`;
+      } else {
+        checkoutItemsList.innerHTML = cart
+          .map(
+            (item) => `
+          <div class="checkout-item-row">
+            <img src="${item.image}" alt="${item.name}" class="checkout-item-img" />
+            <div class="checkout-item-details">
+              <strong>${item.name}</strong>
+              <span class="checkout-item-meta">Qty: ${item.qty} &bull; Size: ${item.size}</span>
+            </div>
+            <strong>LE ${item.price * item.qty}</strong>
+          </div>
+        `,
+          )
+          .join("");
+      }
+    }
+
+    checkoutForm?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      const name = $("#custName").value.trim();
+      const phone = $("#custPhone").value.trim();
+      const address = $("#custAddress").value.trim();
+
+      const newOrder = {
+        id: "WANDA-" + Math.floor(100000 + Math.random() * 900000),
+        date: new Date().toLocaleDateString(),
+        name,
+        phone,
+        address,
+        items: [...cart],
+        total: subtotal,
+      };
+
+      let orders = [];
+      try {
+        orders = JSON.parse(localStorage.getItem("wandaOrders")) || [];
+      } catch {}
+
+      orders.unshift(newOrder);
+      localStorage.setItem("wandaOrders", JSON.stringify(orders));
+
+      cart = [];
+      localStorage.removeItem("wandaCart");
+
+      window.location.href = "orders.html";
+    });
+  }
+
+  // --- عرض الأوردرات في صفحة orders.html ---
+  const ordersContainer = $("#ordersContainer");
+  const ordersCount = $("#ordersCount");
+  if (ordersContainer) {
+    let orders = [];
+    try {
+      orders = JSON.parse(localStorage.getItem("wandaOrders")) || [];
+    } catch {}
+
+    if (ordersCount) {
+      ordersCount.textContent = `You have ${orders.length} ${orders.length === 1 ? "order" : "orders"}`;
+    }
+
+    if (orders.length === 0) {
+      ordersContainer.innerHTML = `
+        <div class="order-empty-state">
+          <i class="fa-solid fa-box-open order-empty-icon"></i>
+          <p>You haven't placed any orders yet.</p>
+        </div>
+      `;
+    } else {
+      ordersContainer.innerHTML = orders
+        .map(
+          (order) => `
+        <div class="order-card">
+          <div class="order-card-header">
+            <span><strong>Order ID:</strong> ${order.id}</span>
+            <span><strong>Date:</strong> ${order.date}</span>
+          </div>
+          <p class="order-info-line"><strong>Recipient:</strong> ${order.name} (${order.phone})</p>
+          <p class="order-info-address"><strong>Address:</strong> ${order.address}</p>
+          <div class="order-items-group">
+            ${order.items
+              .map(
+                (item) => `
+              <div class="checkout-item-row">
+                <img src="${item.image}" alt="${item.name}" class="checkout-item-img" />
+                <div class="checkout-item-details">
+                  <span>${item.name}</span>
+                  <span class="checkout-item-meta">Qty: ${item.qty} &bull; Size: ${item.size}</span>
+                </div>
+                <strong>LE ${item.price * item.qty}</strong>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+          <div class="checkout-total-row">
+            <span>Total Paid:</span>
+            <span class="checkout-total-price">LE ${order.total}</span>
+          </div>
+        </div>
+      `,
+        )
+        .join("");
+    }
+  }
+
+  //=======================
+  // 12. Contact Form Logic
+  //=======================
+  const contactForm = $("#contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      contactForm.reset();
+      showNotification("Your message has been sent! We'll reply soon.");
+    });
+  }
 })();

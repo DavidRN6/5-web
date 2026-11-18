@@ -20,6 +20,8 @@
   17. Order Modal, Cart Drawer & Toast      2252
   18. Products Catalog Page & Filters       2746
   19. AUTH MODAL (LOGIN & REGISTER)         2874
+  20. CHECKOUT & ORDERS PAGES STYLING
+  21. CONTACT PAGE STYLING
 */
 
 /* =========================
@@ -1805,18 +1807,21 @@ body[data-page="home"] .header-spacer {
     transform 0.6s var(--ease);
 }
 
-.product-card__image--secondary {
+.product-card .product-card__image--secondary {
   position: absolute;
   inset: 0;
   opacity: 0;
   z-index: 1;
+  transition:
+    opacity 0.4s ease,
+    transform 0.6s var(--ease);
 }
 
-.product-card:hover .product-card__image--primary {
+.product-card__image-wrap:hover .product-card__image--primary {
   opacity: 0;
 }
 
-.product-card:hover .product-card__image--secondary {
+.product-card__image-wrap:hover .product-card__image--secondary {
   opacity: 1;
   transform: scale(1.05);
 }
@@ -3062,4 +3067,326 @@ body[data-page="home"] .header-spacer {
 .auth-submit:hover {
   background: color-mix(in srgb, var(--primary) 88%, var(--light));
   transform: translateY(-1px);
+}
+
+/* =======================================
+   20. CHECKOUT & ORDERS PAGES STYLING
+========================================== */
+.checkout-page-main {
+  padding: 40px 16px;
+  max-width: 1100px;
+}
+
+.checkout-hero {
+  margin-bottom: 30px;
+  border: none;
+  background: none;
+}
+
+.checkout-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.checkout-box {
+  background: var(--light);
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 10%, transparent);
+}
+
+.checkout-form-reset {
+  margin-top: 0;
+}
+
+.checkout-submit-btn {
+  margin-top: 20px;
+}
+
+.checkout-summary-box {
+  background: color-mix(in srgb, var(--secondary) 2%, var(--light));
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 10%, transparent);
+  height: fit-content;
+}
+
+.checkout-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: var(--font-display);
+}
+
+.checkout-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding-right: 5px;
+}
+
+.checkout-empty-msg {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--secondary) 55%, transparent);
+}
+
+.checkout-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.checkout-item-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  background: var(--light);
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 10%, transparent);
+}
+
+.checkout-item-details {
+  flex: 1;
+}
+
+.checkout-main-wrap {
+  padding: 40px 16px;
+  max-width: 1100px;
+}
+
+.checkout-hero-custom {
+  margin-bottom: 30px;
+  border: none;
+  background: none;
+}
+
+.promo-code-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin: 18px 0 8px;
+  padding-top: 15px;
+  border-top: 1px solid color-mix(in srgb, var(--secondary) 10%, transparent);
+}
+
+.apply-promo-btn {
+  height: 43px;
+  padding: 0 18px;
+  background: var(--secondary);
+  color: var(--light);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.apply-promo-btn:hover {
+  background: var(--primary);
+}
+
+.promo-feedback {
+  font-size: 12px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.promo-feedback.success {
+  color: #16a34a;
+}
+
+.promo-feedback.error {
+  color: #dc2626;
+}
+
+.checkout-item-meta {
+  display: block;
+  font-size: 11px;
+  color: color-mix(in srgb, var(--secondary) 55%, transparent);
+}
+
+.checkout-total-row {
+  border-top: 1px solid color-mix(in srgb, var(--secondary) 10%, transparent);
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.checkout-total-price {
+  color: var(--primary);
+}
+
+/* Orders Page Styling */
+.orders-page-main {
+  max-width: 800px;
+  padding: 40px 16px;
+}
+
+.orders-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-card {
+  background: var(--light);
+  border: 1px solid color-mix(in srgb, var(--secondary) 12%, transparent);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 4%, transparent);
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary) 10%, transparent);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+.order-info-line {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.order-info-address {
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.order-items-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.order-empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: color-mix(in srgb, var(--secondary) 60%, transparent);
+}
+
+.order-empty-icon {
+  font-size: 48px;
+  margin-bottom: 14px;
+  opacity: 0.4;
+}
+
+.orders-actions {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.orders-continue-btn {
+  display: inline-flex;
+  background: var(--primary);
+  color: var(--light);
+  border-radius: 999px;
+}
+
+.orders-continue-btn:hover {
+  background: color-mix(in srgb, var(--primary) 85%, var(--light));
+}
+
+/* =======================================
+   21. CONTACT PAGE STYLING
+========================================== */
+.contact-page-main {
+  max-width: 1100px;
+  padding: 48px 16px;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: var(--light);
+  border: 1px solid color-mix(in srgb, var(--secondary) 10%, transparent);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px -10px
+    color-mix(in srgb, var(--secondary) 8%, transparent);
+}
+
+.contact-form-side {
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.contact-form-subtitle {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--secondary) 65%, transparent);
+}
+
+.auth-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 18%, transparent);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--secondary);
+  background: var(--light);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.auth-field textarea:focus {
+  border-color: var(--primary);
+}
+
+.contact-submit-btn {
+  margin-top: 8px;
+}
+
+.contact-image-side {
+  position: relative;
+  min-height: 100%;
+  background: color-mix(in srgb, var(--secondary) 5%, var(--light));
+}
+
+.contact-image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-side {
+    padding: 32px 24px;
+  }
+
+  .contact-image-side {
+    height: 280px;
+    order: -1;
+  }
 }

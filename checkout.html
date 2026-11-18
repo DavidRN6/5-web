@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WANDA — Checkout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="checkout">
+    <!-- ==================== NAVBAR ==================== -->
+    <div class="site-header-wrap" id="siteHeader">
+      <!-- Announcement bar -->
+      <div class="announcement">
+        <div class="marquee" id="marquee">
+          <div class="marquee-group">
+            <span>Free shipping on orders over EGP 1,500</span>
+            <span>New Season Collection — Now Live</span>
+            <span>Express delivery available across Egypt</span>
+            <span>Sign up for 10% off your first order</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main header -->
+      <header class="site-header">
+        <div class="container">
+          <div class="header-inner">
+            <!-- Burger (mobile) -->
+            <button
+              class="icon-btn burger"
+              id="openMenu"
+              aria-label="Open menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Desktop nav -->
+            <nav class="desktop-nav" aria-label="Main">
+              <a href="index.html" class="nav-link">HOME</a>
+
+              <div class="nav-dropdown">
+                <a href="products.html" class="nav-link nav-dropdown__trigger">
+                  SHOP <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <div class="nav-dropdown__menu">
+                  <div class="nav-dropdown__list">
+                    <a href="products.html" class="nav-dropdown__item"
+                      >All Products</a
+                    >
+                    <a
+                      href="products.html?category=hoodies"
+                      class="nav-dropdown__item"
+                      >Hoodies</a
+                    >
+                    <a
+                      href="products.html?category=t-shirts"
+                      class="nav-dropdown__item"
+                      >T-Shirts &amp; Shirts</a
+                    >
+                    <a
+                      href="products.html?category=jackets"
+                      class="nav-dropdown__item"
+                      >Jackets</a
+                    >
+                    <a
+                      href="products.html?category=pullover"
+                      class="nav-dropdown__item"
+                      >Pullovers</a
+                    >
+                    <a
+                      href="products.html?category=pants"
+                      class="nav-dropdown__item"
+                      >Pants</a
+                    >
+                    <a
+                      href="products.html?category=shoes"
+                      class="nav-dropdown__item"
+                      >Shoes</a
+                    >
+                    <a
+                      href="products.html?category=bags"
+                      class="nav-dropdown__item"
+                      >Bags</a
+                    >
+                    <a
+                      href="products.html?category=accessories"
+                      class="nav-dropdown__item"
+                      >Accessories</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <a href="products.html" class="nav-link">NEW ARRIVALS</a>
+              <a href="orders.html" class="nav-link">MY ORDERS</a>
+              <a href="contact.html" class="nav-link">CONTACT</a>
+            </nav>
+
+            <!-- Logo - centered -->
+            <a href="index.html" class="logo">WANDA</a>
+
+            <!-- Right icons -->
+            <div class="header-actions">
+              <button class="icon-btn" id="searchToggle" aria-label="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+
+              <div class="profile" id="profileMenu">
+                <button
+                  class="icon-btn"
+                  id="authTriggerBtn"
+                  type="button"
+                  aria-label="Account"
+                >
+                  <i class="fa-regular fa-user"></i>
+                </button>
+              </div>
+
+              <button
+                class="icon-btn cart-btn"
+                id="cartBtn"
+                aria-label="Open shopping bag"
+              >
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search bar dropdown -->
+        <div class="search-panel" id="searchPanel" hidden>
+          <div class="container">
+            <form class="search-form" id="searchForm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products"
+                autocomplete="off"
+              />
+              <button
+                type="button"
+                class="icon-btn"
+                id="searchClose"
+                aria-label="Close search"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <!-- space -->
+    <div class="header-spacer"></div>
+
+    <!-- ==================== Mobile slide-in menu ==================== -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-backdrop" data-close-menu></div>
+      <aside class="mobile-panel">
+        <div class="mobile-head">
+          <span class="mobile-logo">WANDA</span>
+          <button class="icon-btn" data-close-menu aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="mobile-nav" aria-label="Mobile">
+          <a href="index.html" class="mobile-link">HOME</a>
+          <a href="products.html" class="mobile-link">SHOP</a>
+          <a href="products.html" class="mobile-link">NEW ARRIVALS</a>
+          <a href="orders.html" class="mobile-link">MY ORDERS</a>
+          <a href="contact.html" class="mobile-link">CONTACT</a>
+        </nav>
+      </aside>
+    </div>
+
+    <!-- ==================== CHECKOUT MAIN CONTENT ==================== -->
+    <main class="container checkout-main-wrap">
+      <div class="catalog-hero checkout-hero-custom">
+        <p class="catalog-hero__eyebrow">SECURE CHECKOUT</p>
+        <h1 class="catalog-hero__title">Shipping & Order Details</h1>
+      </div>
+
+      <div class="checkout-container">
+        <!-- الجزء الأول: الفورم (البيانات) -->
+        <div class="checkout-box">
+          <h2 class="checkout-title">Shipping Information</h2>
+          <form id="checkoutForm" class="auth-form checkout-form-reset">
+            <div class="auth-field">
+              <label for="custName">Full Name</label>
+              <input
+                type="text"
+                id="custName"
+                placeholder="Ahmed Mohamed"
+                required
+              />
+            </div>
+
+            <div class="auth-field">
+              <label for="custPhone">Phone Number</label>
+              <input
+                type="tel"
+                id="custPhone"
+                placeholder="01012345678"
+                required
+              />
+            </div>
+
+            <div class="auth-field">
+              <label for="custAddress">Delivery Address</label>
+              <input
+                type="text"
+                id="custAddress"
+                placeholder="Street, City, Building, Apartment..."
+                required
+              />
+            </div>
+
+            <button type="submit" class="auth-submit checkout-submit-btn">
+              Place Order Now
+            </button>
+          </form>
+        </div>
+
+        <!-- الجزء الثاني: تفاصيل الأوردر وسة الخصم -->
+        <div class="checkout-summary-box">
+          <h2 class="checkout-title">Order Summary</h2>
+          <div id="checkoutItemsList" class="checkout-items-list">
+            <!-- المنتجات هتتحط هنا ديناميكياً -->
+          </div>
+
+          <!-- خانة كود الخصم -->
+          <div class="promo-code-box">
+            <div class="auth-field" style="flex: 1; margin: 0">
+              <label for="promoCodeInput">Discount Code</label>
+              <input
+                type="text"
+                id="promoCodeInput"
+                placeholder="e.g. WANDA10"
+              />
+            </div>
+            <button type="button" id="applyPromoBtn" class="apply-promo-btn">
+              Apply
+            </button>
+          </div>
+          <p id="promoFeedback" class="promo-feedback" hidden></p>
+
+          <div class="checkout-total-row">
+            <span>Total Subtotal:</span>
+            <span id="checkoutTotal" class="checkout-total-price">LE 0</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer" id="footer">
+      <div class="site-footer__inner">
+        <a href="index.html" class="site-footer__logo">WANDA</a>
+        <p class="site-footer__description">
+          Modern everyday essentials crafted for comfort, clean silhouettes, and
+          timeless streetwear style.
+        </p>
+        <div class="site-footer__links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Shop All</a>
+          <a href="orders.html">My Orders</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="site-footer__copyright">
+          &copy; 2026 WANDA. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="products-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

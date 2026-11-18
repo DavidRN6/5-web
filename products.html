@@ -21,29 +21,28 @@
   </head>
 
   <body data-page="catalog">
-
-    <!-- ==================== HEADER & ANNOUNCEMENT ==================== -->
-    <div class="site-header-wrap" id="headerWrap">
+    <!-- ==================== NAVBAR ==================== -->
+    <div class="site-header-wrap is-transparent" id="siteHeader">
+      <!-- Announcement bar -->
       <div class="announcement">
         <div class="marquee" id="marquee">
           <div class="marquee-group">
-            <span>FREE SHIPPING ON ORDERS OVER 1500 EGP</span>
-            <span>&bull;</span>
-            <span>NEW COLLECTION AVAILABLE NOW</span>
-            <span>&bull;</span>
-            <span>CASH ON DELIVERY AVAILABLE</span>
-            <span>&bull;</span>
+            <span>Free shipping on orders over EGP 1,500</span>
+            <span>New Season Collection — Now Live</span>
+            <span>Express delivery available across Egypt</span>
+            <span>Sign up for 10% off your first order</span>
           </div>
         </div>
       </div>
 
-      <header class="site-header" id="siteHeader">
+      <!-- Main header -->
+      <header class="site-header">
         <div class="container">
           <div class="header-inner">
+            <!-- Burger (mobile) -->
             <button
               class="icon-btn burger"
               id="openMenu"
-              type="button"
               aria-label="Open menu"
             >
               <i class="fa-solid fa-bars"></i>
@@ -51,13 +50,10 @@
 
             <!-- Desktop nav -->
             <nav class="desktop-nav" aria-label="Main">
-              <a href="index.html" class="nav-link">HOME</a>
+              <a href="index.html" class="nav-link active">HOME</a>
 
               <div class="nav-dropdown">
-                <a
-                  href="products.html"
-                  class="nav-link nav-dropdown__trigger active"
-                >
+                <a href="products.html" class="nav-link nav-dropdown__trigger">
                   SHOP <i class="fa-solid fa-chevron-down"></i>
                 </a>
                 <div class="nav-dropdown__menu">
@@ -110,23 +106,21 @@
               </div>
 
               <a href="products.html" class="nav-link">NEW ARRIVALS</a>
-              <a href="index.html#footer" class="nav-link">CONTACT</a>
+              <a href="orders.html" class="nav-link">MY ORDERS</a>
+              <a href="contact.html" class="nav-link">CONTACT</a>
             </nav>
 
-            <!-- Logo -->
+            <!-- Logo - centered -->
             <a href="index.html" class="logo">WANDA</a>
 
             <!-- Right icons -->
             <div class="header-actions">
-              <button
-                class="icon-btn"
-                id="searchToggle"
-                type="button"
-                aria-label="Search"
-              >
+              <!-- Search -->
+              <button class="icon-btn" id="searchToggle" aria-label="Search">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
 
+              <!-- Account (Opens Login/Register Modal) -->
               <div class="profile" id="profileMenu">
                 <button
                   class="icon-btn"
@@ -138,11 +132,11 @@
                 </button>
               </div>
 
+              <!-- Cart -->
               <button
-                class="icon-btn"
+                class="icon-btn cart-btn"
                 id="cartBtn"
-                type="button"
-                aria-label="Shopping bag"
+                aria-label="Open shopping bag"
               >
                 <i class="fa-solid fa-bag-shopping"></i>
                 <span class="cart-count" id="cartCount">0</span>
@@ -151,7 +145,7 @@
           </div>
         </div>
 
-        <!-- Search bar -->
+        <!-- Search bar dropdown -->
         <div class="search-panel" id="searchPanel" hidden>
           <div class="container">
             <form class="search-form" id="searchForm">
@@ -159,13 +153,13 @@
               <input
                 type="search"
                 id="searchInput"
-                placeholder="Search products in this collection..."
+                placeholder="Search products"
                 autocomplete="off"
               />
               <button
+                type="button"
                 class="icon-btn"
                 id="searchClose"
-                type="button"
                 aria-label="Close search"
               >
                 <i class="fa-solid fa-xmark"></i>
@@ -176,44 +170,33 @@
       </header>
     </div>
 
+    <!-- space -->
     <div class="header-spacer"></div>
 
-    <!-- ==================== Mobile Menu ==================== -->
-    <div
-      class="mobile-menu"
-      id="mobileMenu"
-      role="dialog"
-      aria-modal="true"
-      aria-hidden="true"
-    >
+    <!-- ==================== Mobile slide-in menu ==================== -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <div class="mobile-backdrop" data-close-menu></div>
-      <div class="mobile-panel">
+      <aside class="mobile-panel">
         <div class="mobile-head">
-          <a href="index.html" class="mobile-logo">WANDA</a>
-          <button
-            class="icon-btn"
-            type="button"
-            data-close-menu
-            aria-label="Close menu"
-          >
+          <span class="mobile-logo">WANDA</span>
+          <button class="icon-btn" data-close-menu aria-label="Close menu">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
 
         <nav class="mobile-nav" aria-label="Mobile">
-          <a href="index.html" class="mobile-link">HOME</a>
+          <a href="index.html" class="mobile-link active">HOME</a>
 
           <div class="mobile-accordion">
             <button
               type="button"
               class="mobile-link mobile-accordion__btn"
               id="mobileShopToggle"
-              aria-expanded="true"
             >
               <span>SHOP</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <div class="mobile-accordion__panel" id="mobileShopPanel">
+            <div class="mobile-accordion__panel" id="mobileShopPanel" hidden>
               <a href="products.html" class="mobile-sublink">All Products</a>
               <a href="products.html?category=hoodies" class="mobile-sublink"
                 >Hoodies</a
@@ -245,7 +228,8 @@
           </div>
 
           <a href="products.html" class="mobile-link">NEW ARRIVALS</a>
-          <a href="index.html#footer" class="mobile-link">CONTACT</a>
+          <a href="orders.html" class="mobile-link">MY ORDER</a>
+          <a href="contact.html" class="mobile-link">CONTACT</a>
         </nav>
 
         <div class="mobile-foot">
@@ -253,7 +237,7 @@
             >Login / Register</a
           >
         </div>
-      </div>
+      </aside>
     </div>
 
     <!-- ==================== CATALOG HEADER & FILTERS ==================== -->
@@ -312,34 +296,42 @@
       </div>
     </main>
 
-    <!-- ==================== FOOTER ==================== -->
+    <!-- ================= FOOTER ================= -->
     <footer class="site-footer" id="footer">
       <div class="site-footer__inner">
-        <a href="index.html" class="site-footer__logo">WANDA</a>
+        <a class="site-footer__logo" href="index.html" aria-label="Wanda home"
+          >WANDA</a
+        >
+
         <p class="site-footer__description">
-          Modern everyday essentials crafted for comfort, clean silhouettes, and
-          timeless streetwear style.
+          Contemporary pieces designed for everyday expression. Crafted with
+          intention, made to be lived in.
         </p>
-        <div class="site-footer__links">
+
+        <nav class="site-footer__links" aria-label="Footer links">
           <a href="index.html">Home</a>
-          <a href="products.html">Shop All</a>
-          <a href="products.html?category=hoodies">Hoodies</a>
-          <a href="products.html?category=jackets">Jackets</a>
+          <a href="products.html">Shop</a>
+          <a href="products.html">New Arrivals</a>
+          <a href="orders.html">Ny Orders</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="site-footer__socials" aria-label="Social media">
+          <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
         </div>
-        <div class="site-footer__socials">
-          <a href="#" aria-label="Instagram"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-          <a href="#" aria-label="Facebook"
-            ><i class="fa-brands fa-facebook-f"></i
-          ></a>
-          <a href="#" aria-label="TikTok"
-            ><i class="fa-brands fa-tiktok"></i
-          ></a>
-        </div>
-        <p class="site-footer__copyright">
-          &copy; 2026 WANDA. All rights reserved.
-        </p>
+
+        <p class="site-footer__copyright">© 2026 WANDA. All rights reserved.</p>
       </div>
     </footer>
 

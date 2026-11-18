@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WANDA — My Orders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="orders">
+    <!-- ==================== NAVBAR ==================== -->
+    <div class="site-header-wrap" id="siteHeader">
+      <div class="announcement">
+        <div class="marquee" id="marquee">
+          <div class="marquee-group">
+            <span>Free shipping on orders over EGP 1,500</span>
+            <span>New Season Collection — Now Live</span>
+            <span>Express delivery available across Egypt</span>
+            <span>Sign up for 10% off your first order</span>
+          </div>
+        </div>
+      </div>
+
+      <header class="site-header">
+        <div class="container">
+          <div class="header-inner">
+            <button
+              class="icon-btn burger"
+              id="openMenu"
+              aria-label="Open menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="desktop-nav" aria-label="Main">
+              <a href="index.html" class="nav-link">HOME</a>
+              <a href="products.html" class="nav-link">SHOP</a>
+              <a href="products.html" class="nav-link">NEW ARRIVALS</a>
+              <a href="orders.html" class="nav-link active">MY ORDERS</a>
+              <a href="contact.html" class="nav-link">CONTACT</a>
+            </nav>
+
+            <a href="index.html" class="logo">WANDA</a>
+
+            <div class="header-actions">
+              <button
+                class="icon-btn cart-btn"
+                id="cartBtn"
+                aria-label="Open shopping bag"
+              >
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <!-- ==================== Mobile slide-in menu ==================== -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-backdrop" data-close-menu></div>
+      <aside class="mobile-panel">
+        <div class="mobile-head">
+          <span class="mobile-logo">WANDA</span>
+          <button class="icon-btn" data-close-menu aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="mobile-nav" aria-label="Mobile">
+          <a href="index.html" class="mobile-link">HOME</a>
+          <a href="products.html" class="mobile-link">SHOP</a>
+          <a href="products.html" class="mobile-link">NEW ARRIVALS</a>
+          <a href="orders.html" class="mobile-link active">MY ORDERS</a>
+          <a href="contact.html" class="mobile-link">CONTACT</a>
+        </nav>
+      </aside>
+    </div>
+
+    <!-- ==================== ORDERS CONTENT ==================== -->
+    <main>
+      <section class="catalog-hero">
+        <div class="container">
+          <p class="catalog-hero__eyebrow">WANDA ACCOUNT</p>
+          <h1 class="catalog-hero__title">My Orders</h1>
+          <p class="catalog-hero__count" id="ordersCount">
+            You have 1 active order
+          </p>
+        </div>
+      </section>
+
+      <div class="container orders-page-main">
+        <div id="ordersContainer" class="orders-wrapper">
+          <!-- أوردر ثابت وستاتيك كأن المستخدم قام بطلبه فعلاً -->
+          <div class="order-card">
+            <div class="order-card-header">
+              <span><strong>Order ID:</strong> WANDA-849201</span>
+              <span><strong>Date:</strong> 17/11/2026</span>
+            </div>
+            <p class="order-info-line">
+              <strong>Recipient:</strong> David Raoof (01200000000)
+            </p>
+            <p class="order-info-address">
+              <strong>Address:</strong> 15 Tahrir Street, Downtown, Cairo
+            </p>
+
+            <div class="order-items-group">
+              <div class="checkout-item-row">
+                <img
+                  src="./assets/img2_1.webp"
+                  alt="Oversize premium cotton hoodie"
+                  class="checkout-item-img"
+                />
+                <div class="checkout-item-details">
+                  <span>Oversize premium cotton hoodie</span>
+                  <span class="checkout-item-meta"
+                    >Qty: 1 &bull; Size: M &bull; Style 1</span
+                  >
+                </div>
+                <strong>LE 750</strong>
+              </div>
+            </div>
+
+            <div
+              class="order-card-header"
+              style="
+                border-top: 1px solid
+                  color-mix(in srgb, var(--secondary) 10%, transparent);
+                border-bottom: none;
+                padding-top: 12px;
+                margin-bottom: 0;
+              "
+            >
+              <span
+                ><strong>Status:</strong>
+                <span style="color: #2563eb; font-weight: 700"
+                  >Processing &amp; Shipping</span
+                ></span
+              >
+              <span class="checkout-total-price"
+                ><strong>Total: LE 750</strong></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="orders-actions">
+          <a href="products.html" class="btn orders-continue-btn">
+            Continue Shopping
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer" id="footer">
+      <div class="site-footer__inner">
+        <a class="site-footer__logo" href="index.html" aria-label="Wanda home"
+          >WANDA</a
+        >
+
+        <p class="site-footer__description">
+          Contemporary pieces designed for everyday expression. Crafted with
+          intention, made to be lived in.
+        </p>
+
+        <nav class="site-footer__links" aria-label="Footer links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Shop</a>
+          <a href="products.html">New Arrivals</a>
+          <a href="orders.html">My Orders</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="site-footer__socials" aria-label="Social media">
+          <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <p class="site-footer__copyright">© 2026 WANDA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- ==================== RIGHT CART DRAWER ==================== -->
+    <div
+      class="cart-drawer"
+      id="cartDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cartDrawerTitle"
+      aria-hidden="true"
+    >
+      <div class="cart-drawer__backdrop" data-close-cart></div>
+      <aside class="cart-drawer__panel">
+        <div class="cart-drawer__head">
+          <h2 class="cart-drawer__title" id="cartDrawerTitle">
+            Shopping Bag (<span id="drawerCartCount">0</span>)
+          </h2>
+          <button
+            type="button"
+            class="icon-btn"
+            data-close-cart
+            aria-label="Close bag"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="cart-drawer__items" id="cartItemsContainer"></div>
+
+        <div class="cart-drawer__foot" id="cartDrawerFooter" hidden>
+          <div class="cart-drawer__subtotal">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">LE 0</strong>
+          </div>
+          <p class="cart-drawer__note">
+            Shipping &amp; taxes calculated at checkout.
+          </p>
+          <a
+            href="checkout.html"
+            class="cart-drawer__checkout"
+            id="checkoutBtn"
+          >
+            Proceed to Checkout
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <script src="products-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

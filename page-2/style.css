@@ -99,22 +99,6 @@ button {
   }
 }
 
-.badge-hot {
-  margin-left: 6px;
-  padding: 2px 6px;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.2;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--primary) 10%, var(--light));
-  color: var(--primary);
-}
-
-.badge-hot--lg {
-  margin-left: 0;
-  padding: 2px 8px;
-  font-size: 12px;
-}
 
 @keyframes fade-in {
   from {
