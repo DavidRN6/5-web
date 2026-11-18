@@ -2,10 +2,11 @@
   table of contents
 =========================
   1. Helpers & state
-  2. Navbar state (glass -> solid)
-  3. Static links (no navigation)
-  4. Cart badge
-  5. Mobile drawer
+  2. Static links (no navigation)
+  3. Cart badge
+  4. Drawer (hamburger)
+  5. Automotive & Spare Parts Deals Data
+  6. Hero Deals Slider (theme & content switching)
 */
 
 (() => {
@@ -17,28 +18,11 @@
     ...root.querySelectorAll(selector),
   ];
 
-  const navbar = $("#navbar");
-  const hero = $("#hero");
   const drawer = $("#drawer");
   const cartBadge = $("#cartBadge");
 
-  let cartCount = 0; // نادى window.setCartCount(n) لتغييره
-
   //=======================
-  // 2. Navbar state
-  //=======================
-  // الـ pill زجاجى فوق الصورة، ويتحول لكريمى لما نخرج من الهيرو
-  const onScroll = () => {
-    const limit = hero.offsetHeight - 110;
-    navbar.classList.toggle("is-solid", window.scrollY > limit);
-  };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  onScroll();
-
-  //=======================
-  // 3. Static links (no navigation)
+  // 2. Static links (no navigation)
   //=======================
   document.addEventListener("click", (e) => {
     const link = e.target.closest('a[href="#"]');
@@ -46,15 +30,13 @@
   });
 
   //=======================
-  // 4. Cart badge
+  // 3. Cart badge
   //=======================
+  let cartCount = 2;
+
   const renderCart = () => {
     cartBadge.textContent = cartCount;
     cartBadge.hidden = cartCount <= 0;
-    $("#cartBtn").setAttribute(
-      "aria-label",
-      `Shopping cart, ${cartCount} items`,
-    );
   };
 
   window.setCartCount = (n) => {
@@ -64,13 +46,12 @@
 
   renderCart();
 
-  // اربط الـ cart drawer بالـ event ده
   $("#cartBtn").addEventListener("click", () => {
     document.dispatchEvent(new CustomEvent("cart:open"));
   });
 
   //=======================
-  // 5. Mobile drawer
+  // 4. Drawer (hamburger)
   //=======================
   const openMenu = () => {
     drawer.classList.add("open");
@@ -93,118 +74,241 @@
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
-})();
 
-(() => {
   //=======================
-  // 6. Data
+  // 5. Deals Data (سيارات وقطع غيار)
   //=======================
-  // بدّل النصوص والصور بتاعتك
-  const collections = [
+  // theme: carbon | racing-red | pearl | midnight-blue
+  // استبدل مسارات الصور بصور PNG شفافة للسيارات وقطع الغيار
+  const deals = [
     {
-      title: "Purify & Balance",
-      text: "Clarify and refresh your skin with botanical actives.",
-      cta: "Shop Cleansers",
-      image: "images/1.jpg",
+      id: "gtr-nismo",
+      category: "سيارات رياضية",
+      cardName: "نيسان GT-R نيسمو",
+      discountTag: "-12%",
+      badge: "عرض خاص لفترة محدودة",
+      watermark: "GT-R NISMO",
+      title: "نيسان GT-R<br />نيسمو 2026",
+      desc: "قوة 600 حصان مع باقة صيانة مجانية لمدة 3 سنوات وترخيص مجاني لأول سنة.",
+      price: 4250000,
+      oldPrice: 4800000,
+      ctaText: "احجز السيارة الآن",
+      offerNote: "متبقي 3 سيارات فقط",
+      theme: "carbon",
+      image: "images/nissan.png",
     },
     {
-      title: "Botanical Cleansing Soap",
-      text: "Gently cleanse and refresh your skin with botanical.",
-      cta: "Shop Cleansers",
-      image: "images/3-2.jpg",
+      id: "brembo-kit",
+      category: "قطع غيار رياضية",
+      cardName: "طقم فرامل Brembo GT",
+      discountTag: "-25%",
+      badge: "خصم 25% على أنظمة الفرامل",
+      watermark: "BREMBO GT",
+      title: "طقم فرامل<br />Brembo 6-Piston",
+      desc: "طنابير مهواة مع تيل سيراميك عالي التحمل لأقصر مسافة توقف في الظروف الشاقة.",
+      price: 38500,
+      oldPrice: 51000,
+      ctaText: "اطلب الطقم الآن",
+      offerNote: "شامل التركيب المجاني",
+      theme: "racing-red",
+      image: "images/auto/brembo-brake.png",
     },
     {
-      title: "Balancing Botanical Serum",
-      text: "Nourish and balance your skin with a lightweight.",
-      cta: "Shop Serums",
-      image: "images/9-2.jpg",
+      id: "forged-wheels",
+      category: "جنوط وإطارات",
+      cardName: "طقم جنوط BBS Forged",
+      discountTag: "-18%",
+      badge: "باقة التوفير الرباعية",
+      watermark: "BBS FORGED",
+      title: "جنوط BBS<br />مقاس 20 إنش",
+      desc: "سبائك ألومنيوم خفيفة الوزن لثبات أعلى على السرعات العالية واستهلاك وقود أقل.",
+      price: 64000,
+      oldPrice: 78000,
+      ctaText: "استفد بالعرض",
+      offerNote: "ضمان 5 سنوات ضد الكسر",
+      theme: "pearl",
+      image: "images/auto/bbs-wheel.png",
     },
     {
-      title: "Botanical Moisturizing Cream",
-      text: "Hydrate and soften your skin with a daily cream.",
-      cta: "Shop Moisturizers",
-      image: "images/8-3.jpg",
+      id: "garrett-turbo",
+      category: "تعديل المحركات",
+      cardName: "شاحن تيربو Garrett G30",
+      discountTag: "-20%",
+      badge: "عرض الأداء الفائق",
+      watermark: "TURBO G30",
+      title: "تيربو Garrett<br />G30-770",
+      desc: "استجابة فورية للمحرك وزيادة في القدرة الحصانية تصل إلى 750 حصان مع تبريد مزدوج.",
+      price: 52000,
+      oldPrice: 65000,
+      ctaText: "اطلب القطعة الآن",
+      offerNote: "متوفر توصيل سريع",
+      theme: "midnight-blue",
+      image: "images/auto/turbo-kit.png",
     },
   ];
 
-  const ingredients = [
-    {
-      name: "Aloe Vera",
-      text: "Soothes & hydrates",
-      image: "images/ingredients/aloe-vera.jpg",
-    },
-    {
-      name: "Green Tea",
-      text: "Antioxidant protection",
-      image: "images/ingredients/green-tea.jpg",
-    },
-    {
-      name: "Jojoba Oil",
-      text: "Balances & nourishes",
-      image: "images/ingredients/jojoba-oil.jpg",
-    },
-    {
-      name: "Chamomile",
-      text: "Calms & comforts",
-      image: "images/ingredients/chamomile.jpg",
-    },
-    {
-      name: "Shea Butter",
-      text: "Deeply moisturizes",
-      image: "images/ingredients/shea-butter.jpg",
-    },
-  ];
+  const DEFAULT_THEME = "carbon";
 
   //=======================
-  // Render: collection cards
+  // 6. Hero Deals Slider
   //=======================
-  const waveSvg = `
-    <svg class="collection-card__wave" viewBox="0 0 400 28"
-         preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,16 C70,0 130,30 210,16 S340,2 400,14 V28 H0 Z" />
-    </svg>`;
+  const heroMedia = $("#heroMedia");
+  const heroContent = $("#heroContent");
+  const heroWatermark = $("#heroWatermark");
+  const heroBadge = $("#heroBadge span");
+  const heroTitle = $("#heroTitle");
+  const heroDesc = $("#heroDesc");
+  const heroPrice = $("#heroPrice");
+  const heroOldPrice = $("#heroOldPrice");
+  const heroCtaText = $("#heroCtaText");
+  const heroOfferNote = $("#heroOfferNote");
 
-  const collectionGrid = document.querySelector("#collectionGrid");
+  const list = $("#dealList");
+  const dotsWrap = $("#dots");
+  const stage = $("#stage");
 
-  if (collectionGrid) {
-    collectionGrid.innerHTML = collections
-      .map(
-        (c) => `
-        <article class="collection-card">
-          <a href="#" class="collection-card__media" tabindex="-1" aria-hidden="true">
-            <img src="${c.image}" alt="" loading="lazy" />
-          </a>
+  const formatPrice = (n) => `${n.toLocaleString("en-US")} ج.م`;
 
-          <div class="collection-card__body">
-            ${waveSvg}
-            <h3 class="collection-card__title">${c.title}</h3>
-            <p class="collection-card__text">${c.text}</p>
-            <a href="#" class="link-arrow">
-              ${c.cta} <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </article>`,
-      )
-      .join("");
-  }
+  let current = Math.max(
+    0,
+    deals.findIndex((d) => d.theme === DEFAULT_THEME),
+  );
+  let swapTimer;
 
-  //=======================
-  // Render: ingredients
-  //=======================
-  const ingredientList = document.querySelector("#ingredientList");
+  // Render Deal Cards
+  list.innerHTML = deals
+    .map(
+      (d, i) => `
+      <button class="deal-card" type="button" data-index="${i}" aria-pressed="false">
+        <span class="deal-card__tag">${d.discountTag}</span>
+        <img class="deal-card__img" src="${d.image}" alt="" loading="lazy" />
+        <span class="deal-card__divider"></span>
+        <span class="deal-card__info">
+          <span class="deal-card__category">${d.category}</span>
+          <span class="deal-card__name">${d.cardName}</span>
+          <span class="deal-card__price">${formatPrice(d.price)}</span>
+        </span>
+      </button>`,
+    )
+    .join("");
 
-  if (ingredientList) {
-    ingredientList.innerHTML = ingredients
-      .map(
-        (item) => `
-        <li class="ingredient">
-          <span class="ingredient__img">
-            <img src="${item.image}" alt="${item.name}" loading="lazy" />
-          </span>
-          <h3 class="ingredient__name">${item.name}</h3>
-          <p class="ingredient__text">${item.text}</p>
-        </li>`,
-      )
-      .join("");
-  }
+  // Render Dots
+  dotsWrap.innerHTML = deals
+    .map(
+      (d, i) =>
+        `<button class="dot" type="button" role="tab" data-index="${i}" aria-label="${d.cardName}"></button>`,
+    )
+    .join("");
+
+  const cards = $$(".deal-card", list);
+  const dots = $$(".dot", dotsWrap);
+
+  // Preload images
+  deals.forEach((d) => {
+    const img = new Image();
+    img.src = d.image;
+  });
+
+  const scrollCardIntoView = (card) => {
+    const left = card.offsetLeft - (list.clientWidth - card.clientWidth) / 2;
+    list.scrollTo({ left, behavior: "smooth" });
+  };
+
+  const updateHeroText = (deal) => {
+    heroWatermark.textContent = deal.watermark;
+    heroBadge.textContent = deal.badge;
+    heroTitle.innerHTML = deal.title;
+    heroDesc.textContent = deal.desc;
+    heroPrice.textContent = formatPrice(deal.price);
+    heroOldPrice.textContent = formatPrice(deal.oldPrice);
+    heroCtaText.textContent = deal.ctaText;
+    heroOfferNote.innerHTML = `<i class="fa-regular fa-clock"></i> ${deal.offerNote}`;
+  };
+
+  const setDeal = (index, { animate = true } = {}) => {
+    current = (index + deals.length) % deals.length;
+    const deal = deals[current];
+
+    // 1) تغيير ثيم الصفحة بالكامل
+    document.body.dataset.theme = deal.theme;
+
+    // 2) تفعيل الكارت والنقطة المطابقة
+    cards.forEach((card, i) => {
+      const active = i === current;
+      card.classList.toggle("is-active", active);
+      card.setAttribute("aria-pressed", String(active));
+    });
+
+    dots.forEach((dot, i) => {
+      const active = i === current;
+      dot.classList.toggle("is-active", active);
+      dot.setAttribute("aria-selected", String(active));
+    });
+
+    scrollCardIntoView(cards[current]);
+
+    // 3) تحديث الصورة ومحتوى العرض في الـ Hero
+    if (!animate) {
+      heroMedia.src = deal.image;
+      heroMedia.alt = deal.cardName;
+      updateHeroText(deal);
+      return;
+    }
+
+    clearTimeout(swapTimer);
+    heroMedia.classList.add("is-out");
+    heroContent.classList.add("is-swapping");
+
+    swapTimer = setTimeout(() => {
+      heroMedia.src = deal.image;
+      heroMedia.alt = deal.cardName;
+      updateHeroText(deal);
+
+      heroMedia.classList.remove("is-out");
+      heroContent.classList.remove("is-swapping");
+    }, 260);
+  };
+
+  // Events
+  list.addEventListener("click", (e) => {
+    const card = e.target.closest(".deal-card");
+    if (card) setDeal(Number(card.dataset.index));
+  });
+
+  dotsWrap.addEventListener("click", (e) => {
+    const dot = e.target.closest(".dot");
+    if (dot) setDeal(Number(dot.dataset.index));
+  });
+
+  // الأسهم (مع مراعاة اتجاه RTL)
+  $("#prevDeal").addEventListener("click", () => setDeal(current - 1));
+  $("#nextDeal").addEventListener("click", () => setDeal(current + 1));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") setDeal(current - 1);
+    if (e.key === "ArrowLeft") setDeal(current + 1);
+  });
+
+  // السحب باللمس على الموبايل
+  let touchStartX = 0;
+
+  stage.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    },
+    { passive: true },
+  );
+
+  stage.addEventListener(
+    "touchend",
+    (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) setDeal(current + (dx > 0 ? 1 : -1));
+    },
+    { passive: true },
+  );
+
+  // التحميل الأول
+  setDeal(current, { animate: false });
 })();
