@@ -1525,9 +1525,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-muted);
 }
 
-/* =========================
+/* =================
    10. Footer
-========================= */
+==================== */
 .footer {
   background-color: var(--sec-bg);
   border-top: 1px solid var(--sec-border);
