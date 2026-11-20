@@ -30,27 +30,6 @@
   });
 
   //=======================
-  // 3. Cart badge
-  //=======================
-  let cartCount = 2;
-
-  const renderCart = () => {
-    cartBadge.textContent = cartCount;
-    cartBadge.hidden = cartCount <= 0;
-  };
-
-  window.setCartCount = (n) => {
-    cartCount = Number(n) || 0;
-    renderCart();
-  };
-
-  renderCart();
-
-  $("#cartBtn").addEventListener("click", () => {
-    document.dispatchEvent(new CustomEvent("cart:open"));
-  });
-
-  //=======================
   // 4. Drawer (hamburger & dropdowns)
   //=======================
   const resetDrawerSubmenus = () => {
@@ -353,140 +332,7 @@
   //=======================
   // 7. Products Grid, Filter & See More
   //=======================
-  const products = [
-    {
-      id: 1,
-      name: "نيسان GT-R نيسمو 2026",
-      category: "سيارات رياضية",
-      type: "cars",
-      rating: "4.9",
-      price: 4250000,
-      oldPrice: 4800000,
-      badge: "عرض خاص",
-      image: "images/nissan.png",
-    },
-    {
-      id: 2,
-      name: "طقم فرامل Brembo GT 6-Piston",
-      category: "أنظمة الفرامل",
-      type: "parts",
-      rating: "4.8",
-      price: 38500,
-      oldPrice: 51000,
-      badge: "-25%",
-      image: "images/brembo-kit.png",
-    },
-    {
-      id: 3,
-      name: "طقم جنوط BBS Forged مقاس 20",
-      category: "الجنوط والإطارات",
-      type: "wheels",
-      rating: "4.9",
-      price: 64000,
-      oldPrice: 78000,
-      badge: "-18%",
-      image: "images/forged wheels.png",
-    },
-    {
-      id: 4,
-      name: "شاحن تيربو Garrett G30-770",
-      category: "الموتور والتيربو",
-      type: "parts",
-      rating: "4.7",
-      price: 52000,
-      oldPrice: 65000,
-      badge: "-20%",
-      image: "images/turbo-kit.png",
-    },
-    {
-      id: 5,
-      name: "طقم مساعدين كويل أوفر رياضي",
-      category: "المساعدين والعفشة",
-      type: "parts",
-      rating: "4.6",
-      price: 29500,
-      oldPrice: 34000,
-      badge: "جديد",
-      image: "images/brembo-kit.png",
-    },
-    {
-      id: 6,
-      name: "إطارات ميشلان بايلوت سبورت 5",
-      category: "الجنوط والإطارات",
-      type: "wheels",
-      rating: "4.9",
-      price: 24800,
-      oldPrice: 28000,
-      badge: "-11%",
-      image: "images/forged wheels.png",
-    },
-    {
-      id: 7,
-      name: "منظومة تبريد إنتركولر عالية الأداء",
-      category: "الموتور والتيربو",
-      type: "parts",
-      rating: "4.8",
-      price: 19200,
-      oldPrice: 22500,
-      badge: "-15%",
-      image: "images/turbo-kit.png",
-    },
-    {
-      id: 8,
-      name: "أقراص فرامل كربون سيراميك أمامية",
-      category: "أنظمة الفرامل",
-      type: "parts",
-      rating: "5.0",
-      price: 44000,
-      oldPrice: 52000,
-      badge: "الأكثر مبيعاً",
-      image: "images/brembo-kit.png",
-    },
-    {
-      id: 9,
-      name: "جنوط سبور سوداء مطفية مقاس 19",
-      category: "الجنوط والإطارات",
-      type: "wheels",
-      rating: "4.7",
-      price: 49500,
-      oldPrice: 57000,
-      badge: "-13%",
-      image: "images/forged wheels.png",
-    },
-    {
-      id: 10,
-      name: "فالف تيربو إلكتروني عالي التحمل",
-      category: "الموتور والتيربو",
-      type: "parts",
-      rating: "4.6",
-      price: 8900,
-      oldPrice: 10500,
-      badge: "-15%",
-      image: "images/turbo-kit.png",
-    },
-    {
-      id: 11,
-      name: "طقم فرامل خلفية 4-Piston رياضي",
-      category: "أنظمة الفرامل",
-      type: "parts",
-      rating: "4.8",
-      price: 27000,
-      oldPrice: 31500,
-      badge: "-14%",
-      image: "images/brembo-kit.png",
-    },
-    {
-      id: 12,
-      name: "باقة تعديل وإكسسوارات أيروديناميك",
-      category: "تعديل وإكسسوارات",
-      type: "cars",
-      rating: "4.9",
-      price: 73000,
-      oldPrice: 85000,
-      badge: "عرض محدود",
-      image: "images/nissan.png",
-    },
-  ];
+  const products = window.STORE_PRODUCTS || [];
 
   const productsGrid = $("#productsGrid");
   const filterTabs = $("#productFilters");
@@ -548,9 +394,7 @@
       const hasMore = filtered.length > INITIAL_VISIBLE;
       seeMoreBtn.hidden = !hasMore;
       seeMoreBtn.classList.toggle("is-expanded", isExpanded);
-      seeMoreText.textContent = isExpanded
-        ? "عرض أقل"
-        : `عرض المزيد`;
+      seeMoreText.textContent = isExpanded ? "عرض أقل" : `عرض المزيد`;
     }
   };
 
@@ -570,57 +414,34 @@
     });
   }
 
-  if (seeMoreBtn) {
-    seeMoreBtn.addEventListener("click", () => {
-      isExpanded = !isExpanded;
-      renderProducts();
-    });
-  }
-
   if (productsGrid) {
     productsGrid.addEventListener("click", (e) => {
       const addBtn = e.target.closest("[data-add-cart]");
       if (addBtn) {
-        window.setCartCount(cartCount + 1);
-      }
-
-      const favBtn = e.target.closest(".product-card__fav");
-      if (favBtn) {
-        favBtn.classList.toggle("is-liked");
-        const icon = favBtn.querySelector("i");
-        if (icon) {
-          icon.classList.toggle("fa-regular");
-          icon.classList.toggle("fa-solid");
+        const card = addBtn.closest(".product-card");
+        const product = products.find((p) => String(p.id) === card?.dataset.id);
+        if (product && window.StoreCart) {
+          window.StoreCart.add(product);
+          addBtn.classList.add("is-added");
+          setTimeout(() => addBtn.classList.remove("is-added"), 450);
         }
       }
     });
   }
-
-  if (categoriesGrid) {
-    categoriesGrid.addEventListener("click", (e) => {
-      const card = e.target.closest(".cat-card");
-      if (!card) return;
-
-      const filterKey = card.dataset.filter;
-      const mappedType =
-        filterKey === "sports" || filterKey === "suv"
-          ? "cars"
-          : filterKey === "wheels"
-            ? "wheels"
-            : "parts";
-
-      activeCategory = mappedType;
-      isExpanded = false;
-
-      if (filterTabs) {
-        $$(".filter-tab", filterTabs).forEach((btn) =>
-          btn.classList.toggle("is-active", btn.dataset.cat === mappedType),
-        );
-      }
-
-      renderProducts();
-    });
-  }
+  $("#heroCta")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const deal = deals[current];
+    if (deal && window.StoreCart) {
+      window.StoreCart.add({
+        id: deal.id,
+        name: deal.cardName,
+        category: deal.category,
+        price: deal.price,
+        image: deal.image,
+      });
+      window.StoreCart.open();
+    }
+  });
 
   renderProducts();
 })();

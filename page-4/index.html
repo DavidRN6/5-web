@@ -34,21 +34,23 @@
       <div class="container">
         <div class="navbar__inner">
           <!-- Logo -->
-          <a href="#" class="logo" aria-label="الرئيسية">
+          <a href="index.html" class="logo" aria-label="الرئيسية">
             APEX<span>AUTO</span>
           </a>
 
           <!-- Desktop nav -->
           <nav class="navbar__links" aria-label="القائمة الرئيسية">
+            <a href="index.html" class="navbar__link">الرئيسية</a>
+
             <div class="navbar__item has-menu">
               <a href="#" class="navbar__link">
                 السيارات <i class="fa-solid fa-chevron-down"></i>
               </a>
               <div class="menu">
-                <a href="#">سيارات رياضية</a>
-                <a href="#">دفع رباعي SUV</a>
-                <a href="#">سيدان فاخرة</a>
-                <a href="#">سيارات كهربائية</a>
+                <a href="products.html?cat=cars&sub=sports">سيارات رياضية</a>
+                <a href="products.html?cat=cars&sub=suv">دفع رباعي SUV</a>
+                <a href="products.html?cat=cars&sub=sedan">سيدان فاخرة</a>
+                <a href="products.html?cat=cars&sub=ev">سيارات كهربائية</a>
               </div>
             </div>
 
@@ -57,10 +59,14 @@
                 قطع الغيار <i class="fa-solid fa-chevron-down"></i>
               </a>
               <div class="menu">
-                <a href="#">الموتور والتيربو</a>
-                <a href="#">أنظمة الفرامل</a>
-                <a href="#">المساعدين والعفشة</a>
-                <a href="#">الفلاتر والزيوت</a>
+                <a href="products.html?cat=parts&sub=engine"
+                  >الموتور والتيربو</a
+                >
+                <a href="products.html?cat=parts&sub=brakes">أنظمة الفرامل</a>
+                <a href="products.html?cat=parts&sub=suspension"
+                  >المساعدين والعفشة</a
+                >
+                <a href="products.html?cat=parts&sub=oils">الفلاتر والزيوت</a>
               </div>
             </div>
 
@@ -69,22 +75,22 @@
                 الإطارات والجنوط <i class="fa-solid fa-chevron-down"></i>
               </a>
               <div class="menu">
-                <a href="#">جنوط سبور</a>
-                <a href="#">إطارات أداء عالي</a>
-                <a href="#">إكسسوارات العجلات</a>
+                <a href="products.html?cat=wheels&sub=rims">جنوط سبور</a>
+                <a href="products.html?cat=wheels&sub=tires"
+                  >إطارات أداء عالي</a
+                >
+                <a href="products.html?cat=wheels">إكسسوارات العجلات</a>
               </div>
             </div>
-
-            <a href="#" class="navbar__link">الصيانة الدورية</a>
 
             <div class="navbar__item has-menu">
               <a href="#" class="navbar__link navbar__link--hot">
                 عروض الموسم <i class="fa-solid fa-chevron-down"></i>
               </a>
               <div class="menu">
-                <a href="#">خصومات السيارات</a>
-                <a href="#">باقات قطع الغيار</a>
-                <a href="#">تصفية المخزون</a>
+                <a href="products.html?cat=cars">خصومات السيارات</a>
+                <a href="products.html?cat=parts">باقات قطع الغيار</a>
+                <a href="products.html?cat=all">تصفية المخزون</a>
               </div>
             </div>
           </nav>
@@ -133,6 +139,8 @@
         </div>
 
         <nav class="drawer__links" aria-label="القائمة الجانبية">
+          <a href="index.html" class="drawer__link">الرئيسية</a>
+
           <div class="drawer__group">
             <button
               class="drawer__link drawer__trigger"
@@ -143,10 +151,20 @@
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="drawer__sublist">
-              <a href="#" class="drawer__sublink">سيارات رياضية</a>
-              <a href="#" class="drawer__sublink">دفع رباعي SUV</a>
-              <a href="#" class="drawer__sublink">سيدان فاخرة</a>
-              <a href="#" class="drawer__sublink">سيارات كهربائية</a>
+              <a
+                href="products.html?cat=cars&sub=sports"
+                class="drawer__sublink"
+                >سيارات رياضية</a
+              >
+              <a href="products.html?cat=cars&sub=suv" class="drawer__sublink"
+                >دفع رباعي SUV</a
+              >
+              <a href="products.html?cat=cars&sub=sedan" class="drawer__sublink"
+                >سيدان فاخرة</a
+              >
+              <a href="products.html?cat=cars&sub=ev" class="drawer__sublink"
+                >سيارات كهربائية</a
+              >
             </div>
           </div>
 
@@ -160,10 +178,24 @@
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="drawer__sublist">
-              <a href="#" class="drawer__sublink">الموتور والتيربو</a>
-              <a href="#" class="drawer__sublink">أنظمة الفرامل</a>
-              <a href="#" class="drawer__sublink">المساعدين والعفشة</a>
-              <a href="#" class="drawer__sublink">الفلاتر والزيوت</a>
+              <a
+                href="products.html?cat=parts&sub=engine"
+                class="drawer__sublink"
+                >الموتور والتيربو</a
+              >
+              <a
+                href="products.html?cat=parts&sub=brakes"
+                class="drawer__sublink"
+                >أنظمة الفرامل</a
+              >
+              <a
+                href="products.html?cat=parts&sub=suspension"
+                class="drawer__sublink"
+                >المساعدين والعفشة</a
+              >
+              <a href="products.html?cat=parts&sub=oils" class="drawer__sublink"
+                >الفلاتر والزيوت</a
+              >
             </div>
           </div>
 
@@ -177,13 +209,21 @@
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="drawer__sublist">
-              <a href="#" class="drawer__sublink">جنوط سبور</a>
-              <a href="#" class="drawer__sublink">إطارات أداء عالي</a>
-              <a href="#" class="drawer__sublink">إكسسوارات العجلات</a>
+              <a
+                href="products.html?cat=wheels&sub=rims"
+                class="drawer__sublink"
+                >جنوط سبور</a
+              >
+              <a
+                href="products.html?cat=wheels&sub=tires"
+                class="drawer__sublink"
+                >إطارات أداء عالي</a
+              >
+              <a href="products.html?cat=wheels" class="drawer__sublink"
+                >إكسسوارات العجلات</a
+              >
             </div>
           </div>
-
-          <a href="#" class="drawer__link">الصيانة الدورية</a>
 
           <div class="drawer__group">
             <button
@@ -195,9 +235,15 @@
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="drawer__sublist">
-              <a href="#" class="drawer__sublink">خصومات السيارات</a>
-              <a href="#" class="drawer__sublink">باقات قطع الغيار</a>
-              <a href="#" class="drawer__sublink">تصفية المخزون</a>
+              <a href="products.html?cat=cars" class="drawer__sublink"
+                >خصومات السيارات</a
+              >
+              <a href="products.html?cat=parts" class="drawer__sublink"
+                >باقات قطع الغيار</a
+              >
+              <a href="products.html?cat=all" class="drawer__sublink"
+                >تصفية المخزون</a
+              >
             </div>
           </div>
         </nav>
@@ -316,14 +362,18 @@
               <span class="sec-eyebrow">تصفح حسب التخصص</span>
               <h2 class="sec-title">أقسام السيارات وقطع الغيار</h2>
             </div>
-            <a href="#products" class="sec-link">
+            <a href="products.html" class="sec-link">
               كل المنتجات <i class="fa-solid fa-arrow-left"></i>
             </a>
           </div>
 
           <div class="categories-grid" id="categoriesGrid">
-            <!-- يتم توليد الأقسام أو يمكنك تعديلها مباشرة -->
-            <a href="#products" class="cat-card" data-filter="sports">
+            <!-- 1 -->
+            <a
+              href="products.html?cat=cars&sub=sports"
+              class="cat-card"
+              data-filter="sports"
+            >
               <div class="cat-card__icon">
                 <i class="fa-solid fa-gauge-high"></i>
               </div>
@@ -331,7 +381,12 @@
               <span class="cat-card__count">24 سيارة متاحة</span>
             </a>
 
-            <a href="#products" class="cat-card" data-filter="suv">
+            <!-- 2 -->
+            <a
+              href="products.html?cat=cars&sub=suv"
+              class="cat-card"
+              data-filter="suv"
+            >
               <div class="cat-card__icon">
                 <i class="fa-solid fa-truck-monster"></i>
               </div>
@@ -339,7 +394,12 @@
               <span class="cat-card__count">18 سيارة متاحة</span>
             </a>
 
-            <a href="#products" class="cat-card" data-filter="engine">
+            <!-- 3 -->
+            <a
+              href="products.html?cat=parts&sub=engine"
+              class="cat-card"
+              data-filter="engine"
+            >
               <div class="cat-card__icon">
                 <i class="fa-solid fa-gears"></i>
               </div>
@@ -347,7 +407,12 @@
               <span class="cat-card__count">145 قطعة غيار</span>
             </a>
 
-            <a href="#products" class="cat-card" data-filter="brakes">
+            <!-- 4 -->
+            <a
+              href="products.html?cat=parts&sub=brakes"
+              class="cat-card"
+              data-filter="brakes"
+            >
               <div class="cat-card__icon">
                 <i class="fa-solid fa-compact-disc"></i>
               </div>
@@ -355,7 +420,12 @@
               <span class="cat-card__count">92 قطعة غيار</span>
             </a>
 
-            <a href="#products" class="cat-card" data-filter="suspension">
+            <!-- 5 -->
+            <a
+              href="products.html?cat=parts&sub=suspension"
+              class="cat-card"
+              data-filter="suspension"
+            >
               <div class="cat-card__icon">
                 <i class="fa-solid fa-car-burst"></i>
               </div>
@@ -363,7 +433,12 @@
               <span class="cat-card__count">76 قطعة غيار</span>
             </a>
 
-            <a href="#products" class="cat-card" data-filter="wheels">
+            <!-- 6 -->
+            <a
+              href="products.html?cat=wheels"
+              class="cat-card"
+              data-filter="wheels"
+            >
               <div class="cat-card__icon">
                 <i class="fa-solid fa-circle-dot"></i>
               </div>
@@ -371,7 +446,12 @@
               <span class="cat-card__count">110 طقم</span>
             </a>
 
-            <a href="#products" class="cat-card" data-filter="oils">
+            <!-- 7 -->
+            <a
+              href="products.html?cat=parts&sub=oils"
+              class="cat-card"
+              data-filter="oils"
+            >
               <div class="cat-card__icon">
                 <i class="fa-solid fa-oil-can"></i>
               </div>
@@ -379,7 +459,12 @@
               <span class="cat-card__count">210 منتج</span>
             </a>
 
-            <a href="#products" class="cat-card" data-filter="tuning">
+            <!-- 8 -->
+            <a
+              href="products.html?cat=cars&sub=tuning"
+              class="cat-card"
+              data-filter="tuning"
+            >
               <div class="cat-card__icon">
                 <i class="fa-solid fa-bolt"></i>
               </div>
@@ -416,15 +501,15 @@
             </div>
           </div>
 
-          <!-- شبكة المنتجات (تتولد من script.js) -->
+          <!-- Takes from scripts -->
           <div class="products-grid" id="productsGrid"></div>
 
           <!-- زر See More -->
           <div class="products-more">
-            <button class="btn-more" type="button" id="seeMoreBtn">
-              <span id="seeMoreText">عرض المزيد</span>
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
+            <a href="products.html" class="btn-more">
+              <span>عرض المزيد</span>
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
           </div>
         </div>
       </section>
@@ -592,6 +677,8 @@
       </a>
     </div>
 
+    <script src="products-data.js"></script>
+    <script src="cart.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
