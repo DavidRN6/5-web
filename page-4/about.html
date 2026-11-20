@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;1,800;1,900&family=Cairo:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <title>APEX AUTO — من نحن</title>
+  </head>
+
+  <body data-theme="carbon" class="catalog-body">
+    <!-- ==================== NAVBAR (قابل للتعديل حسب ما تحب) ==================== -->
+    <header class="navbar navbar--solid" id="navbar">
+      <div class="container">
+        <div class="navbar__inner">
+          <!-- Logo -->
+          <a href="index.html" class="logo" aria-label="الرئيسية">
+            APEX<span>AUTO</span>
+          </a>
+
+          <!-- Desktop nav -->
+          <nav class="navbar__links" aria-label="القائمة الرئيسية">
+            <a href="index.html" class="navbar__link">الرئيسية</a>
+            <a href="about.html" class="navbar__link">من نحن</a>
+
+            <div class="navbar__item has-menu">
+              <a href="#" class="navbar__link">
+                السيارات <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="menu">
+                <a href="products.html?cat=cars&sub=sports">سيارات رياضية</a>
+                <a href="products.html?cat=cars&sub=suv">دفع رباعي SUV</a>
+                <a href="products.html?cat=cars&sub=sedan">سيدان فاخرة</a>
+                <a href="products.html?cat=cars&sub=ev">سيارات كهربائية</a>
+              </div>
+            </div>
+
+            <div class="navbar__item has-menu">
+              <a href="#" class="navbar__link">
+                قطع الغيار <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="menu">
+                <a href="products.html?cat=parts&sub=engine"
+                  >الموتور والتيربو</a
+                >
+                <a href="products.html?cat=parts&sub=brakes">أنظمة الفرامل</a>
+                <a href="products.html?cat=parts&sub=suspension"
+                  >المساعدين والعفشة</a
+                >
+                <a href="products.html?cat=parts&sub=oils">الفلاتر والزيوت</a>
+              </div>
+            </div>
+
+            <div class="navbar__item has-menu">
+              <a href="#" class="navbar__link">
+                الإطارات والجنوط <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="menu">
+                <a href="products.html?cat=wheels&sub=rims">جنوط سبور</a>
+                <a href="products.html?cat=wheels&sub=tires"
+                  >إطارات أداء عالي</a
+                >
+                <a href="products.html?cat=wheels">إكسسوارات العجلات</a>
+              </div>
+            </div>
+
+            <div class="navbar__item has-menu">
+              <a href="#" class="navbar__link navbar__link--hot">
+                عروض الموسم <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="menu">
+                <a href="products.html?cat=cars">خصومات السيارات</a>
+                <a href="products.html?cat=parts">باقات قطع الغيار</a>
+                <a href="products.html?cat=all">تصفية المخزون</a>
+              </div>
+            </div>
+          </nav>
+
+          <!-- Actions -->
+          <div class="navbar__actions">
+            <button
+              class="navbar__icon"
+              type="button"
+              id="cartBtn"
+              aria-label="سلة المشتريات"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-badge" id="cartBadge">2</span>
+            </button>
+            <button
+              class="navbar__icon navbar__menu-btn"
+              type="button"
+              id="openMenu"
+              aria-label="فتح القائمة"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ Drawer (للشاشات الصغيرة فقط) ============ -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__backdrop" data-close-menu></div>
+
+      <aside class="drawer__panel">
+        <div class="drawer__head">
+          <a href="#" class="logo" aria-label="الرئيسية">
+            APEX<span>AUTO</span>
+          </a>
+          <button
+            class="navbar__icon"
+            type="button"
+            data-close-menu
+            aria-label="إغلاق القائمة"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="drawer__links" aria-label="القائمة الجانبية">
+          <a href="index.html" class="drawer__link">الرئيسية</a>
+          <a href="about.html" class="navbar__link">من نحن</a>
+
+          <div class="drawer__group">
+            <button
+              class="drawer__link drawer__trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span>السيارات</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublist">
+              <a
+                href="products.html?cat=cars&sub=sports"
+                class="drawer__sublink"
+                >سيارات رياضية</a
+              >
+              <a href="products.html?cat=cars&sub=suv" class="drawer__sublink"
+                >دفع رباعي SUV</a
+              >
+              <a href="products.html?cat=cars&sub=sedan" class="drawer__sublink"
+                >سيدان فاخرة</a
+              >
+              <a href="products.html?cat=cars&sub=ev" class="drawer__sublink"
+                >سيارات كهربائية</a
+              >
+            </div>
+          </div>
+
+          <div class="drawer__group">
+            <button
+              class="drawer__link drawer__trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span>قطع الغيار</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublist">
+              <a
+                href="products.html?cat=parts&sub=engine"
+                class="drawer__sublink"
+                >الموتور والتيربو</a
+              >
+              <a
+                href="products.html?cat=parts&sub=brakes"
+                class="drawer__sublink"
+                >أنظمة الفرامل</a
+              >
+              <a
+                href="products.html?cat=parts&sub=suspension"
+                class="drawer__sublink"
+                >المساعدين والعفشة</a
+              >
+              <a href="products.html?cat=parts&sub=oils" class="drawer__sublink"
+                >الفلاتر والزيوت</a
+              >
+            </div>
+          </div>
+
+          <div class="drawer__group">
+            <button
+              class="drawer__link drawer__trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span>الإطارات والجنوط</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublist">
+              <a
+                href="products.html?cat=wheels&sub=rims"
+                class="drawer__sublink"
+                >جنوط سبور</a
+              >
+              <a
+                href="products.html?cat=wheels&sub=tires"
+                class="drawer__sublink"
+                >إطارات أداء عالي</a
+              >
+              <a href="products.html?cat=wheels" class="drawer__sublink"
+                >إكسسوارات العجلات</a
+              >
+            </div>
+          </div>
+
+          <div class="drawer__group">
+            <button
+              class="drawer__link drawer__trigger drawer__trigger--hot"
+              type="button"
+              aria-expanded="false"
+            >
+              <span>عروض الموسم</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublist">
+              <a href="products.html?cat=cars" class="drawer__sublink"
+                >خصومات السيارات</a
+              >
+              <a href="products.html?cat=parts" class="drawer__sublink"
+                >باقات قطع الغيار</a
+              >
+              <a href="products.html?cat=all" class="drawer__sublink"
+                >تصفية المخزون</a
+              >
+            </div>
+          </div>
+        </nav>
+
+        <div class="drawer__socials">
+          <a href="#" aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="YouTube"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+          <a href="#" aria-label="WhatsApp"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ==================== ABOUT PAGE CONTENT ==================== -->
+    <main class="store-sections about-page">
+      <!-- 1. مقدمة من نحن + إحصائيات -->
+      <section class="about-hero">
+        <div class="container">
+          <div class="catalog-breadcrumb">
+            <a href="index.html">الرئيسية</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>من نحن</span>
+          </div>
+
+          <div class="about-hero__grid">
+            <div class="about-hero__content">
+              <span class="sec-eyebrow">قصتنا ورؤيتنا</span>
+              <h1 class="about-hero__title">
+                نصنع تجربة قيادة <span>بأعلى معايير الأداء والثقة</span>
+              </h1>
+              <p class="about-hero__desc">
+                في <strong>APEX AUTO</strong> نجمع بين شغف السيارات الرياضية
+                والعملية وبين توفير قطع الغيار الأصلية المعتمدة وحلول التعديل
+                والضبط الدقيق. هدفنا إن كل سائق يلاقي القطعة أو السيارة المناسبة
+                لاحتياجه بجودة مضمونة وسعر واضح.
+              </p>
+
+              <div class="about-actions">
+                <a href="products.html" class="btn-more">
+                  <span>تصفح المنتجات</span>
+                  <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <a href="#footer" class="about-ghost-btn">تواصل معنا</a>
+              </div>
+            </div>
+
+            <div class="about-hero__card">
+              <div class="about-showcase">
+                <img
+                  src="images/nissan.png"
+                  alt="سيارة رياضية من APEX AUTO"
+                  loading="lazy"
+                />
+              </div>
+              <div class="about-stats">
+                <div class="about-stat">
+                  <strong>+12</strong>
+                  <span>سنوات خبرة في السوق</span>
+                </div>
+                <div class="about-stat">
+                  <strong>+18K</strong>
+                  <span>عميل ومركبة مخدومة</span>
+                </div>
+                <div class="about-stat">
+                  <strong>100%</strong>
+                  <span>قطع غيار أصلية ومضمونة</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. رؤيتنا ورسالتنا وقيمنا -->
+      <section class="about-pillars">
+        <div class="container">
+          <div class="sec-head">
+            <div>
+              <span class="sec-eyebrow">لماذا APEX AUTO</span>
+              <h2 class="sec-title">رؤيتنا والقيم التي نعمل بها</h2>
+            </div>
+          </div>
+
+          <div class="about-pillars__grid">
+            <article class="pillar-card">
+              <div class="pillar-card__icon">
+                <i class="fa-solid fa-compass"></i>
+              </div>
+              <h3 class="pillar-card__title">رؤيتنا</h3>
+              <p class="pillar-card__desc">
+                أن نكون الوجهة الأولى والموثوقة لعشاق السيارات وأصحاب الورش
+                والسائقين اليوميين في توفير حلول الأداء والصيانة المتكاملة.
+              </p>
+            </article>
+
+            <article class="pillar-card">
+              <div class="pillar-card__icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 class="pillar-card__title">الجودة والموثوقية</h3>
+              <p class="pillar-card__desc">
+                نختار منتجاتنا بعناية من علامات تجارية معروفة بكفاءتها العالية
+                وتحملها للظروف القاسية على الطرق والمضامير.
+              </p>
+            </article>
+
+            <article class="pillar-card">
+              <div class="pillar-card__icon">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <h3 class="pillar-card__title">دعم فني متخصص</h3>
+              <p class="pillar-card__desc">
+                نساعدك في اختيار المقاسات والتوافق الفني الصحيح قبل الشراء لتجنب
+                أي أخطاء أو تكاليف إضافية.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. رحلتنا / المحطات الرئيسية -->
+      <section class="about-milestones">
+        <div class="container">
+          <div class="sec-head">
+            <div>
+              <span class="sec-eyebrow">مسيرتنا</span>
+              <h2 class="sec-title">محطات مهمة في تطورنا</h2>
+            </div>
+          </div>
+
+          <div class="milestones-grid">
+            <div class="milestone-item">
+              <span class="milestone-item__year">2014</span>
+              <h3 class="milestone-item__title">البداية في قطع الغيار</h3>
+              <p class="milestone-item__desc">
+                انطلقنا بتركيز واضح على أنظمة الفرامل والتعليق والقطع الأساسية
+                للسيارات الأوروبية واليابانية.
+              </p>
+            </div>
+
+            <div class="milestone-item">
+              <span class="milestone-item__year">2019</span>
+              <h3 class="milestone-item__title">قسم الأداء والتعديل</h3>
+              <p class="milestone-item__desc">
+                أضفنا حلول التيربو والتبريد والجنوط الرياضية الخفيفة لتلبية
+                احتياجات عشاق الأداء العالي.
+              </p>
+            </div>
+
+            <div class="milestone-item">
+              <span class="milestone-item__year">2023</span>
+              <h3 class="milestone-item__title">توسع المعرض والسيارات</h3>
+              <p class="milestone-item__desc">
+                افتتحنا صالة عرض متكاملة للسيارات الرياضية والعملية مع باقات فحص
+                وصيانة دورية.
+              </p>
+            </div>
+
+            <div class="milestone-item">
+              <span class="milestone-item__year">2026</span>
+              <h3 class="milestone-item__title">تجربة رقمية أسرع</h3>
+              <p class="milestone-item__desc">
+                طورنا المتجر الإلكتروني لتصفح الفئات بسهولة، مقارنة الأسعار،
+                وإتمام الطلبات وتوصيلها مباشرة لباب بيتك.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FOOTER ==================== -->
+      <footer class="footer" id="footer">
+        <div class="container">
+          <div class="footer__top">
+            <div class="footer__brand">
+              <a href="index.html" class="logo" aria-label="الرئيسية">
+                APEX<span>AUTO</span>
+              </a>
+              <p class="footer__about">
+                وجهتك المتكاملة للسيارات الرياضية والعملية وقطع الغيار الأصلية
+                وحلول الأداء العالي بجودة مضمونة.
+              </p>
+              <div class="footer__socials">
+                <a href="#" aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="YouTube"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a href="#" aria-label="WhatsApp"
+                  ><i class="fa-brands fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="footer__col">
+              <h3 class="footer__heading">روابط سريعة</h3>
+              <ul class="footer__list">
+                <li><a href="index.html">الرئيسية والعروض</a></li>
+                <li><a href="products.html">السيارات وقطع الغيار</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="index.html#services">خدماتنا</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <h3 class="footer__heading">أبرز الأقسام</h3>
+              <ul class="footer__list">
+                <li>
+                  <a href="products.html?cat=cars">سيارات رياضية و SUV</a>
+                </li>
+                <li>
+                  <a href="products.html?cat=parts&sub=engine"
+                    >الموتور والتيربو</a
+                  >
+                </li>
+                <li>
+                  <a href="products.html?cat=parts&sub=brakes"
+                    >أنظمة الفرامل والعفشة</a
+                  >
+                </li>
+                <li><a href="products.html?cat=wheels">الجنوط والإطارات</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <h3 class="footer__heading">تواصل معنا</h3>
+              <ul class="footer__contact">
+                <li>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>الجيزة — المنطقة الصناعية، مصر</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-phone"></i>
+                  <span dir="ltr">+20 100 000 0000</span>
+                </li>
+                <li>
+                  <i class="fa-regular fa-envelope"></i>
+                  <span>support@apexauto.example</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer__bottom">
+            <p>© 2026 APEX AUTO. جميع الحقوق محفوظة.</p>
+            <div class="footer__legal">
+              <a href="#">سياسة الخصوصية</a>
+              <a href="#">الشروط والأحكام</a>
+              <a href="#">سياسة الاستبدال والضمان</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="cart.js"></script>
+    <script>
+      (() => {
+        const drawer = document.getElementById("drawer");
+        const openMenu = () => {
+          drawer?.classList.add("open");
+          drawer?.setAttribute("aria-hidden", "false");
+          document.body.classList.add("no-scroll");
+        };
+        const closeMenu = () => {
+          drawer?.classList.remove("open");
+          drawer?.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("no-scroll");
+        };
+        document
+          .getElementById("openMenu")
+          ?.addEventListener("click", openMenu);
+        document
+          .querySelectorAll("[data-close-menu]")
+          .forEach((el) => el.addEventListener("click", closeMenu));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeMenu();
+        });
+      })();
+    </script>
+  </body>
+</html>
