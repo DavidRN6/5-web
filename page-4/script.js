@@ -4,7 +4,7 @@
   1. Helpers & state
   2. Static links (no navigation)
   3. Cart badge
-  4. Drawer (hamburger)
+  4. Drawer (hamburger & dropdowns)
   5. Automotive & Spare Parts Deals Data
   6. Hero Deals Slider (theme & content switching)
 */
@@ -51,8 +51,16 @@
   });
 
   //=======================
-  // 4. Drawer (hamburger)
+  // 4. Drawer (hamburger & dropdowns)
   //=======================
+  const resetDrawerSubmenus = () => {
+    $$(".drawer__group.is-open", drawer).forEach((group) => {
+      group.classList.remove("is-open");
+      const btn = $(".drawer__trigger", group);
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    });
+  };
+
   const openMenu = () => {
     drawer.classList.add("open");
     drawer.setAttribute("aria-hidden", "false");
@@ -63,13 +71,44 @@
     drawer.classList.remove("open");
     drawer.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll");
+    resetDrawerSubmenus();
   };
+
+  // غلاف داخلي لحركة فتح/غلق القوائم الفرعية بسلاسة
+  $$(".drawer__sublist", drawer).forEach((sublist) => {
+    const inner = document.createElement("div");
+    inner.className = "drawer__sublist-inner";
+    while (sublist.firstChild) {
+      inner.appendChild(sublist.firstChild);
+    }
+    sublist.appendChild(inner);
+  });
+
+  $$(".drawer__trigger", drawer).forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const group = trigger.closest(".drawer__group");
+      const willOpen = !group.classList.contains("is-open");
+
+      $$(".drawer__group.is-open", drawer).forEach((other) => {
+        if (other !== group) {
+          other.classList.remove("is-open");
+          const otherBtn = $(".drawer__trigger", other);
+          if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      group.classList.toggle("is-open", willOpen);
+      trigger.setAttribute("aria-expanded", String(willOpen));
+    });
+  });
 
   $("#openMenu").addEventListener("click", openMenu);
   $$("[data-close-menu]").forEach((el) =>
     el.addEventListener("click", closeMenu),
   );
-  $$(".drawer__link").forEach((el) => el.addEventListener("click", closeMenu));
+  $$(".drawer__links > .drawer__link, .drawer__sublink").forEach((el) =>
+    el.addEventListener("click", closeMenu),
+  );
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
@@ -79,7 +118,6 @@
   // 5. Deals Data (سيارات وقطع غيار)
   //=======================
   // theme: carbon | racing-red | pearl | midnight-blue
-  // استبدل مسارات الصور بصور PNG شفافة للسيارات وقطع الغيار
   const deals = [
     {
       id: "gtr-nismo",
@@ -88,7 +126,7 @@
       discountTag: "-12%",
       badge: "عرض خاص لفترة محدودة",
       watermark: "GT-R NISMO",
-      title: "نيسان GT-R<br />نيسمو 2026",
+      title: "Nissan GT-R Nimso",
       desc: "قوة 600 حصان مع باقة صيانة مجانية لمدة 3 سنوات وترخيص مجاني لأول سنة.",
       price: 4250000,
       oldPrice: 4800000,
@@ -111,7 +149,7 @@
       ctaText: "اطلب الطقم الآن",
       offerNote: "شامل التركيب المجاني",
       theme: "racing-red",
-      image: "images/auto/brembo-brake.png",
+      image: "images/brembo-kit.png",
     },
     {
       id: "forged-wheels",
@@ -127,7 +165,7 @@
       ctaText: "استفد بالعرض",
       offerNote: "ضمان 5 سنوات ضد الكسر",
       theme: "pearl",
-      image: "images/auto/bbs-wheel.png",
+      image: "images/forged wheels.png",
     },
     {
       id: "garrett-turbo",
@@ -143,7 +181,7 @@
       ctaText: "اطلب القطعة الآن",
       offerNote: "متوفر توصيل سريع",
       theme: "midnight-blue",
-      image: "images/auto/turbo-kit.png",
+      image: "images/turbo-kit.png",
     },
   ];
 
@@ -311,4 +349,278 @@
 
   // التحميل الأول
   setDeal(current, { animate: false });
+
+  //=======================
+  // 7. Products Grid, Filter & See More
+  //=======================
+  const products = [
+    {
+      id: 1,
+      name: "نيسان GT-R نيسمو 2026",
+      category: "سيارات رياضية",
+      type: "cars",
+      rating: "4.9",
+      price: 4250000,
+      oldPrice: 4800000,
+      badge: "عرض خاص",
+      image: "images/nissan.png",
+    },
+    {
+      id: 2,
+      name: "طقم فرامل Brembo GT 6-Piston",
+      category: "أنظمة الفرامل",
+      type: "parts",
+      rating: "4.8",
+      price: 38500,
+      oldPrice: 51000,
+      badge: "-25%",
+      image: "images/brembo-kit.png",
+    },
+    {
+      id: 3,
+      name: "طقم جنوط BBS Forged مقاس 20",
+      category: "الجنوط والإطارات",
+      type: "wheels",
+      rating: "4.9",
+      price: 64000,
+      oldPrice: 78000,
+      badge: "-18%",
+      image: "images/forged wheels.png",
+    },
+    {
+      id: 4,
+      name: "شاحن تيربو Garrett G30-770",
+      category: "الموتور والتيربو",
+      type: "parts",
+      rating: "4.7",
+      price: 52000,
+      oldPrice: 65000,
+      badge: "-20%",
+      image: "images/turbo-kit.png",
+    },
+    {
+      id: 5,
+      name: "طقم مساعدين كويل أوفر رياضي",
+      category: "المساعدين والعفشة",
+      type: "parts",
+      rating: "4.6",
+      price: 29500,
+      oldPrice: 34000,
+      badge: "جديد",
+      image: "images/brembo-kit.png",
+    },
+    {
+      id: 6,
+      name: "إطارات ميشلان بايلوت سبورت 5",
+      category: "الجنوط والإطارات",
+      type: "wheels",
+      rating: "4.9",
+      price: 24800,
+      oldPrice: 28000,
+      badge: "-11%",
+      image: "images/forged wheels.png",
+    },
+    {
+      id: 7,
+      name: "منظومة تبريد إنتركولر عالية الأداء",
+      category: "الموتور والتيربو",
+      type: "parts",
+      rating: "4.8",
+      price: 19200,
+      oldPrice: 22500,
+      badge: "-15%",
+      image: "images/turbo-kit.png",
+    },
+    {
+      id: 8,
+      name: "أقراص فرامل كربون سيراميك أمامية",
+      category: "أنظمة الفرامل",
+      type: "parts",
+      rating: "5.0",
+      price: 44000,
+      oldPrice: 52000,
+      badge: "الأكثر مبيعاً",
+      image: "images/brembo-kit.png",
+    },
+    {
+      id: 9,
+      name: "جنوط سبور سوداء مطفية مقاس 19",
+      category: "الجنوط والإطارات",
+      type: "wheels",
+      rating: "4.7",
+      price: 49500,
+      oldPrice: 57000,
+      badge: "-13%",
+      image: "images/forged wheels.png",
+    },
+    {
+      id: 10,
+      name: "فالف تيربو إلكتروني عالي التحمل",
+      category: "الموتور والتيربو",
+      type: "parts",
+      rating: "4.6",
+      price: 8900,
+      oldPrice: 10500,
+      badge: "-15%",
+      image: "images/turbo-kit.png",
+    },
+    {
+      id: 11,
+      name: "طقم فرامل خلفية 4-Piston رياضي",
+      category: "أنظمة الفرامل",
+      type: "parts",
+      rating: "4.8",
+      price: 27000,
+      oldPrice: 31500,
+      badge: "-14%",
+      image: "images/brembo-kit.png",
+    },
+    {
+      id: 12,
+      name: "باقة تعديل وإكسسوارات أيروديناميك",
+      category: "تعديل وإكسسوارات",
+      type: "cars",
+      rating: "4.9",
+      price: 73000,
+      oldPrice: 85000,
+      badge: "عرض محدود",
+      image: "images/nissan.png",
+    },
+  ];
+
+  const productsGrid = $("#productsGrid");
+  const filterTabs = $("#productFilters");
+  const seeMoreBtn = $("#seeMoreBtn");
+  const seeMoreText = $("#seeMoreText");
+  const categoriesGrid = $("#categoriesGrid");
+
+  const INITIAL_VISIBLE = 8;
+  let activeCategory = "all";
+  let isExpanded = false;
+
+  const renderProducts = () => {
+    if (!productsGrid) return;
+
+    const filtered =
+      activeCategory === "all"
+        ? products
+        : products.filter((p) => p.type === activeCategory);
+
+    const visibleItems = isExpanded
+      ? filtered
+      : filtered.slice(0, INITIAL_VISIBLE);
+
+    productsGrid.innerHTML = visibleItems
+      .map(
+        (item) => `
+        <article class="product-card" data-id="${item.id}">
+          ${item.badge ? `<span class="product-card__badge">${item.badge}</span>` : ""}
+          <div class="product-card__media">
+            <img src="${item.image}" alt="${item.name}" loading="lazy" />
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__meta">
+              <span>${item.category}</span>
+              <span class="product-card__rating">
+                <i class="fa-solid fa-star"></i> ${item.rating}
+              </span>
+            </div>
+            <h3 class="product-card__title">${item.name}</h3>
+            <div class="product-card__footer">
+              <div>
+                <span class="product-card__price">${formatPrice(item.price)}</span>
+                ${
+                  item.oldPrice
+                    ? `<span class="product-card__old">${formatPrice(item.oldPrice)}</span>`
+                    : ""
+                }
+              </div>
+              <button class="product-card__btn" type="button" data-add-cart aria-label="أضف ${item.name} إلى السلة">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </article>`,
+      )
+      .join("");
+
+    if (seeMoreBtn && seeMoreText) {
+      const hasMore = filtered.length > INITIAL_VISIBLE;
+      seeMoreBtn.hidden = !hasMore;
+      seeMoreBtn.classList.toggle("is-expanded", isExpanded);
+      seeMoreText.textContent = isExpanded
+        ? "عرض أقل"
+        : `عرض المزيد`;
+    }
+  };
+
+  if (filterTabs) {
+    filterTabs.addEventListener("click", (e) => {
+      const tab = e.target.closest(".filter-tab");
+      if (!tab) return;
+
+      activeCategory = tab.dataset.cat;
+      isExpanded = false;
+
+      $$(".filter-tab", filterTabs).forEach((btn) =>
+        btn.classList.toggle("is-active", btn === tab),
+      );
+
+      renderProducts();
+    });
+  }
+
+  if (seeMoreBtn) {
+    seeMoreBtn.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+      renderProducts();
+    });
+  }
+
+  if (productsGrid) {
+    productsGrid.addEventListener("click", (e) => {
+      const addBtn = e.target.closest("[data-add-cart]");
+      if (addBtn) {
+        window.setCartCount(cartCount + 1);
+      }
+
+      const favBtn = e.target.closest(".product-card__fav");
+      if (favBtn) {
+        favBtn.classList.toggle("is-liked");
+        const icon = favBtn.querySelector("i");
+        if (icon) {
+          icon.classList.toggle("fa-regular");
+          icon.classList.toggle("fa-solid");
+        }
+      }
+    });
+  }
+
+  if (categoriesGrid) {
+    categoriesGrid.addEventListener("click", (e) => {
+      const card = e.target.closest(".cat-card");
+      if (!card) return;
+
+      const filterKey = card.dataset.filter;
+      const mappedType =
+        filterKey === "sports" || filterKey === "suv"
+          ? "cars"
+          : filterKey === "wheels"
+            ? "wheels"
+            : "parts";
+
+      activeCategory = mappedType;
+      isExpanded = false;
+
+      if (filterTabs) {
+        $$(".filter-tab", filterTabs).forEach((btn) =>
+          btn.classList.toggle("is-active", btn.dataset.cat === mappedType),
+        );
+      }
+
+      renderProducts();
+    });
+  }
+
+  renderProducts();
 })();

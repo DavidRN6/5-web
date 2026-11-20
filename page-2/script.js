@@ -679,4 +679,96 @@
   $$("[data-close-menu]").forEach((el) =>
     el.addEventListener("click", closeMenu),
   );
+
+  // ==========================================
+    // 7. Black Friday Deals Auto-Slider
+    // ==========================================
+    const dealSlider = $("#dealSlider");
+    const dealViewport = $("#dealViewport");
+    const dealTrack = $("#dealTrack");
+    const dealSlides = $$(".deal-slide", dealSlider);
+    const dealDots = $$("[data-deal-dot]", dealSlider);
+
+    if (dealSlider && dealViewport && dealTrack && dealSlides.length > 0) {
+      let dealIndex = 0;
+      let dealTimer = null;
+      const AUTO_DELAY = 4500;
+
+      const goToDeal = (i) => {
+        dealIndex = (i + dealSlides.length) % dealSlides.length;
+        dealTrack.style.transform = `translateX(-${dealIndex * 100}%)`;
+
+        dealSlides.forEach((slide, n) => {
+          const isCurrent = n === dealIndex;
+          slide.classList.toggle("is-active", isCurrent);
+          slide.toggleAttribute("inert", !isCurrent);
+        });
+
+        dealDots.forEach((dot, n) => {
+          dot.classList.remove("active");
+          void dot.offsetWidth;
+          if (n === dealIndex) {
+            dot.classList.add("active");
+            dot.setAttribute("aria-current", "true");
+          } else {
+            dot.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      const startAutoDeal = () => {
+        stopAutoDeal();
+        dealTimer = setInterval(() => {
+          goToDeal(dealIndex + 1);
+        }, AUTO_DELAY);
+      };
+
+      const stopAutoDeal = () => {
+        if (dealTimer) {
+          clearInterval(dealTimer);
+          dealTimer = null;
+        }
+      };
+
+      dealDots.forEach((dot) =>
+        dot.addEventListener("click", () => {
+          goToDeal(Number(dot.dataset.dealDot));
+          startAutoDeal();
+        }),
+      );
+
+      dealSlider.addEventListener("mouseenter", stopAutoDeal);
+      dealSlider.addEventListener("mouseleave", startAutoDeal);
+
+      let dealStartX = null;
+      dealViewport.addEventListener("pointerdown", (e) => {
+        dealStartX = e.clientX;
+        stopAutoDeal();
+      });
+      dealViewport.addEventListener("pointerup", (e) => {
+        if (dealStartX === null) return;
+        const dx = e.clientX - dealStartX;
+        dealStartX = null;
+        if (Math.abs(dx) > 50) goToDeal(dealIndex + (dx < 0 ? 1 : -1));
+        startAutoDeal();
+      });
+      dealViewport.addEventListener("pointercancel", () => {
+        dealStartX = null;
+        startAutoDeal();
+      });
+
+      dealSlider.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") {
+          goToDeal(dealIndex + 1);
+          startAutoDeal();
+        }
+        if (e.key === "ArrowLeft") {
+          goToDeal(dealIndex - 1);
+          startAutoDeal();
+        }
+      });
+
+      goToDeal(0);
+      startAutoDeal();
+    }
 })();

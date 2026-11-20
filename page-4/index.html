@@ -84,12 +84,6 @@
 
           <!-- Actions -->
           <div class="navbar__actions">
-            <button class="navbar__icon" type="button" aria-label="بحث">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-            <button class="navbar__icon" type="button" aria-label="حسابي">
-              <i class="fa-regular fa-user"></i>
-            </button>
             <button
               class="navbar__icon"
               type="button"
@@ -100,7 +94,7 @@
               <span class="cart-badge" id="cartBadge">2</span>
             </button>
             <button
-              class="navbar__icon"
+              class="navbar__icon navbar__menu-btn"
               type="button"
               id="openMenu"
               aria-label="فتح القائمة"
@@ -112,7 +106,7 @@
       </div>
     </header>
 
-    <!-- ============ Drawer (hamburger) ============ -->
+    <!-- ============ Drawer (للشاشات الصغيرة فقط) ============ -->
     <div class="drawer" id="drawer" aria-hidden="true">
       <div class="drawer__backdrop" data-close-menu></div>
 
@@ -132,11 +126,73 @@
         </div>
 
         <nav class="drawer__links" aria-label="القائمة الجانبية">
-          <a href="#" class="drawer__link">السيارات</a>
-          <a href="#" class="drawer__link">قطع الغيار</a>
-          <a href="#" class="drawer__link">الإطارات والجنوط</a>
+          <div class="drawer__group">
+            <button
+              class="drawer__link drawer__trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span>السيارات</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublist">
+              <a href="#" class="drawer__sublink">سيارات رياضية</a>
+              <a href="#" class="drawer__sublink">دفع رباعي SUV</a>
+              <a href="#" class="drawer__sublink">سيدان فاخرة</a>
+              <a href="#" class="drawer__sublink">سيارات كهربائية</a>
+            </div>
+          </div>
+
+          <div class="drawer__group">
+            <button
+              class="drawer__link drawer__trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span>قطع الغيار</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublist">
+              <a href="#" class="drawer__sublink">الموتور والتيربو</a>
+              <a href="#" class="drawer__sublink">أنظمة الفرامل</a>
+              <a href="#" class="drawer__sublink">المساعدين والعفشة</a>
+              <a href="#" class="drawer__sublink">الفلاتر والزيوت</a>
+            </div>
+          </div>
+
+          <div class="drawer__group">
+            <button
+              class="drawer__link drawer__trigger"
+              type="button"
+              aria-expanded="false"
+            >
+              <span>الإطارات والجنوط</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublist">
+              <a href="#" class="drawer__sublink">جنوط سبور</a>
+              <a href="#" class="drawer__sublink">إطارات أداء عالي</a>
+              <a href="#" class="drawer__sublink">إكسسوارات العجلات</a>
+            </div>
+          </div>
+
           <a href="#" class="drawer__link">الصيانة الدورية</a>
-          <a href="#" class="drawer__link">عروض الموسم</a>
+
+          <div class="drawer__group">
+            <button
+              class="drawer__link drawer__trigger drawer__trigger--hot"
+              type="button"
+              aria-expanded="false"
+            >
+              <span>عروض الموسم</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublist">
+              <a href="#" class="drawer__sublink">خصومات السيارات</a>
+              <a href="#" class="drawer__sublink">باقات قطع الغيار</a>
+              <a href="#" class="drawer__sublink">تصفية المخزون</a>
+            </div>
+          </div>
         </nav>
 
         <div class="drawer__socials">
@@ -242,6 +298,288 @@
         </div>
       </div>
     </main>
+
+    <!-- ==================== STORE SECTIONS ==================== -->
+    <div class="store-sections">
+      <!-- 1. CATEGORIES SECTION -->
+      <section class="categories-sec" id="categories">
+        <div class="container">
+          <div class="sec-head">
+            <div>
+              <span class="sec-eyebrow">تصفح حسب التخصص</span>
+              <h2 class="sec-title">أقسام السيارات وقطع الغيار</h2>
+            </div>
+            <a href="#products" class="sec-link">
+              كل المنتجات <i class="fa-solid fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <div class="categories-grid" id="categoriesGrid">
+            <!-- يتم توليد الأقسام أو يمكنك تعديلها مباشرة -->
+            <a href="#products" class="cat-card" data-filter="sports">
+              <div class="cat-card__icon">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <h3 class="cat-card__title">سيارات رياضية</h3>
+              <span class="cat-card__count">24 سيارة متاحة</span>
+            </a>
+
+            <a href="#products" class="cat-card" data-filter="suv">
+              <div class="cat-card__icon">
+                <i class="fa-solid fa-truck-monster"></i>
+              </div>
+              <h3 class="cat-card__title">دفع رباعي SUV</h3>
+              <span class="cat-card__count">18 سيارة متاحة</span>
+            </a>
+
+            <a href="#products" class="cat-card" data-filter="engine">
+              <div class="cat-card__icon">
+                <i class="fa-solid fa-gears"></i>
+              </div>
+              <h3 class="cat-card__title">الموتور والتيربو</h3>
+              <span class="cat-card__count">145 قطعة غيار</span>
+            </a>
+
+            <a href="#products" class="cat-card" data-filter="brakes">
+              <div class="cat-card__icon">
+                <i class="fa-solid fa-compact-disc"></i>
+              </div>
+              <h3 class="cat-card__title">أنظمة الفرامل</h3>
+              <span class="cat-card__count">92 قطعة غيار</span>
+            </a>
+
+            <a href="#products" class="cat-card" data-filter="suspension">
+              <div class="cat-card__icon">
+                <i class="fa-solid fa-car-burst"></i>
+              </div>
+              <h3 class="cat-card__title">المساعدين والعفشة</h3>
+              <span class="cat-card__count">76 قطعة غيار</span>
+            </a>
+
+            <a href="#products" class="cat-card" data-filter="wheels">
+              <div class="cat-card__icon">
+                <i class="fa-solid fa-circle-dot"></i>
+              </div>
+              <h3 class="cat-card__title">الجنوط والإطارات</h3>
+              <span class="cat-card__count">110 طقم</span>
+            </a>
+
+            <a href="#products" class="cat-card" data-filter="oils">
+              <div class="cat-card__icon">
+                <i class="fa-solid fa-oil-can"></i>
+              </div>
+              <h3 class="cat-card__title">الزيوت والفلاتر</h3>
+              <span class="cat-card__count">210 منتج</span>
+            </a>
+
+            <a href="#products" class="cat-card" data-filter="tuning">
+              <div class="cat-card__icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <h3 class="cat-card__title">تعديل وإكسسوارات</h3>
+              <span class="cat-card__count">84 منتج</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PRODUCTS SECTION -->
+      <section class="products-sec" id="products">
+        <div class="container">
+          <div class="sec-head">
+            <div>
+              <span class="sec-eyebrow">الأكثر طلباً ومبيعاً</span>
+              <h2 class="sec-title">أحدث السيارات وقطع الغيار</h2>
+            </div>
+
+            <!-- أزرار فلترة سريعة -->
+            <div class="filter-tabs" id="productFilters">
+              <button class="filter-tab is-active" type="button" data-cat="all">
+                الكل
+              </button>
+              <button class="filter-tab" type="button" data-cat="cars">
+                سيارات
+              </button>
+              <button class="filter-tab" type="button" data-cat="parts">
+                قطع غيار
+              </button>
+              <button class="filter-tab" type="button" data-cat="wheels">
+                جنوط وإطارات
+              </button>
+            </div>
+          </div>
+
+          <!-- شبكة المنتجات (تتولد من script.js) -->
+          <div class="products-grid" id="productsGrid"></div>
+
+          <!-- زر See More -->
+          <div class="products-more">
+            <button class="btn-more" type="button" id="seeMoreBtn">
+              <span id="seeMoreText">عرض المزيد</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. SERVICES SECTION -->
+      <section class="services-sec" id="services">
+        <div class="container">
+          <div class="sec-head">
+            <div>
+              <span class="sec-eyebrow">لماذا تختار APEX AUTO</span>
+              <h2 class="sec-title">خدماتنا المتكاملة للسيارات</h2>
+            </div>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-card__num">01</div>
+              <div class="service-card__icon">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <h3 class="service-card__title">فحص وتشخيص إلكتروني</h3>
+              <p class="service-card__desc">
+                فحص شامل للمحرك والفتيس وأنظمة الفرامل بأحدث أجهزة التشخيص
+                الدقيقة قبل الشراء أو الصيانة.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card__num">02</div>
+              <div class="service-card__icon">
+                <i class="fa-solid fa-wrench"></i>
+              </div>
+              <h3 class="service-card__title">تركيب وتعديل الأداء</h3>
+              <p class="service-card__desc">
+                تركيب أطقم الفرامل، التيربو، المساعدين، والجنوط على يد فنيين
+                متخصصين بمعايير دقة عالية.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card__num">03</div>
+              <div class="service-card__icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 class="service-card__title">قطع غيار أصلية وضمان</h3>
+              <p class="service-card__desc">
+                نوفر قطع غيار أصلية ومعتمدة مع فاتورة وضمان واضح ضد عيوب الصناعة
+                لتطمينك على سيارتك.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card__num">04</div>
+              <div class="service-card__icon">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <h3 class="service-card__title">شحن وتوصيل سريع</h3>
+              <p class="service-card__desc">
+                توصيل آمن وسريع لجميع المحافظات مع متابعة لحظية للطلب حتى باب
+                المنزل أو مركز الخدمة.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. FOOTER -->
+      <footer class="footer" id="footer">
+        <div class="container">
+          <div class="footer__top">
+            <!-- Brand & Socials -->
+            <div class="footer__brand">
+              <a href="#" class="logo" aria-label="الرئيسية">
+                APEX<span>AUTO</span>
+              </a>
+              <p class="footer__about">
+                وجهتك المتكاملة للسيارات الرياضية والعملية وقطع الغيار الأصلية
+                وحلول الأداء العالي بجودة مضمونة.
+              </p>
+              <div class="footer__socials">
+                <a href="#" aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="YouTube"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a href="#" aria-label="WhatsApp"
+                  ><i class="fa-brands fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer__col">
+              <h3 class="footer__heading">روابط سريعة</h3>
+              <ul class="footer__list">
+                <li><a href="#">الرئيسية والعروض</a></li>
+                <li><a href="#categories">أقسام المتجر</a></li>
+                <li><a href="#products">السيارات وقطع الغيار</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+              </ul>
+            </div>
+
+            <!-- Categories Links -->
+            <div class="footer__col">
+              <h3 class="footer__heading">أبرز الأقسام</h3>
+              <ul class="footer__list">
+                <li><a href="#products">سيارات رياضية و SUV</a></li>
+                <li><a href="#products">الموتور والتيربو</a></li>
+                <li><a href="#products">أنظمة الفرامل والعفشة</a></li>
+                <li><a href="#products">الجنوط والإطارات</a></li>
+              </ul>
+            </div>
+
+            <!-- Contact & Newsletter -->
+            <div class="footer__col">
+              <h3 class="footer__heading">تواصل معنا</h3>
+              <ul class="footer__contact">
+                <li>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>الجيزة — المنطقة الصناعية، مصر</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-phone"></i>
+                  <span dir="ltr">+20 100 000 0000</span>
+                </li>
+                <li>
+                  <i class="fa-regular fa-envelope"></i>
+                  <span>support@apexauto.example</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer__bottom">
+            <p>© 2026 APEX AUTO. جميع الحقوق محفوظة.</p>
+            <div class="footer__legal">
+              <a href="#">سياسة الخصوصية</a>
+              <a href="#">الشروط والأحكام</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ======= Arrows ======= -->
+    <div class="floating-links" aria-label="Page shortcuts">
+      <a
+        class="floating-link"
+        href="../page-3/index.html"
+        aria-label="Open page 2"
+      >
+        <i class="fa-solid fa-angle-right"></i>
+      </a>
+
+      <a class="floating-link" href="../page-5/index.html" aria-label="Open page 5">
+        <i class="fa-solid fa-angle-left"></i>
+      </a>
+    </div>
 
     <script src="script.js"></script>
   </body>
