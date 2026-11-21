@@ -1,25 +1,731 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google Font -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Golden Sweet Creations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      referrerpolicy="no-referrer"
     />
-    <!-- Style Sheet -->
-    <link href="styles.css" rel="stylesheet" />
-    <title>Page 2</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="promo">Get 50% on first order from store</div>
+
+    <!-- ================= Navbar ================= -->
+    <header class="nav">
+      <div class="nav__bar">
+        <button class="icon-btn bag" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+        </button>
+
+        <a
+          href="#"
+          class="logo logo--mobile"
+          aria-label="Golden Sweet Creations"
+          >Harvest</a
+        >
+
+        <ul class="menu" id="menu">
+          <li><a href="#">About</a></li>
+          <li class="has-dd">
+            <button
+              class="dd-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <span>Blog Pages</span>
+              <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+            </button>
+            <div class="dd">
+              <ul>
+                <li><a href="#">Blog Grid</a></li>
+                <li><a href="#">Blog List</a></li>
+                <li><a href="#">Single Post</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">Our Menu</a></li>
+          <li class="logo--desktop"><a href="#" class="logo">Harvest</a></li>
+          <li><a href="#">Membership</a></li>
+          <li><a href="#">Services</a></li>
+          <li class="has-dd">
+            <button
+              class="dd-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <span>Pages</span>
+              <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+            </button>
+            <div class="dd">
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="menu__lang has-dd lang-dd">
+            <button
+              type="button"
+              class="lang-btn dd-toggle"
+              aria-label="Language"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+              <span class="lang-current">EN</span>
+              <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+            </button>
+            <div class="dd">
+              <ul>
+                <li>
+                  <button type="button" data-lang="EN" class="active">
+                    English (EN)
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-lang="AR">العربية (AR)</button>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nav__right">
+          <div class="has-dd lang-dd">
+            <button
+              type="button"
+              class="lang-btn dd-toggle"
+              aria-label="Language"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+              <span class="lang-current">EN</span>
+              <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+            </button>
+            <div class="dd">
+              <ul>
+                <li>
+                  <button type="button" data-lang="EN" class="active">
+                    English (EN)
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-lang="AR">العربية (AR)</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <button
+            class="icon-btn burger"
+            id="burger"
+            aria-label="Menu"
+            aria-expanded="false"
+            aria-controls="menu"
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= Hero ================= -->
+    <main class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <span class="eyebrow">Endless</span>
+        <h1>
+          <span>Baking Happiness</span>
+          <span>for every heart</span>
+        </h1>
+        <p class="joy">Taste the joy!</p>
+
+        <div class="features">
+          <div class="feat">
+            <i class="fa-solid fa-ban" aria-hidden="true"></i>
+            <span>No artificial colors added</span>
+          </div>
+          <div class="feat">
+            <i class="fa-solid fa-flask" aria-hidden="true"></i>
+            <span>No chemicals in our bakes</span>
+          </div>
+          <div class="feat">
+            <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+            <span>No artificial flavors used</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================= ABOUT US ================= -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__media">
+          <div class="about__img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80"
+              alt="Freshly baked artisan bread and pastries"
+              loading="lazy"
+            />
+          </div>
+          <div class="about__badge">
+            <strong>100%</strong>
+            <span>Fresh Daily</span>
+          </div>
+        </div>
+
+        <div class="about__content">
+          <span class="eyebrow">Our Story</span>
+          <h2 class="sec-title">Crafted with Love &amp; Pure Ingredients</h2>
+          <p class="sec-desc">
+            At Harvest, every loaf, tart, and pastry begins with organic flour,
+            real farm butter, and zero artificial additives. We bake in small
+            morning batches so every bite brings genuine warmth to your table.
+          </p>
+
+          <div class="about__stats">
+            <div class="stat">
+              <strong>15+</strong>
+              <span>Years Baking</span>
+            </div>
+            <div class="stat">
+              <strong>40+</strong>
+              <span>Daily Recipes</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Natural</span>
+            </div>
+          </div>
+
+          <a href="#products" class="btn-primary">
+            <span>Explore Our Bakes</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CATEGORIES ================= -->
+    <section class="section categories" id="categories">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Browse By</span>
+          <h2 class="sec-title">Sweet Categories</h2>
+        </div>
+
+        <div class="cat-grid">
+          <a href="#products" class="cat-card">
+            <div class="cat-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+                alt="Artisan Cakes"
+                loading="lazy"
+              />
+            </div>
+            <h3>Artisan Cakes</h3>
+            <span>12 Items</span>
+          </a>
+
+          <a href="#products" class="cat-card">
+            <div class="cat-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
+                alt="Flaky Croissants"
+                loading="lazy"
+              />
+            </div>
+            <h3>Croissants</h3>
+            <span>8 Items</span>
+          </a>
+
+          <a href="#products" class="cat-card">
+            <div class="cat-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80"
+                alt="Glazed Donuts"
+                loading="lazy"
+              />
+            </div>
+            <h3>Glazed Donuts</h3>
+            <span>10 Items</span>
+          </a>
+
+          <a href="#products" class="cat-card">
+            <div class="cat-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80"
+                alt="Soft Cookies"
+                loading="lazy"
+              />
+            </div>
+            <h3>Soft Cookies</h3>
+            <span>14 Items</span>
+          </a>
+
+          <a href="#products" class="cat-card">
+            <div class="cat-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+                alt="Artisan Cakes"
+                loading="lazy"
+              />
+            </div>
+            <h3>Artisan Cakes</h3>
+            <span>12 Items</span>
+          </a>
+
+          <a href="#products" class="cat-card">
+            <div class="cat-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
+                alt="Flaky Croissants"
+                loading="lazy"
+              />
+            </div>
+            <h3>Croissants</h3>
+            <span>8 Items</span>
+          </a>
+
+          <a href="#products" class="cat-card">
+            <div class="cat-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80"
+                alt="Glazed Donuts"
+                loading="lazy"
+              />
+            </div>
+            <h3>Glazed Donuts</h3>
+            <span>10 Items</span>
+          </a>
+
+          <a href="#products" class="cat-card">
+            <div class="cat-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80"
+                alt="Soft Cookies"
+                loading="lazy"
+              />
+            </div>
+            <h3>Soft Cookies</h3>
+            <span>14 Items</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRODUCTS ================= -->
+    <section class="section products" id="products">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Fresh From Oven</span>
+          <h2 class="sec-title">Signature Creations</h2>
+        </div>
+
+        <div class="prod-grid">
+          <article class="prod-card">
+            <div class="prod-card__img">
+              <span class="prod-tag">Best Seller</span>
+              <img
+                src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"
+                alt="Berry Velvet Tart"
+                loading="lazy"
+              />
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-cat">Artisan Cakes</span>
+              <h3>Berry Velvet Tart</h3>
+              <div class="prod-card__foot">
+                <strong class="prod-price">$14.50</strong>
+                <button
+                  type="button"
+                  class="add-btn"
+                  aria-label="Add Berry Velvet Tart to cart"
+                >
+                  <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="prod-card">
+            <div class="prod-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&w=700&q=80"
+                alt="Almond Butter Croissant"
+                loading="lazy"
+              />
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-cat">Croissants</span>
+              <h3>Almond Butter Croissant</h3>
+              <div class="prod-card__foot">
+                <strong class="prod-price">$6.00</strong>
+                <button
+                  type="button"
+                  class="add-btn"
+                  aria-label="Add Almond Butter Croissant to cart"
+                >
+                  <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="prod-card">
+            <div class="prod-card__img">
+              <span class="prod-tag">New</span>
+              <img
+                src="https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6?auto=format&fit=crop&w=700&q=80"
+                alt="Rose Glazed Donut"
+                loading="lazy"
+              />
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-cat">Glazed Donuts</span>
+              <h3>Rose Glazed Donut</h3>
+              <div class="prod-card__foot">
+                <strong class="prod-price">$4.50</strong>
+                <button
+                  type="button"
+                  class="add-btn"
+                  aria-label="Add Rose Glazed Donut to cart"
+                >
+                  <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="prod-card">
+            <div class="prod-card__img">
+              <img
+                src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=700&q=80"
+                alt="Dark Choco Chunk Cookie"
+                loading="lazy"
+              />
+            </div>
+            <div class="prod-card__body">
+              <span class="prod-cat">Soft Cookies</span>
+              <h3>Dark Choco Chunk</h3>
+              <div class="prod-card__foot">
+                <strong class="prod-price">$3.80</strong>
+                <button
+                  type="button"
+                  class="add-btn"
+                  aria-label="Add Dark Choco Chunk to cart"
+                >
+                  <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REELS ================= -->
+    <section class="section reels" id="reels">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">Behind The Scenes</span>
+          <h2 class="sec-title">Fresh Oven Reels</h2>
+        </div>
+
+        <div class="reels-grid">
+          <!-- 1 -->
+          <article class="reel-card">
+            <div class="reel-card__media">
+              <video
+                src="videos/video.mp4"
+                playsinline
+                controls
+                preload="metadata"
+              ></video>
+            </div>
+            <div class="reel-card__caption">
+              <h3>Morning Butter Fold</h3>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="reel-card">
+            <div class="reel-card__media">
+              <video
+                src="videos/video 2.mp4"
+                playsinline
+                controls
+                preload="metadata"
+              ></video>
+              <button
+                type="button"
+                class="reel-play"
+                aria-label="Play Velvet Ganache Pour reel"
+              >
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="reel-card__caption">
+              <h3>Velvet Ganache Pour</h3>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="reel-card">
+            <div class="reel-card__media">
+              <video
+                src="videos/video.mp4"
+                playsinline
+                controls
+                preload="metadata"
+              ></video>
+              <button
+                type="button"
+                class="reel-play"
+                aria-label="Play Artisan Crust Scoring reel"
+              >
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="reel-card__caption">
+              <h3>Artisan Crust Scoring</h3>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="reel-card">
+            <div class="reel-card__media">
+              <video
+                src="videos/video 2.mp4"
+                playsinline
+                controls
+                preload="metadata"
+              ></video>
+              <button
+                type="button"
+                class="reel-play"
+                aria-label="Play Warm Cookie Pull reel"
+              >
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="reel-card__caption">
+              <h3>Warm Cookie Pull</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REVIEWS ================= -->
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <div class="sec-head sec-head--row">
+          <div>
+            <span class="eyebrow">Loved By Bakers &amp; Guests</span>
+            <h2 class="sec-title">Happy Reviews</h2>
+          </div>
+
+          <div class="rev-controls" aria-label="Reviews navigation">
+            <button
+              type="button"
+              class="rev-arrow"
+              id="revPrev"
+              aria-label="Previous reviews"
+            >
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="rev-arrow"
+              id="revNext"
+              aria-label="Next reviews"
+            >
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="rev-viewport" id="revViewport">
+          <div class="rev-track" id="revTrack">
+            <article class="rev-card">
+              <div class="rev-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="rev-text">
+                "The almond croissant tastes genuinely buttery and light, and
+                you can tell there are zero artificial flavors. Our weekend
+                staple."
+              </p>
+              <div class="rev-author">
+                <strong>Nadia Mansour</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </article>
+
+            <article class="rev-card">
+              <div class="rev-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="rev-text">
+                "Ordered the Berry Velvet Tart for a family dinner and everyone
+                asked where it came from. Fresh, balanced sweetness, and neat
+                packaging."
+              </p>
+              <div class="rev-author">
+                <strong>Omar El-Sherif</strong>
+                <span>Regular Guest</span>
+              </div>
+            </article>
+
+            <article class="rev-card">
+              <div class="rev-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="rev-text">
+                "Finally a bakery where kids can enjoy treats without heavy dyes
+                or chemical aftertaste. The soft cookies are unbeatable."
+              </p>
+              <div class="rev-author">
+                <strong>Salma Hegazy</strong>
+                <span>Membership Member</span>
+              </div>
+            </article>
+
+            <article class="rev-card">
+              <div class="rev-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="rev-text">
+                "The rose glazed donut is soft, floral, and never overly sweet.
+                Delivery arrived right on time while still warm."
+              </p>
+              <div class="rev-author">
+                <strong>Karim Nabil</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </article>
+
+            <article class="rev-card">
+              <div class="rev-stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="rev-text">
+                "Every morning batch feels like a little celebration. The dark
+                choco chunk cookies have crispy edges and a gooey center."
+              </p>
+              <div class="rev-author">
+                <strong>Yasmine Adel</strong>
+                <span>Regular Guest</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="footer__bg" aria-hidden="true"></div>
+      <div class="container footer__content">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a href="#" class="logo">Harvest</a>
+            <p class="sec-desc">
+              Small-batch artisan bakes made with natural ingredients and zero
+              artificial shortcuts.
+            </p>
+            <div class="footer__socials">
+              <a href="#" class="icon-btn" aria-label="Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="icon-btn" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="icon-btn" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__cols">
+            <div class="footer__col">
+              <h4>Explore</h4>
+              <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#products">Our Menu</a></li>
+                <li><a href="#reels">Reels</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Membership</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <h4>Bakery Hours</h4>
+              <ul class="footer__hours">
+                <li><span>Sun – Thu:</span> 8am – 10pm</li>
+                <li><span>Fri – Sat:</span> 9am – 11pm</li>
+                <li><span>hello@harvestbakes.com</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <span>&copy; 2026 Harvest. All rights reserved.</span>
+          <span>Baked fresh with care</span>
+        </div>
+      </div>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
