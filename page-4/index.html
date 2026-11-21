@@ -41,7 +41,6 @@
           <!-- Desktop nav -->
           <nav class="navbar__links" aria-label="القائمة الرئيسية">
             <a href="index.html" class="navbar__link">الرئيسية</a>
-            <a href="about.html" class="navbar__link">من نحن</a>
 
             <div class="navbar__item has-menu">
               <a href="#" class="navbar__link">
@@ -141,7 +140,6 @@
 
         <nav class="drawer__links" aria-label="القائمة الجانبية">
           <a href="index.html" class="drawer__link">الرئيسية</a>
-          <a href="about.html" class="navbar__link">من نحن</a>
 
           <div class="drawer__group">
             <button
@@ -356,7 +354,45 @@
 
     <!-- ==================== STORE SECTIONS ==================== -->
     <div class="store-sections">
-      <!-- 1. CATEGORIES SECTION -->
+      <!-- 1. about SECTION -->
+      <section class="about-sec" id="about">
+        <!-- الصورة المندمجة في الخلفية -->
+        <div class="about-sec__bg" aria-hidden="true">
+          <img src="images/about.jpg" alt="" loading="lazy" />
+        </div>
+
+        <div class="container">
+          <div class="about-sec__content">
+            <div class="about-sec__brand" aria-hidden="true">
+              APEX<span>AUTO</span>
+            </div>
+
+            <h2 class="about-sec__title">
+              <span>APEX AUTO</span> للسيارات وقطع الغيار
+            </h2>
+
+            <p class="about-sec__subtitle">
+              أداء رياضي • قطع غيار أصلية • حلول تعديل متكاملة
+            </p>
+
+            <p class="about-sec__desc">
+              مركز متكامل لتوفير السيارات الرياضية والعملية وقطع الغيار الأصلية
+              بأعلى معايير الجودة والاعتمادية. نوفر أنظمة الفرامل، التيربو،
+              التعليق، والجنوط الرياضية من أشهر العلامات العالمية، مع دعم فني
+              متخصص يضمن التوافق الدقيق وأعلى أداء لسيارتك على الطريق.
+            </p>
+
+            <span class="about-sec__line" aria-hidden="true"></span>
+
+            <a href="products.html" class="about-sec__more">
+              <span>اكتشف المزيد</span>
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CATEGORIES SECTION -->
       <section class="categories-sec" id="categories">
         <div class="container">
           <div class="sec-head">
@@ -477,7 +513,7 @@
         </div>
       </section>
 
-      <!-- 2. PRODUCTS SECTION -->
+      <!-- 3. PRODUCTS SECTION -->
       <section class="products-sec" id="products">
         <div class="container">
           <div class="sec-head">
@@ -516,7 +552,7 @@
         </div>
       </section>
 
-      <!-- 3. SERVICES SECTION -->
+      <!-- 4. SERVICES SECTION -->
       <section class="services-sec" id="services">
         <div class="container">
           <div class="sec-head">
@@ -578,7 +614,7 @@
         </div>
       </section>
 
-      <!-- 4. FOOTER -->
+      <!-- 5. FOOTER -->
       <footer class="footer" id="footer">
         <div class="container">
           <div class="footer__top">
