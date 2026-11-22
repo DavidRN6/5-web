@@ -1932,7 +1932,13 @@ ul {
   }
   .shop-bar {
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
+  }
+  .chips,
+  .shop-tools {
+    min-width: 0;
+    max-width: 100%;
   }
   .chips {
     flex-wrap: nowrap;
@@ -1943,9 +1949,16 @@ ul {
   .chip {
     flex: none;
   }
+  .shop-tools {
+    flex-wrap: nowrap;
+  }
   .shop-tools .search {
     flex: 1;
-    min-width: 160px;
+    min-width: 0;
+  }
+  .shop-tools select {
+    flex: none;
+    max-width: 52%;
   }
   .search input {
     width: 100%;
@@ -2031,4 +2044,11 @@ ul {
 /* scroll offset للأنكور بسبب الـ navbar الثابت */
 [id] {
   scroll-margin-top: 110px;
+}
+
+@media (max-width: 540px) {
+  .page-head {
+    padding-top: calc(var(--nav-h) + 96px);
+    padding-bottom: 36px;
+  }
 }
