@@ -24,9 +24,10 @@
     <!-- ================= Navbar ================= -->
     <header class="nav">
       <div class="nav__bar">
-        <button class="icon-btn bag" aria-label="Cart">
+        <a href="cart.html" class="icon-btn bag" aria-label="Cart">
           <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
-        </button>
+          <span class="cart-count" hidden>0</span>
+        </a>
 
         <a
           href="#"
@@ -36,42 +37,47 @@
         >
 
         <ul class="menu" id="menu">
-          <li><a href="#">About</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
           <li class="has-dd">
             <button
               class="dd-toggle"
               aria-expanded="false"
               aria-haspopup="true"
             >
-              <span>Blog Pages</span>
+              <span>Menu</span>
               <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
             </button>
             <div class="dd">
               <ul>
-                <li><a href="#">Blog Grid</a></li>
-                <li><a href="#">Blog List</a></li>
-                <li><a href="#">Single Post</a></li>
+                <li><a href="products.html">All Products</a></li>
+                <li><a href="products.html?cat=cakes">Artisan Cakes</a></li>
+                <li><a href="products.html?cat=croissants">Croissants</a></li>
+                <li><a href="products.html?cat=donuts">Glazed Donuts</a></li>
+                <li><a href="products.html?cat=cookies">Soft Cookies</a></li>
               </ul>
             </div>
           </li>
-          <li><a href="#">Our Menu</a></li>
-          <li class="logo--desktop"><a href="#" class="logo">Harvest</a></li>
-          <li><a href="#">Membership</a></li>
-          <li><a href="#">Services</a></li>
+          <li class="logo--desktop">
+            <a href="index.html" class="logo">Harvest</a>
+          </li>
+          <li><a href="index.html#reels">Reels</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
           <li class="has-dd">
             <button
               class="dd-toggle"
               aria-expanded="false"
               aria-haspopup="true"
             >
-              <span>Pages</span>
+              <span>More</span>
               <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
             </button>
             <div class="dd">
               <ul>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html#categories">Categories</a></li>
+                <li><a href="index.html#products">Signature Creations</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
               </ul>
             </div>
           </li>
@@ -230,7 +236,7 @@
         </div>
 
         <div class="cat-grid">
-          <a href="#products" class="cat-card">
+          <a href="products.html?cat=cakes" class="cat-card">
             <div class="cat-card__img">
               <img
                 src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
@@ -242,7 +248,7 @@
             <span>12 Items</span>
           </a>
 
-          <a href="#products" class="cat-card">
+          <a href="products.html?cat=croissants" class="cat-card">
             <div class="cat-card__img">
               <img
                 src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
@@ -254,7 +260,7 @@
             <span>8 Items</span>
           </a>
 
-          <a href="#products" class="cat-card">
+          <a href="products.html?cat=donuts" class="cat-card">
             <div class="cat-card__img">
               <img
                 src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80"
@@ -266,7 +272,7 @@
             <span>10 Items</span>
           </a>
 
-          <a href="#products" class="cat-card">
+          <a href="products.html?cat=cookies" class="cat-card">
             <div class="cat-card__img">
               <img
                 src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80"
@@ -278,7 +284,7 @@
             <span>14 Items</span>
           </a>
 
-          <a href="#products" class="cat-card">
+          <a href="products.html?cat=cakes" class="cat-card">
             <div class="cat-card__img">
               <img
                 src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
@@ -290,7 +296,7 @@
             <span>12 Items</span>
           </a>
 
-          <a href="#products" class="cat-card">
+          <a href="products.html?cat=croissants" class="cat-card">
             <div class="cat-card__img">
               <img
                 src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
@@ -302,7 +308,7 @@
             <span>8 Items</span>
           </a>
 
-          <a href="#products" class="cat-card">
+          <a href="products.html?cat=donuts" class="cat-card">
             <div class="cat-card__img">
               <img
                 src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80"
@@ -314,7 +320,7 @@
             <span>10 Items</span>
           </a>
 
-          <a href="#products" class="cat-card">
+          <a href="products.html?cat=cookies" class="cat-card">
             <div class="cat-card__img">
               <img
                 src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80"
@@ -355,6 +361,7 @@
                 <button
                   type="button"
                   class="add-btn"
+                  data-id="p1"
                   aria-label="Add Berry Velvet Tart to cart"
                 >
                   <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
@@ -380,6 +387,7 @@
                 <button
                   type="button"
                   class="add-btn"
+                  data-id="p3"
                   aria-label="Add Almond Butter Croissant to cart"
                 >
                   <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
@@ -406,6 +414,7 @@
                 <button
                   type="button"
                   class="add-btn"
+                  data-id="p5"
                   aria-label="Add Rose Glazed Donut to cart"
                 >
                   <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
@@ -431,6 +440,7 @@
                 <button
                   type="button"
                   class="add-btn"
+                  data-id="p7"
                   aria-label="Add Dark Choco Chunk to cart"
                 >
                   <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
@@ -439,6 +449,12 @@
               </div>
             </div>
           </article>
+        </div>
+        <div class="sec-more">
+          <a href="products.html" class="btn-primary"
+            ><span>View All Products</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+          ></a>
         </div>
       </div>
     </section>
@@ -664,7 +680,7 @@
     </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
       <div class="footer__bg" aria-hidden="true"></div>
       <div class="container footer__content">
         <div class="footer__top">
@@ -693,7 +709,7 @@
               <ul>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#categories">Categories</a></li>
-                <li><a href="#products">Our Menu</a></li>
+                <li><a href="products.html">Our Menu</a></li>
                 <li><a href="#reels">Reels</a></li>
               </ul>
             </div>
@@ -702,9 +718,8 @@
               <h4>Support</h4>
               <ul>
                 <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Membership</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
 
@@ -745,6 +760,8 @@
       </a>
     </div>
 
+    <script src="data.js"></script>
+    <script src="store.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -72,6 +72,13 @@
     }
   });
 
+  menu.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      closeAll();
+      closeMenu();
+    }),
+  );
+
   const reelCards = document.querySelectorAll(".reel-card");
 
   function setReelPlaying(targetCard, playing) {

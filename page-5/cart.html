@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopping Cart | Golden Sweet Creations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="promo">Get 50% on first order from store</div>
+
+    <!-- ================= Navbar ================= -->
+    <header class="nav">
+      <div class="nav__bar">
+        <a href="cart.html" class="icon-btn bag" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+          <span class="cart-count" hidden>0</span>
+        </a>
+
+        <a
+          href="index.html"
+          class="logo logo--mobile"
+          aria-label="Golden Sweet Creations"
+          >Harvest</a
+        >
+
+        <ul class="menu" id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li class="has-dd">
+            <button
+              class="dd-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <span>Menu</span>
+              <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+            </button>
+            <div class="dd">
+              <ul>
+                <li><a href="products.html">All Products</a></li>
+                <li><a href="products.html?cat=cakes">Artisan Cakes</a></li>
+                <li><a href="products.html?cat=croissants">Croissants</a></li>
+                <li><a href="products.html?cat=donuts">Glazed Donuts</a></li>
+                <li><a href="products.html?cat=cookies">Soft Cookies</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="logo--desktop">
+            <a href="index.html" class="logo">Harvest</a>
+          </li>
+          <li><a href="index.html#reels">Reels</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li class="has-dd">
+            <button
+              class="dd-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <span>More</span>
+              <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+            </button>
+            <div class="dd">
+              <ul>
+                <li><a href="index.html#categories">Categories</a></li>
+                <li><a href="index.html#products">Signature Creations</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="menu__lang has-dd lang-dd">
+            <button
+              type="button"
+              class="lang-btn dd-toggle"
+              aria-label="Language"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+              <span class="lang-current">EN</span>
+              <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+            </button>
+            <div class="dd">
+              <ul>
+                <li>
+                  <button type="button" data-lang="EN" class="active">
+                    English (EN)
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-lang="AR">العربية (AR)</button>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nav__right">
+          <div class="has-dd lang-dd">
+            <button
+              type="button"
+              class="lang-btn dd-toggle"
+              aria-label="Language"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+              <span class="lang-current">EN</span>
+              <i class="fa-solid fa-chevron-down chev" aria-hidden="true"></i>
+            </button>
+            <div class="dd">
+              <ul>
+                <li>
+                  <button type="button" data-lang="EN" class="active">
+                    English (EN)
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-lang="AR">العربية (AR)</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <button
+            class="icon-btn burger"
+            id="burger"
+            aria-label="Menu"
+            aria-expanded="false"
+            aria-controls="menu"
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-head">
+      <h1 class="sec-title">Shopping Cart</h1>
+      <nav class="crumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>Shopping Cart</span>
+      </nav>
+    </section>
+
+    <section class="section cart-sec">
+      <div class="container cart-layout">
+        <div class="cart-main">
+          <div class="cart-table">
+            <div class="cart-head">
+              <span></span><span>Product</span><span>Price</span
+              ><span>Quantity</span><span>Subtotal</span>
+            </div>
+            <div id="cartRows"></div>
+          </div>
+          <div class="cart-actions">
+            <form id="couponForm" class="coupon">
+              <input
+                id="couponInput"
+                type="text"
+                placeholder="Coupon Code"
+                aria-label="Coupon code"
+              />
+              <button type="submit" class="btn-primary">Apply Coupon</button>
+            </form>
+            <button type="button" id="clearCart" class="link-btn">
+              Clear Shopping Cart
+            </button>
+          </div>
+        </div>
+
+        <aside class="summary">
+          <h2>Order Summary</h2>
+          <dl>
+            <div>
+              <dt>Items</dt>
+              <dd id="sItems">0</dd>
+            </div>
+            <div>
+              <dt>Sub Total</dt>
+              <dd id="sSub">$0.00</dd>
+            </div>
+            <div>
+              <dt>Shipping</dt>
+              <dd id="sShip">Free</dd>
+            </div>
+            <div>
+              <dt>Taxes</dt>
+              <dd>$0.00</dd>
+            </div>
+            <div>
+              <dt>Coupon Discount</dt>
+              <dd id="sDisc">$0.00</dd>
+            </div>
+            <div class="total">
+              <dt>Total</dt>
+              <dd id="sTotal">$0.00</dd>
+            </div>
+          </dl>
+          <button type="button" id="proceed" class="btn-primary">
+            Proceed to Checkout
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="perks">
+      <div class="container perks__grid">
+        <div class="perk">
+          <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+          <div>
+            <strong>Free Shipping</strong
+            ><span>Free shipping for order above $50</span>
+          </div>
+        </div>
+        <div class="perk">
+          <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+          <div>
+            <strong>Flexible Payment</strong
+            ><span>Multiple secure payment options</span>
+          </div>
+        </div>
+        <div class="perk">
+          <i class="fa-solid fa-headset" aria-hidden="true"></i>
+          <div>
+            <strong>24&times;7 Support</strong
+            ><span>We support online all days.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section checkout" id="checkout">
+      <div class="container checkout__box">
+        <div class="sec-head">
+          <span class="eyebrow">Almost There</span>
+          <h2 class="sec-title">Checkout</h2>
+          <p class="sec-desc">
+            Order total: <strong id="coTotal">$0.00</strong>
+          </p>
+        </div>
+        <form id="checkoutForm" class="co-form">
+          <label
+            >Full Name
+            <input
+              id="fullName"
+              name="name"
+              type="text"
+              required
+              minlength="3"
+              placeholder="Your full name"
+              autocomplete="name"
+            />
+          </label>
+          <label
+            >Email
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+              autocomplete="email"
+            />
+          </label>
+          <label
+            >Phone
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              pattern="[0-9+\s\-]{8,15}"
+              placeholder="01xxxxxxxxx"
+              autocomplete="tel"
+            />
+          </label>
+          <label class="full"
+            >Address
+            <textarea
+              id="address"
+              name="address"
+              rows="3"
+              required
+              minlength="6"
+              placeholder="Street, building, city"
+              autocomplete="street-address"
+            ></textarea>
+          </label>
+          <button type="submit" class="btn-primary full">Submit Order</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer" id="contact">
+      <div class="footer__bg" aria-hidden="true"></div>
+      <div class="container footer__content">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a href="index.html" class="logo">Harvest</a>
+            <p class="sec-desc">
+              Small-batch artisan bakes made with natural ingredients and zero
+              artificial shortcuts.
+            </p>
+            <div class="footer__socials">
+              <a href="#" class="icon-btn" aria-label="Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="icon-btn" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="icon-btn" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__cols">
+            <div class="footer__col">
+              <h4>Explore</h4>
+              <ul>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#categories">Categories</a></li>
+                <li><a href="products.html">Our Menu</a></li>
+                <li><a href="index.html#reels">Reels</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <h4>Bakery Hours</h4>
+              <ul class="footer__hours">
+                <li><span>Sun – Thu:</span> 8am – 10pm</li>
+                <li><span>Fri – Sat:</span> 9am – 11pm</li>
+                <li><span>hello@harvestbakes.com</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <span>&copy; 2026 Harvest. All rights reserved.</span>
+          <span>Baked fresh with care</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="store.js"></script>
+    <script src="script.js"></script>
+    <script src="cart-page.js"></script>
+  </body>
+</html>
