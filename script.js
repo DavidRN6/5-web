@@ -92,12 +92,13 @@
   //=======================
   // 3. Announcement marquee
   //=======================
-  const marquee = $("#marquee");
-  if (marquee) {
-    const clone = marquee.firstElementChild.cloneNode(true);
+  ["#marquee", "#brandsMarquee"].forEach((selector) => {
+    const el = $(selector);
+    if (!el || !el.firstElementChild) return;
+    const clone = el.firstElementChild.cloneNode(true);
     clone.setAttribute("aria-hidden", "true");
-    marquee.appendChild(clone);
-  }
+    el.appendChild(clone);
+  });
 
   //=======================
   // 4. Header state
@@ -704,11 +705,13 @@
   const catalogTitle = $("#catalogTitle");
   const catalogCount = $("#catalogCount");
   const categoryFilters = $("#categoryFilters");
+  const brandFilters = $("#brandFilters");
   const sortSelect = $("#sortSelect");
 
   if (catalogGrid) {
     const params = new URLSearchParams(window.location.search);
     let currentCategory = (params.get("category") || "all").toLowerCase();
+    let currentBrand = (params.get("brand") || "all").toLowerCase();
     let currentSearch = (params.get("search") || "").toLowerCase();
     let currentSort = "featured";
 
@@ -728,6 +731,18 @@
       accessories: "ACCESSORIES",
     };
 
+    const syncUrl = () => {
+      const url = new URL(window.location.href);
+      if (currentCategory === "all") url.searchParams.delete("category");
+      else url.searchParams.set("category", currentCategory);
+
+      if (currentBrand === "all") url.searchParams.delete("brand");
+      else url.searchParams.set("brand", currentBrand);
+
+      if (!currentSearch) url.searchParams.delete("search");
+      window.history.replaceState({}, "", url);
+    };
+
     const renderCatalog = () => {
       let filtered = [...products];
 
@@ -737,9 +752,17 @@
         );
       }
 
+      if (currentBrand !== "all") {
+        filtered = filtered.filter(
+          (p) => (p.brand || "").toLowerCase() === currentBrand,
+        );
+      }
+
       if (currentSearch) {
-        filtered = filtered.filter((p) =>
-          p.name.toLowerCase().includes(currentSearch),
+        filtered = filtered.filter(
+          (p) =>
+            p.name.toLowerCase().includes(currentSearch) ||
+            (p.brand || "").toLowerCase().includes(currentSearch),
         );
       }
 
@@ -750,9 +773,16 @@
       }
 
       if (catalogTitle) {
-        catalogTitle.textContent =
-          categoryLabels[currentCategory] || currentCategory.toUpperCase();
+        if (currentBrand !== "all" && currentCategory === "all") {
+          catalogTitle.textContent = currentBrand.toUpperCase();
+        } else if (currentBrand !== "all" && currentCategory !== "all") {
+          catalogTitle.textContent = `${currentBrand.toUpperCase()} — ${categoryLabels[currentCategory] || currentCategory.toUpperCase()}`;
+        } else {
+          catalogTitle.textContent =
+            categoryLabels[currentCategory] || currentCategory.toUpperCase();
+        }
       }
+
       if (catalogCount) {
         catalogCount.textContent = `Showing ${filtered.length} ${filtered.length === 1 ? "item" : "items"}`;
       }
@@ -766,10 +796,19 @@
         });
       }
 
+      if (brandFilters) {
+        $$(".filter-pill", brandFilters).forEach((pill) => {
+          pill.classList.toggle(
+            "is-active",
+            pill.dataset.brand === currentBrand,
+          );
+        });
+      }
+
       if (filtered.length === 0) {
         catalogGrid.innerHTML = `
           <div class="catalog-empty">
-            <p>No products found in this category yet. Check back soon!</p>
+            <p>No products found matching this filter yet. Check back soon!</p>
           </div>
         `;
         return;
@@ -784,16 +823,17 @@
       currentCategory = pill.dataset.cat;
       currentSearch = "";
       if (searchInput) searchInput.value = "";
+      syncUrl();
+      renderCatalog();
+    });
 
-      const url = new URL(window.location.href);
-      if (currentCategory === "all") {
-        url.searchParams.delete("category");
-      } else {
-        url.searchParams.set("category", currentCategory);
-      }
-      url.searchParams.delete("search");
-      window.history.replaceState({}, "", url);
-
+    brandFilters?.addEventListener("click", (e) => {
+      const pill = e.target.closest(".filter-pill");
+      if (!pill) return;
+      currentBrand = pill.dataset.brand;
+      currentSearch = "";
+      if (searchInput) searchInput.value = "";
+      syncUrl();
       renderCatalog();
     });
 
@@ -1069,4 +1109,66 @@
       showNotification("Your message has been sent! We'll reply soon.");
     });
   }
+})();
+
+/* ======================
+  Catalog layout switcher
+  بيغير عدد المنتجات فى الصف، والخيارات اللى مش ينفع تتعرض على الشاشة بتختفى
+========================= */
+(() => {
+  const grid = document.getElementById("catalogGrid");
+  const box = document.getElementById("layoutSwitch");
+  if (!grid || !box) return;
+
+  const OPTIONS = [6, 5, 4, 3, 2, 1]; // 1 = list view
+  const KEY = "wanda_catalog_cols";
+  const MIN_CARD = 216; // أقل عرض مريح للكارت + المسافة (px)
+
+  let wanted = 4;
+  try {
+    wanted = Number(localStorage.getItem(KEY)) || 4;
+  } catch (e) {}
+
+  // أكبر عدد أعمدة ينفع يتعرض على عرض الشاشة الحالى
+  const maxCols = () => {
+    const w = window.innerWidth;
+    if (w < 600) return 2;
+    const inner = Math.min(w, 1400) - 32;
+    return Math.max(2, Math.min(6, Math.floor((inner + 16) / MIN_CARD)));
+  };
+
+  box.innerHTML = OPTIONS.map(
+    (n) => `
+      <button type="button" class="layout-btn" data-cols="${n}"
+        aria-label="${n === 1 ? "List view" : n + " products per row"}" aria-pressed="false">
+        <span class="layout-ico${n === 1 ? " is-list" : ""}">${"<i></i>".repeat(n === 1 ? 3 : n)}</span>
+      </button>`,
+  ).join("");
+
+  const apply = () => {
+    const max = maxCols();
+    const cols = Math.min(wanted, max); // الاختيار بيرجع لوحده لما الشاشة تكبر
+    box.querySelectorAll(".layout-btn").forEach((btn) => {
+      const n = Number(btn.dataset.cols);
+      const on = n === cols;
+      btn.hidden = n > max;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+    grid.style.setProperty("--cols", cols);
+    grid.dataset.cols = cols;
+  };
+
+  box.addEventListener("click", (e) => {
+    const btn = e.target.closest(".layout-btn");
+    if (!btn) return;
+    wanted = Number(btn.dataset.cols);
+    try {
+      localStorage.setItem(KEY, wanted);
+    } catch (err) {}
+    apply();
+  });
+
+  window.addEventListener("resize", apply);
+  apply();
 })();

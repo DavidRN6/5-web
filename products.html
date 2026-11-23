@@ -282,13 +282,60 @@
             </button>
           </div>
 
-          <div class="catalog-sort">
-            <label for="sortSelect">Sort by:</label>
-            <select id="sortSelect">
-              <option value="featured">Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-            </select>
+          <div
+            class="filter-pills brand-pills"
+            id="brandFilters"
+            aria-label="Filter by brand"
+          >
+            <button
+              type="button"
+              class="filter-pill is-active"
+              data-brand="all"
+            >
+              All Brands
+            </button>
+            <button type="button" class="filter-pill" data-brand="nike">
+              Nike
+            </button>
+            <button type="button" class="filter-pill" data-brand="adidas">
+              Adidas
+            </button>
+            <button type="button" class="filter-pill" data-brand="puma">
+              Puma
+            </button>
+            <button type="button" class="filter-pill" data-brand="zara">
+              Zara
+            </button>
+            <button type="button" class="filter-pill" data-brand="new balance">
+              New Balance
+            </button>
+            <button
+              type="button"
+              class="filter-pill"
+              data-brand="the north face"
+            >
+              The North Face
+            </button>
+            <button type="button" class="filter-pill" data-brand="converse">
+              Converse
+            </button>
+          </div>
+          <div class="catalog-tools">
+            <div
+              class="layout-switch"
+              id="layoutSwitch"
+              role="group"
+              aria-label="Products per row"
+            ></div>
+
+            <div class="catalog-sort">
+              <label for="sortSelect">Sort by:</label>
+              <select id="sortSelect">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+              </select>
+            </div>
           </div>
         </div>
 
