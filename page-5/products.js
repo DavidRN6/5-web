@@ -37,7 +37,7 @@
         <span class="prod-cat">${cat}</span>
         <h3>${p.name}</h3>
         <div class="prod-card__foot">
-          <strong class="prod-price">${Store.money(p.price)}</strong>
+          <strong class="prod-price">${p.price} EGP</strong>
           <button type="button" class="add-btn" data-id="${p.id}" aria-label="Add ${p.name} to cart">
             <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Add</span></button>
         </div>

@@ -17,7 +17,7 @@
     />
     <!-- Style Sheet -->
     <link href="style.css" rel="stylesheet" />
-    <title>Page 3</title>
+    <title>Harvest | Naturally Yours</title>
   </head>
   <body>
     <!-- ==================== ANNOUNCEMENT BAR ==================== -->
@@ -26,7 +26,7 @@
         <div class="announcement__inner">
           <p class="announcement__item announcement__item--start">
             <i class="fa-solid fa-truck-fast"></i>
-            Free Shipping On Orders Over $10
+            Free Shipping On Orders Over 500 EGP
           </p>
 
           <p class="announcement__item announcement__item--center">
@@ -35,13 +35,33 @@
           </p>
 
           <div class="announcement__item announcement__item--end">
-            <a href="#" class="announcement__link">
+            <a href="index.html#contact" class="announcement__link">
               <i class="fa-solid fa-location-dot"></i> Store Locator
             </a>
-            <button class="announcement__link" type="button">
-              <i class="fa-solid fa-globe"></i> EN
-              <i class="fa-solid fa-chevron-down announcement__chevron"></i>
-            </button>
+            <div class="lang" id="lang">
+              <button
+                class="announcement__link lang__btn"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-globe"></i>
+                <span class="lang__cur">EN</span>
+                <i class="fa-solid fa-chevron-down announcement__chevron"></i>
+              </button>
+              <ul class="lang__menu">
+                <li>
+                  <button type="button" class="lang__opt active" data-lang="EN">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="lang__opt" data-lang="AR">
+                    العربية
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -62,72 +82,58 @@
           </button>
 
           <!-- Logo -->
-          <a href="#" class="logo" aria-label="Teavana home">
+          <a href="index.html" class="logo" aria-label="Teavana home">
             <span class="logo__text">HARVEST</span>
             <span class="logo__tagline">NATURALLY YOURS</span>
           </a>
 
           <!-- Desktop nav -->
           <nav class="navbar__links" aria-label="Main">
-            <a href="#" class="navbar__link active">Home</a>
+            <a href="index.html" class="navbar__link active">Home</a>
 
             <div class="navbar__item has-menu">
-              <a href="#" class="navbar__link">
-                Shop <i class="fa-solid fa-chevron-down"></i>
-              </a>
+              <a href="products.html" class="navbar__link"
+                >Shop <i class="fa-solid fa-chevron-down"></i
+              ></a>
               <div class="menu">
-                <a href="#">All Teas</a>
-                <a href="#">Green Tea</a>
-                <a href="#">Black Tea</a>
-                <a href="#">Herbal Tea</a>
-                <a href="#">Gift Sets</a>
+                <a href="products.html">All Teas</a>
+                <a href="products.html?cat=black">Black Tea</a>
+                <a href="products.html?cat=green">Green Tea</a>
+                <a href="products.html?cat=prlack">Prlack Tea</a>
+                <a href="products.html?cat=herbal">Herbal Tea</a>
               </div>
             </div>
 
             <div class="navbar__item has-menu">
-              <a href="#" class="navbar__link">
-                Tea Collections <i class="fa-solid fa-chevron-down"></i>
-              </a>
+              <a href="products.html" class="navbar__link"
+                >Tea Collections <i class="fa-solid fa-chevron-down"></i
+              ></a>
               <div class="menu">
-                <a href="#">Loose Leaf</a>
-                <a href="#">Tea Bags</a>
-                <a href="#">Matcha</a>
-                <a href="#">Oolong</a>
-                <a href="#">Floral</a>
+                <a href="products.html?cat=oolong">Oolong Tea</a>
+                <a href="products.html?cat=floral">Floral Tea</a>
+                <a href="products.html?cat=matcha">Matcha</a>
+                <a href="products.html?cat=spices">Spices &amp; Seeds</a>
               </div>
             </div>
 
-            <a href="#" class="navbar__link">Teaware</a>
-            <a href="#" class="navbar__link">About Us</a>
-            <a href="#" class="navbar__link">Blog</a>
-            <a href="#" class="navbar__link">Contact</a>
+            <a href="index.html#best-sellers" class="navbar__link"
+              >Best Sellers</a
+            >
+            <a href="index.html#reels" class="navbar__link">Reels</a>
+            <a href="index.html#contact" class="navbar__link">Contact</a>
           </nav>
 
           <!-- Actions -->
           <div class="navbar__actions">
             <button
-              class="navbar__icon"
-              type="button"
-              id="searchToggle"
-              aria-label="Search"
-            >
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-
-            <button
-              class="navbar__icon navbar__icon--account"
-              type="button"
-              aria-label="Account"
-            >
-              <i class="fa-regular fa-user"></i>
-            </button>
-
-            <button
               class="navbar__icon wishlist"
               type="button"
               aria-label="Wishlist"
+              data-open-wl
             >
               <i class="fa-regular fa-heart"></i>
+
+              <span class="cart-badge" id="wlBadge" hidden>0</span>
             </button>
 
             <button
@@ -150,7 +156,7 @@
 
       <aside class="drawer__panel">
         <div class="drawer__head">
-          <a href="#" class="logo" aria-label="Teavana home">
+          <a href="index.html" class="logo" aria-label="Teavana home">
             <span class="logo__text">HARVEST</span>
             <span class="logo__tagline">NATURALLY YOURS</span>
           </a>
@@ -165,18 +171,18 @@
         </div>
 
         <nav class="drawer__links" aria-label="Mobile">
-          <a href="#" class="drawer__link active">Home</a>
+          <a href="index.html" class="drawer__link active">Home</a>
 
           <details class="drawer__group">
             <summary class="drawer__link">
               Shop <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <div class="drawer__sub">
-              <a href="#">All Teas</a>
-              <a href="#">Green Tea</a>
-              <a href="#">Black Tea</a>
-              <a href="#">Herbal Tea</a>
-              <a href="#">Gift Sets</a>
+              <a href="products.html">All Teas</a>
+              <a href="products.html?cat=black">Black Tea</a>
+              <a href="products.html?cat=green">Green Tea</a>
+              <a href="products.html?cat=prlack">Prlack Tea</a>
+              <a href="products.html?cat=herbal">Herbal Tea</a>
             </div>
           </details>
 
@@ -185,28 +191,32 @@
               Tea Collections <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <div class="drawer__sub">
-              <a href="#">Loose Leaf</a>
-              <a href="#">Tea Bags</a>
-              <a href="#">Matcha</a>
-              <a href="#">Oolong</a>
-              <a href="#">Floral</a>
+              <a href="products.html?cat=oolong">Oolong Tea</a>
+              <a href="products.html?cat=floral">Floral Tea</a>
+              <a href="products.html?cat=matcha">Matcha</a>
+              <a href="products.html?cat=spices">Spices &amp; Seeds</a>
             </div>
           </details>
 
-          <a href="#" class="drawer__link">Teaware</a>
-          <a href="#" class="drawer__link">About Us</a>
-          <a href="#" class="drawer__link">Blog</a>
-          <a href="#" class="drawer__link">Contact</a>
+          <a href="index.html#best-sellers" class="drawer__link"
+            >Best Sellers</a
+          >
+          <a href="index.html#reels" class="drawer__link">Reels</a>
+          <a href="index.html#contact" class="drawer__link">Contact</a>
         </nav>
 
         <div class="drawer__foot">
-          <a href="#" class="drawer__account">
-            <i class="fa-regular fa-user"></i> My Account
-          </a>
-          <a href="#" class="drawer__account">
+          <div class="drawer__lang">
+            <i class="fa-solid fa-globe"></i>
+            <button type="button" class="lang__opt active" data-lang="EN">
+              EN
+            </button>
+            <button type="button" class="lang__opt" data-lang="AR">AR</button>
+          </div>
+          <a href="#" class="drawer__account" data-open-wl>
             <i class="fa-regular fa-heart"></i> Wishlist
           </a>
-          <a href="#" class="drawer__account">
+          <a href="index.html#contact" class="drawer__account">
             <i class="fa-solid fa-location-dot"></i> Store Locator
           </a>
         </div>
@@ -242,10 +252,12 @@
             </p>
 
             <div class="hero__buttons fade-in-up delay-500">
-              <a href="#" class="btn btn--primary">
+              <a href="products.html" class="btn btn--primary">
                 Shop Now <i class="fa-solid fa-arrow-right"></i>
               </a>
-              <a href="#" class="btn btn--outline">Explore Collections</a>
+              <a href="#categories" class="btn btn--outline"
+                >Explore Collections</a
+              >
             </div>
 
             <ul class="hero__features fade-in-up delay-700">
@@ -283,11 +295,11 @@
       </section>
 
       <!-- ==================== CATEGORIES ==================== -->
-      <section class="categories" aria-label="Shop by category">
+      <section class="categories" id="categories" aria-label="Shop by category">
         <div class="container">
           <ul class="categories__card">
             <li>
-              <a href="#" class="category">
+              <a href="products.html?cat=black" class="category">
                 <span class="category__thumb">
                   <img
                     src="images/category/1 black tea.webp"
@@ -299,7 +311,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="category">
+              <a href="products.html?cat=green" class="category">
                 <span class="category__thumb">
                   <img
                     src="images/category/2 green tea.webp"
@@ -311,7 +323,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="category">
+              <a href="products.html?cat=prlack" class="category">
                 <span class="category__thumb">
                   <img
                     src="images/category/3 prlack tea.webp"
@@ -323,7 +335,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="category">
+              <a href="products.html?cat=herbal" class="category">
                 <span class="category__thumb">
                   <img
                     src="images/category/4 herbal tea.webp"
@@ -335,7 +347,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="category">
+              <a href="products.html?cat=oolong" class="category">
                 <span class="category__thumb">
                   <img
                     src="images/category/5 oolong tea.webp"
@@ -347,7 +359,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="category">
+              <a href="products.html?cat=floral" class="category">
                 <span class="category__thumb">
                   <img
                     src="images/category/6 floral tea.webp"
@@ -359,7 +371,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="category">
+              <a href="products.html?cat=matcha" class="category">
                 <span class="category__thumb">
                   <img
                     src="images/category/8 Matcha.webp"
@@ -371,7 +383,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="category category--all">
+              <a href="products.html" class="category category--all">
                 <span class="category__thumb category__thumb--all">
                   <i class="fa-solid fa-table-cells-large"></i>
                 </span>
@@ -399,7 +411,7 @@
                 <p class="promo__text">
                   Handpicked leaves.<br />Unmatched freshness.
                 </p>
-                <a href="#" class="btn btn--primary btn--sm">
+                <a href="products.html" class="btn btn--primary btn--sm">
                   Shop Loose Leaf <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
@@ -418,7 +430,10 @@
                 <p class="promo__text">
                   Herbal blends for your<br />mind, body &amp; soul.
                 </p>
-                <a href="#" class="btn btn--primary btn--sm">
+                <a
+                  href="products.html?cat=herbal"
+                  class="btn btn--primary btn--sm"
+                >
                   Explore Blends <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
@@ -439,7 +454,7 @@
                 <p class="promo__text">
                   Elevate your tea experience<br />with our teaware.
                 </p>
-                <a href="#" class="btn btn--primary btn--sm">
+                <a href="products.html" class="btn btn--primary btn--sm">
                   Shop Teaware <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
@@ -449,13 +464,17 @@
       </section>
 
       <!-- ==================== BEST SELLERS ==================== -->
-      <section class="best-sellers" aria-labelledby="bestSellersTitle">
+      <section
+        class="best-sellers"
+        id="best-sellers"
+        aria-labelledby="bestSellersTitle"
+      >
         <div class="container">
           <div class="section-head">
             <h2 class="section-head__title" id="bestSellersTitle">
               Best Sellers
             </h2>
-            <a href="#" class="section-head__link">
+            <a href="products.html" class="section-head__link">
               View All Products <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -481,6 +500,147 @@
           </div>
         </div>
       </section>
+
+      <!-- ==================== REELS ==================== -->
+      <section class="reels" id="reels" aria-labelledby="reelsTitle">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-head__title" id="reelsTitle">Tea Reels</h2>
+          </div>
+          <div class="reels__row">
+            <article class="reel-card">
+              <video
+                src="videos/video.mp4"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <button class="reel-play" type="button" aria-label="Play reel">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <div class="reel-card__cap">
+                <strong>Brewing the perfect cup</strong
+                ><span><i class="fa-regular fa-heart"></i> 2.4k</span>
+              </div>
+            </article>
+            <article class="reel-card">
+              <video
+                src="videos/video 2.mp4"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <button class="reel-play" type="button" aria-label="Play reel">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <div class="reel-card__cap">
+                <strong>Matcha morning ritual</strong
+                ><span><i class="fa-regular fa-heart"></i> 1.8k</span>
+              </div>
+            </article>
+            <article class="reel-card">
+              <video
+                src="videos/video.mp4"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <button class="reel-play" type="button" aria-label="Play reel">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <div class="reel-card__cap">
+                <strong>From leaf to cup</strong
+                ><span><i class="fa-regular fa-heart"></i> 3.1k</span>
+              </div>
+            </article>
+            <article class="reel-card">
+              <video
+                src="videos/video 2.mp4"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              ></video>
+              <button class="reel-play" type="button" aria-label="Play reel">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <div class="reel-card__cap">
+                <strong>Spices that warm you</strong
+                ><span><i class="fa-regular fa-heart"></i> 960</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CONTACT ==================== -->
+      <section class="contact" id="contact" aria-labelledby="contactTitle">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-head__title" id="contactTitle">Contact Us</h2>
+          </div>
+          <div class="contact__card">
+            <div class="contact__info">
+              <h3>Let's talk tea</h3>
+              <p>
+                Questions about an order, a blend or a gift? Send us a message
+                and we will reply within 24 hours.
+              </p>
+              <ul>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i
+                  ><span>12 Tea Garden St, Cairo, Egypt</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-phone"></i><span>+20 100 000 0000</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope"></i
+                  ><span>hello@harvest.com</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-clock"></i
+                  ><span>Every day, 9 AM - 10 PM</span>
+                </li>
+              </ul>
+            </div>
+            <form class="contact__form" id="contactForm">
+              <label
+                >Full Name<input
+                  type="text"
+                  name="name"
+                  required
+                  minlength="3"
+                  placeholder="Your name"
+                  autocomplete="name"
+              /></label>
+              <label
+                >Email<input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  autocomplete="email"
+              /></label>
+              <label class="full"
+                >Message<textarea
+                  name="message"
+                  rows="5"
+                  required
+                  minlength="10"
+                  placeholder="How can we help you?"
+                ></textarea>
+              </label>
+              <button type="submit" class="btn btn--primary full">
+                Send Message <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- ==================== FOOTER ==================== -->
@@ -489,7 +649,7 @@
         <div class="site-footer__grid">
           <!-- Brand -->
           <div class="site-footer__brand">
-            <a href="#" class="logo" aria-label="Harvest home">
+            <a href="index.html" class="logo" aria-label="Harvest home">
               <span class="logo__text">HARVEST</span>
               <span class="logo__tagline">NATURALLY YOURS</span>
             </a>
@@ -515,11 +675,11 @@
           <nav class="site-footer__col" aria-label="Shop">
             <h3 class="site-footer__title">Shop</h3>
             <ul>
-              <li><a href="#">All Teas</a></li>
-              <li><a href="#">Green Tea</a></li>
-              <li><a href="#">Black Tea</a></li>
-              <li><a href="#">Herbal Tea</a></li>
-              <li><a href="#">Tea Collections</a></li>
+              <li><a href="products.html">All Teas</a></li>
+              <li><a href="products.html?cat=green">Green Tea</a></li>
+              <li><a href="products.html?cat=black">Black Tea</a></li>
+              <li><a href="products.html?cat=herbal">Herbal Tea</a></li>
+              <li><a href="products.html">Tea Collections</a></li>
             </ul>
           </nav>
 
@@ -527,23 +687,19 @@
           <nav class="site-footer__col" aria-label="Customer care">
             <h3 class="site-footer__title">Customer Care</h3>
             <ul>
-              <li><a href="#">Help &amp; FAQs</a></li>
-              <li><a href="#">Shipping &amp; Delivery</a></li>
-              <li><a href="#">Returns &amp; Refunds</a></li>
-              <li><a href="#">Track Order</a></li>
-              <li><a href="#">Terms &amp; Conditions</a></li>
+              <li><a href="cart.html">My Cart</a></li>
+              <li><a href="cart.html#delivery">Shipping &amp; Delivery</a></li>
+              <li><a href="#" data-open-wl>Wishlist</a></li>
             </ul>
           </nav>
 
           <!-- About -->
-          <nav class="site-footer__col" aria-label="About us">
-            <h3 class="site-footer__title">About Us</h3>
+          <nav class="site-footer__col" aria-label="Explore">
+            <h3 class="site-footer__title">Explore</h3>
             <ul>
-              <li><a href="#">Our Story</a></li>
-              <li><a href="#">Sustainability</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="index.html#best-sellers">Best Sellers</a></li>
+              <li><a href="index.html#reels">Reels</a></li>
+              <li><a href="index.html#contact">Contact Us</a></li>
             </ul>
           </nav>
         </div>
@@ -573,6 +729,28 @@
       </a>
     </div>
 
+    <!-- ==================== WISHLIST PANEL ==================== -->
+    <div class="wl" id="wl" aria-hidden="true">
+      <div class="wl__backdrop" data-close-wl></div>
+      <aside class="wl__panel" role="dialog" aria-label="Wishlist">
+        <div class="wl__head">
+          <h2>Wishlist <small id="wlCount"></small></h2>
+          <button
+            class="navbar__icon"
+            type="button"
+            data-close-wl
+            aria-label="Close wishlist"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="wl__list" id="wlList"></div>
+      </aside>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="store.js"></script>
     <script src="script.js"></script>
+    <script src="extras.js"></script>
   </body>
 </html>

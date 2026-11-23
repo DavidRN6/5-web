@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <!-- Style Sheet -->
+    <link href="style.css" rel="stylesheet" />
+    <title>Shop | Harvest</title>
+  </head>
+  <body>
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div class="announcement">
+      <div class="container">
+        <div class="announcement__inner">
+          <p class="announcement__item announcement__item--start">
+            <i class="fa-solid fa-truck-fast"></i>
+            Free Shipping On Orders Over 500 EGP
+          </p>
+
+          <p class="announcement__item announcement__item--center">
+            <i class="fa-solid fa-leaf"></i>
+            100% Natural Ingredients | Premium Loose Leaf Teas
+          </p>
+
+          <div class="announcement__item announcement__item--end">
+            <a href="index.html#contact" class="announcement__link">
+              <i class="fa-solid fa-location-dot"></i> Store Locator
+            </a>
+            <div class="lang" id="lang">
+              <button
+                class="announcement__link lang__btn"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-globe"></i>
+                <span class="lang__cur">EN</span>
+                <i class="fa-solid fa-chevron-down announcement__chevron"></i>
+              </button>
+              <ul class="lang__menu">
+                <li>
+                  <button type="button" class="lang__opt active" data-lang="EN">
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="lang__opt" data-lang="AR">
+                    العربية
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar__inner">
+          <!-- Burger (mobile) -->
+          <button
+            class="navbar__icon navbar__burger"
+            type="button"
+            id="openMenu"
+            aria-label="Open menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Logo -->
+          <a href="index.html" class="logo" aria-label="Teavana home">
+            <span class="logo__text">HARVEST</span>
+            <span class="logo__tagline">NATURALLY YOURS</span>
+          </a>
+
+          <!-- Desktop nav -->
+          <nav class="navbar__links" aria-label="Main">
+            <a href="index.html" class="navbar__link">Home</a>
+
+            <div class="navbar__item has-menu">
+              <a href="products.html" class="navbar__link active"
+                >Shop <i class="fa-solid fa-chevron-down"></i
+              ></a>
+              <div class="menu">
+                <a href="products.html">All Teas</a>
+                <a href="products.html?cat=black">Black Tea</a>
+                <a href="products.html?cat=green">Green Tea</a>
+                <a href="products.html?cat=prlack">Prlack Tea</a>
+                <a href="products.html?cat=herbal">Herbal Tea</a>
+              </div>
+            </div>
+
+            <div class="navbar__item has-menu">
+              <a href="products.html" class="navbar__link"
+                >Tea Collections <i class="fa-solid fa-chevron-down"></i
+              ></a>
+              <div class="menu">
+                <a href="products.html?cat=oolong">Oolong Tea</a>
+                <a href="products.html?cat=floral">Floral Tea</a>
+                <a href="products.html?cat=matcha">Matcha</a>
+                <a href="products.html?cat=spices">Spices &amp; Seeds</a>
+              </div>
+            </div>
+
+            <a href="index.html#best-sellers" class="navbar__link"
+              >Best Sellers</a
+            >
+            <a href="index.html#reels" class="navbar__link">Reels</a>
+            <a href="index.html#contact" class="navbar__link">Contact</a>
+          </nav>
+
+          <!-- Actions -->
+          <div class="navbar__actions">
+            <button
+              class="navbar__icon wishlist"
+              type="button"
+              aria-label="Wishlist"
+              data-open-wl
+            >
+              <i class="fa-regular fa-heart"></i>
+
+              <span class="cart-badge" id="wlBadge" hidden>0</span>
+            </button>
+
+            <button
+              class="navbar__icon"
+              type="button"
+              id="cartBtn"
+              aria-label="Shopping cart"
+            >
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ Mobile drawer ============ -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__backdrop" data-close-menu></div>
+
+      <aside class="drawer__panel">
+        <div class="drawer__head">
+          <a href="index.html" class="logo" aria-label="Teavana home">
+            <span class="logo__text">HARVEST</span>
+            <span class="logo__tagline">NATURALLY YOURS</span>
+          </a>
+          <button
+            class="navbar__icon"
+            type="button"
+            data-close-menu
+            aria-label="Close menu"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="drawer__links" aria-label="Mobile">
+          <a href="index.html" class="drawer__link">Home</a>
+
+          <details class="drawer__group">
+            <summary class="drawer__link">
+              Shop <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="drawer__sub">
+              <a href="products.html">All Teas</a>
+              <a href="products.html?cat=black">Black Tea</a>
+              <a href="products.html?cat=green">Green Tea</a>
+              <a href="products.html?cat=prlack">Prlack Tea</a>
+              <a href="products.html?cat=herbal">Herbal Tea</a>
+            </div>
+          </details>
+
+          <details class="drawer__group">
+            <summary class="drawer__link">
+              Tea Collections <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="drawer__sub">
+              <a href="products.html?cat=oolong">Oolong Tea</a>
+              <a href="products.html?cat=floral">Floral Tea</a>
+              <a href="products.html?cat=matcha">Matcha</a>
+              <a href="products.html?cat=spices">Spices &amp; Seeds</a>
+            </div>
+          </details>
+
+          <a href="index.html#best-sellers" class="drawer__link"
+            >Best Sellers</a
+          >
+          <a href="index.html#reels" class="drawer__link">Reels</a>
+          <a href="index.html#contact" class="drawer__link">Contact</a>
+        </nav>
+
+        <div class="drawer__foot">
+          <div class="drawer__lang">
+            <i class="fa-solid fa-globe"></i>
+            <button type="button" class="lang__opt active" data-lang="EN">
+              EN
+            </button>
+            <button type="button" class="lang__opt" data-lang="AR">AR</button>
+          </div>
+          <a href="#" class="drawer__account" data-open-wl>
+            <i class="fa-regular fa-heart"></i> Wishlist
+          </a>
+          <a href="index.html#contact" class="drawer__account">
+            <i class="fa-solid fa-location-dot"></i> Store Locator
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <main>
+      <section class="pagehead">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><i class="fa-solid fa-angle-right"></i>
+            <a href="products.html">Shop</a
+            ><i class="fa-solid fa-angle-right"></i>
+            <span id="crumbCat">All Teas</span>
+          </nav>
+          <h1 class="pagehead__title" id="pageTitle">All Teas</h1>
+        </div>
+      </section>
+
+      <section class="shop">
+        <div class="container shop__layout">
+          <aside class="filters" id="filters" aria-label="Filters">
+            <div class="fbox">
+              <h2 class="fbox__title">Categories</h2>
+              <div class="fcats" id="catList"></div>
+            </div>
+            <div class="fbox">
+              <h2 class="fbox__title">Price</h2>
+              <input
+                type="range"
+                id="price"
+                step="5"
+                aria-label="Maximum price"
+              />
+              <output class="price-out" id="priceOut"></output>
+            </div>
+            <button
+              type="button"
+              class="btn btn--outline btn--sm"
+              id="resetFilters"
+            >
+              Reset Filters
+            </button>
+          </aside>
+
+          <div class="shop__main">
+            <div class="shop__bar">
+              <button
+                type="button"
+                class="btn btn--outline btn--sm filter-toggle"
+                id="filterBtn"
+                aria-expanded="false"
+                aria-controls="filters"
+              >
+                <i class="fa-solid fa-sliders"></i> Filters
+              </button>
+              <label class="search">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input
+                  id="q"
+                  type="search"
+                  placeholder="Search teas & spices..."
+                />
+              </label>
+              <select id="sort" aria-label="Sort products">
+                <option value="default">Featured</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="az">Name: A to Z</option>
+              </select>
+            </div>
+            <p class="shop__count" id="count"></p>
+            <div class="shop__grid" id="grid"></div>
+            <div class="empty" id="empty" hidden>
+              <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+              <p>No products match your filters.</p>
+              <button type="button" class="btn btn--primary" id="resetFilters2">
+                Reset Filters
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <!-- Brand -->
+          <div class="site-footer__brand">
+            <a href="index.html" class="logo" aria-label="Harvest home">
+              <span class="logo__text">HARVEST</span>
+              <span class="logo__tagline">NATURALLY YOURS</span>
+            </a>
+
+            <p class="site-footer__tagline">
+              Good tea. Good mood.<br />Good life.
+            </p>
+
+            <div class="site-footer__socials" aria-label="Social media">
+              <a href="#" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Shop -->
+          <nav class="site-footer__col" aria-label="Shop">
+            <h3 class="site-footer__title">Shop</h3>
+            <ul>
+              <li><a href="products.html">All Teas</a></li>
+              <li><a href="products.html?cat=green">Green Tea</a></li>
+              <li><a href="products.html?cat=black">Black Tea</a></li>
+              <li><a href="products.html?cat=herbal">Herbal Tea</a></li>
+              <li><a href="products.html">Tea Collections</a></li>
+            </ul>
+          </nav>
+
+          <!-- Customer care -->
+          <nav class="site-footer__col" aria-label="Customer care">
+            <h3 class="site-footer__title">Customer Care</h3>
+            <ul>
+              <li><a href="cart.html">My Cart</a></li>
+              <li><a href="cart.html#delivery">Shipping &amp; Delivery</a></li>
+              <li><a href="#" data-open-wl>Wishlist</a></li>
+            </ul>
+          </nav>
+
+          <!-- About -->
+          <nav class="site-footer__col" aria-label="Explore">
+            <h3 class="site-footer__title">Explore</h3>
+            <ul>
+              <li><a href="index.html#best-sellers">Best Sellers</a></li>
+              <li><a href="index.html#reels">Reels</a></li>
+              <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="site-footer__bottom">
+          <p>© 2026 Harvest. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- ==================== WISHLIST PANEL ==================== -->
+    <div class="wl" id="wl" aria-hidden="true">
+      <div class="wl__backdrop" data-close-wl></div>
+      <aside class="wl__panel" role="dialog" aria-label="Wishlist">
+        <div class="wl__head">
+          <h2>Wishlist <small id="wlCount"></small></h2>
+          <button
+            class="navbar__icon"
+            type="button"
+            data-close-wl
+            aria-label="Close wishlist"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="wl__list" id="wlList"></div>
+      </aside>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="store.js"></script>
+    <script src="script.js"></script>
+    <script src="extras.js"></script>
+    <script src="products.js"></script>
+  </body>
+</html>
