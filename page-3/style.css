@@ -2784,13 +2784,6 @@ summary::-webkit-details-marker {
   font-size: 13px;
   font-weight: 600;
 }
-.reel-card__cap span {
-  font-size: 11px;
-  opacity: 0.85;
-  display: inline-flex;
-  gap: 6px;
-  align-items: center;
-}
 
 /* ---- Contact ---- */
 .contact {
