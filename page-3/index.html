@@ -16,6 +16,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <!-- Style Sheet -->
+    <style>
+      :root {
+        --primary: #2d3d17;
+        --secondary: #23281c;
+        --light: #fbf9f4;
+      }
+    </style>
     <link href="style.css" rel="stylesheet" />
     <title>Harvest | Naturally Yours</title>
   </head>
@@ -479,24 +486,61 @@
             </a>
           </div>
 
-          <div class="best-sellers__carousel">
+          <div class="best-sellers__grid" id="bestSellersGrid"></div>
+
+          <div class="best-sellers__more">
+            <a href="products.html" class="btn btn--primary" id="seeMoreBtn">
+              See More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SPECIAL OFFERS ==================== -->
+      <section
+        class="special-offers"
+        id="special-offers"
+        aria-labelledby="specialOffersTitle"
+      >
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-head__title" id="specialOffersTitle">
+              Special Offers
+            </h2>
+            <a href="products.html" class="section-head__link">
+              All Deals <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="offers-slider" id="offersSlider" tabindex="0">
+            <div class="offers-slider__viewport">
+              <div class="offers-slider__track" id="offersTrack"></div>
+            </div>
+
             <button
-              class="best-sellers__arrow best-sellers__arrow--prev"
+              class="offers-slider__arrow offers-slider__arrow--prev"
               type="button"
-              aria-label="Previous products"
+              id="offersPrev"
+              aria-label="Previous offer"
             >
               <i class="fa-solid fa-chevron-left"></i>
             </button>
 
-            <div class="best-sellers__grid" id="bestSellersGrid"></div>
-
             <button
-              class="best-sellers__arrow best-sellers__arrow--next"
+              class="offers-slider__arrow offers-slider__arrow--next"
               type="button"
-              aria-label="Next products"
+              id="offersNext"
+              aria-label="Next offer"
             >
               <i class="fa-solid fa-chevron-right"></i>
             </button>
+
+            <div
+              class="offers-slider__dots"
+              id="offersDots"
+              role="tablist"
+              aria-label="Offer slides"
+            ></div>
           </div>
         </div>
       </section>
@@ -517,9 +561,6 @@
                 playsinline
                 preload="metadata"
               ></video>
-              <button class="reel-play" type="button" aria-label="Play reel">
-                <i class="fa-solid fa-play"></i>
-              </button>
               <div class="reel-card__cap">
                 <strong>Brewing the perfect cup</strong
               </div>
@@ -533,9 +574,6 @@
                 playsinline
                 preload="metadata"
               ></video>
-              <button class="reel-play" type="button" aria-label="Play reel">
-                <i class="fa-solid fa-play"></i>
-              </button>
               <div class="reel-card__cap">
                 <strong>Matcha morning ritual</strong
               </div>
@@ -549,9 +587,6 @@
                 playsinline
                 preload="metadata"
               ></video>
-              <button class="reel-play" type="button" aria-label="Play reel">
-                <i class="fa-solid fa-play"></i>
-              </button>
               <div class="reel-card__cap">
                 <strong>From leaf to cup</strong
               </div>
@@ -565,9 +600,6 @@
                 playsinline
                 preload="metadata"
               ></video>
-              <button class="reel-play" type="button" aria-label="Play reel">
-                <i class="fa-solid fa-play"></i>
-              </button>
               <div class="reel-card__cap">
                 <strong>Spices that warm you</strong
               </div>
@@ -748,9 +780,6 @@
       </aside>
     </div>
 
-    <script src="data.js"></script>
-    <script src="store.js"></script>
     <script src="script.js"></script>
-    <script src="extras.js"></script>
   </body>
 </html>
