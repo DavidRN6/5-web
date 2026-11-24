@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #2563eb;
+        --secondary: #111827;
+        --light: #ffffff;
+        --rating: #f59e0b;
+      }
+    </style>
+    <link href="style.css" rel="stylesheet" />
+    <title>Product Details - TechNova</title>
+  </head>
+  <body>
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar__inner">
+          <div class="navbar__start">
+            <a href="index.html" class="logo" aria-label="TechNova home">
+              <span class="logo__mark"><i class="fa-solid fa-bolt"></i></span>
+              <span class="logo__text">TechNova</span>
+            </a>
+
+            <nav class="navbar__links" aria-label="Main">
+              <a href="index.html" class="navbar__link">Home</a>
+              <a href="products.html" class="navbar__link active">All Tech</a>
+              <a href="orders.html" class="navbar__link">My Orders</a>
+            </nav>
+          </div>
+
+          <div class="navbar__actions">
+            <div class="navbar__search-box">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input
+                type="search"
+                id="navbarSearchInput"
+                placeholder="Search products..."
+                autocomplete="off"
+              />
+            </div>
+
+            <button
+              class="navbar__icon"
+              type="button"
+              id="wishlistBtn"
+              aria-label="Wishlist"
+            >
+              <i class="fa-regular fa-heart"></i>
+              <span class="cart-badge" id="wishlistBadge" hidden>0</span>
+            </button>
+
+            <button
+              class="navbar__icon"
+              type="button"
+              id="cartBtn"
+              aria-label="Shopping cart"
+            >
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="cart-badge" id="cartBadge" hidden>0</span>
+            </button>
+
+            <button
+              class="navbar__icon navbar__icon--burger"
+              type="button"
+              id="openMenu"
+              aria-label="Open menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== SIDEBAR CART & WISHLIST DRAWERS ==================== -->
+    <div class="side-drawer-overlay" id="sideDrawerOverlay" hidden></div>
+
+    <aside
+      class="side-panel"
+      id="cartPanel"
+      aria-label="Shopping Cart Drawer"
+      aria-hidden="true"
+    >
+      <div class="side-panel__header">
+        <div class="side-panel__title-wrap">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <h2>Your Cart</h2>
+          <span class="side-panel__count" id="cartDrawerCount">0 items</span>
+        </div>
+        <button
+          class="navbar__icon"
+          type="button"
+          id="closeCartPanel"
+          aria-label="Close cart"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="side-panel__body" id="cartItemsContainer"></div>
+      <div class="side-panel__footer" id="cartFooter">
+        <div class="side-panel__summary">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">LE 0</strong>
+        </div>
+        <p class="side-panel__tax-note">
+          Taxes and shipping calculated at checkout
+        </p>
+        <div class="side-panel__actions">
+          <button class="side-panel__btn-checkout" type="button">
+            Proceed to Checkout
+          </button>
+          <button class="side-panel__btn-clear" type="button" id="clearCartBtn">
+            Clear Cart
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      class="side-panel"
+      id="wishlistPanel"
+      aria-label="Wishlist Drawer"
+      aria-hidden="true"
+    >
+      <div class="side-panel__header">
+        <div class="side-panel__title-wrap">
+          <i class="fa-regular fa-heart"></i>
+          <h2>Wishlist</h2>
+          <span class="side-panel__count" id="wishlistDrawerCount"
+            >0 items</span
+          >
+        </div>
+        <button
+          class="navbar__icon"
+          type="button"
+          id="closeWishlistPanel"
+          aria-label="Close wishlist"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="side-panel__body" id="wishlistItemsContainer"></div>
+      <div class="side-panel__footer">
+        <button
+          class="side-panel__btn-checkout"
+          type="button"
+          id="moveAllToCartBtn"
+        >
+          Move All to Cart
+        </button>
+      </div>
+    </aside>
+
+    <!-- ==================== PRODUCT DETAILS MAIN ==================== -->
+    <main class="product-page">
+      <div class="container">
+        <nav class="catalog-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="products.html" id="pdCategoryLink">Products</a>
+          <span>/</span>
+          <span id="pdBreadcrumbName">Product</span>
+        </nav>
+
+        <section class="product-details" id="productDetailsContainer">
+          <!-- يتم تعبئتها تلقائياً عبر script.js حسب ?id=... -->
+        </section>
+
+        <!-- ==================== RELATED PRODUCTS ==================== -->
+        <section
+          class="related-products"
+          aria-labelledby="relatedProductsTitle"
+        >
+          <div class="related-products__head">
+            <h2 class="related-products__title" id="relatedProductsTitle">
+              Related Products
+            </h2>
+            <a href="products.html" class="related-products__more">
+              View All <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="popular-products__grid" id="relatedProductsGrid">
+            <!-- يتم حقن المنتجات المرتبطة تلقائياً عبر script.js -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <div class="site-footer__brand">
+            <a href="index.html" class="logo" aria-label="TechNova home">
+              <span class="logo__mark">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+              </span>
+              <span class="logo__text">TechNova</span>
+            </a>
+            <p class="site-footer__description">
+              The latest smartphones, laptops, audio and accessories—carefully
+              selected to bring more technology to your everyday life.
+            </p>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Explore</h2>
+            <a href="products.html?category=smartphones">Smartphones</a>
+            <a href="products.html?category=laptops">Laptops</a>
+            <a href="products.html?category=headphones">Audio</a>
+            <a href="products.html?category=accessories">Accessories</a>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Customer care</h2>
+            <a href="#">Contact us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Shipping information</a>
+            <a href="orders.html">Track your order</a>
+          </div>
+
+          <div class="site-footer__column">
+            <h2 class="site-footer__heading">Follow us</h2>
+            <div class="site-footer__socials">
+              <a href="#" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p>© 2026 TechNova. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== CHECKOUT POPUP MODAL ==================== -->
+    <div class="checkout-modal" id="checkoutModal" aria-hidden="true" hidden>
+      <div class="checkout-modal__backdrop" id="closeCheckoutModal"></div>
+      <div class="checkout-modal__content">
+        <div class="checkout-modal__header">
+          <h2>Complete Your Order</h2>
+          <button
+            class="navbar__icon"
+            type="button"
+            id="closeCheckoutBtn"
+            aria-label="Close"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <form class="checkout-form" id="checkoutForm">
+          <div class="checkout-form__group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div class="checkout-form__group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required placeholder="010XXXXXXXX" />
+          </div>
+          <div class="checkout-form__group">
+            <label for="address">Shipping Address</label>
+            <textarea
+              id="address"
+              rows="3"
+              required
+              placeholder="Enter your address"
+            ></textarea>
+          </div>
+          <div class="checkout-form__total-box">
+            <span>Total Amount to Pay:</span>
+            <strong id="checkoutModalTotal">LE 0</strong>
+          </div>
+          <button type="submit" class="checkout-form__submit-btn">
+            Submit Order
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================== NOTIFICATION TOAST ==================== -->
+    <div class="toast-notification" id="toastNotification" hidden>
+      <i class="fa-solid fa-circle-check"></i>
+      <div class="toast-notification__text">
+        <strong id="toastTitle">Success!</strong>
+        <p id="toastMessage">Product added successfully.</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
