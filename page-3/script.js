@@ -1837,3 +1837,78 @@ const renderProductCard = (p) => {
     });
   }
 })();
+
+/* =========================
+   12. Preloader & Sale Popup
+========================= */
+(() => {
+  const preloader = $("#preloader");
+  const salePopup = $("#salePopup");
+  const POPUP_DELAY_MS = 900;
+
+  const hidePreloader = () => {
+    if (!preloader) return;
+    preloader.classList.add("is-hidden");
+    setTimeout(() => {
+      preloader.hidden = true;
+    }, 450);
+  };
+
+  const openSalePopup = () => {
+    if (!salePopup) return;
+    salePopup.hidden = false;
+    requestAnimationFrame(() => {
+      salePopup.classList.add("is-open");
+      document.body.classList.add("no-scroll");
+    });
+  };
+
+  const closeSalePopup = () => {
+    if (!salePopup || salePopup.hidden) return;
+    salePopup.classList.remove("is-open");
+    document.body.classList.remove("no-scroll");
+    setTimeout(() => {
+      salePopup.hidden = true;
+    }, 320);
+  };
+
+  const onInitialReady = () => {
+    hidePreloader();
+    if (salePopup) {
+      setTimeout(openSalePopup, POPUP_DELAY_MS);
+    }
+  };
+
+  if (document.readyState === "complete") {
+    onInitialReady();
+  } else {
+    window.addEventListener("load", onInitialReady, { once: true });
+    setTimeout(onInitialReady, 2500);
+  }
+
+  $$("[data-close-sale]").forEach((el) => {
+    el.addEventListener("click", closeSalePopup);
+  });
+
+  $("#saleShopNowBtn")?.addEventListener("click", closeSalePopup);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && salePopup && !salePopup.hidden) {
+      closeSalePopup();
+    }
+  });
+
+  $("#copySaleCodeBtn")?.addEventListener("click", async (e) => {
+    const btn = e.currentTarget;
+    const code = btn.dataset.code || "TEA10";
+    try {
+      await navigator.clipboard?.writeText(code);
+    } catch (_) {}
+
+    if (window.Store?.toast) {
+      window.Store.toast(`Coupon "${code}" copied!`, {
+        sub: "Apply it in the cart page for 10% off.",
+      });
+    }
+  });
+})();

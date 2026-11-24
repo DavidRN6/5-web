@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,12 +11,14 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <!-- Style Sheet -->
+
+    <!-- Theme Variables & Style Sheet -->
     <style>
       :root {
         --primary: #2d3d17;
@@ -24,9 +27,22 @@
       }
     </style>
     <link href="style.css" rel="stylesheet" />
+
     <title>Harvest | Naturally Yours</title>
   </head>
+
   <body>
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__inner">
+        <div class="preloader__ring"></div>
+        <div class="preloader__brand">
+          <span class="logo__text">HARVEST</span>
+          <span class="logo__tagline">NATURALLY YOURS</span>
+        </div>
+      </div>
+    </div>
+
     <!-- ==================== ANNOUNCEMENT BAR ==================== -->
     <div class="announcement">
       <div class="container">
@@ -45,6 +61,7 @@
             <a href="index.html#contact" class="announcement__link">
               <i class="fa-solid fa-location-dot"></i> Store Locator
             </a>
+
             <div class="lang" id="lang">
               <button
                 class="announcement__link lang__btn"
@@ -56,6 +73,7 @@
                 <span class="lang__cur">EN</span>
                 <i class="fa-solid fa-chevron-down announcement__chevron"></i>
               </button>
+
               <ul class="lang__menu">
                 <li>
                   <button type="button" class="lang__opt active" data-lang="EN">
@@ -89,7 +107,7 @@
           </button>
 
           <!-- Logo -->
-          <a href="index.html" class="logo" aria-label="Teavana home">
+          <a href="index.html" class="logo" aria-label="Harvest home">
             <span class="logo__text">HARVEST</span>
             <span class="logo__tagline">NATURALLY YOURS</span>
           </a>
@@ -99,9 +117,9 @@
             <a href="index.html" class="navbar__link active">Home</a>
 
             <div class="navbar__item has-menu">
-              <a href="products.html" class="navbar__link"
-                >Shop <i class="fa-solid fa-chevron-down"></i
-              ></a>
+              <a href="products.html" class="navbar__link">
+                Shop <i class="fa-solid fa-chevron-down"></i>
+              </a>
               <div class="menu">
                 <a href="products.html">All Teas</a>
                 <a href="products.html?cat=black">Black Tea</a>
@@ -112,9 +130,9 @@
             </div>
 
             <div class="navbar__item has-menu">
-              <a href="products.html" class="navbar__link"
-                >Tea Collections <i class="fa-solid fa-chevron-down"></i
-              ></a>
+              <a href="products.html" class="navbar__link">
+                Tea Collections <i class="fa-solid fa-chevron-down"></i>
+              </a>
               <div class="menu">
                 <a href="products.html?cat=oolong">Oolong Tea</a>
                 <a href="products.html?cat=floral">Floral Tea</a>
@@ -123,9 +141,9 @@
               </div>
             </div>
 
-            <a href="index.html#best-sellers" class="navbar__link"
-              >Best Sellers</a
-            >
+            <a href="index.html#best-sellers" class="navbar__link">
+              Best Sellers
+            </a>
             <a href="index.html#reels" class="navbar__link">Reels</a>
             <a href="index.html#contact" class="navbar__link">Contact</a>
           </nav>
@@ -139,7 +157,6 @@
               data-open-wl
             >
               <i class="fa-regular fa-heart"></i>
-
               <span class="cart-badge" id="wlBadge" hidden>0</span>
             </button>
 
@@ -157,13 +174,13 @@
       </div>
     </header>
 
-    <!-- ============ Mobile drawer ============ -->
+    <!-- ==================== MOBILE DRAWER ==================== -->
     <div class="drawer" id="drawer" aria-hidden="true">
       <div class="drawer__backdrop" data-close-menu></div>
 
       <aside class="drawer__panel">
         <div class="drawer__head">
-          <a href="index.html" class="logo" aria-label="Teavana home">
+          <a href="index.html" class="logo" aria-label="Harvest home">
             <span class="logo__text">HARVEST</span>
             <span class="logo__tagline">NATURALLY YOURS</span>
           </a>
@@ -205,9 +222,9 @@
             </div>
           </details>
 
-          <a href="index.html#best-sellers" class="drawer__link"
-            >Best Sellers</a
-          >
+          <a href="index.html#best-sellers" class="drawer__link">
+            Best Sellers
+          </a>
           <a href="index.html#reels" class="drawer__link">Reels</a>
           <a href="index.html#contact" class="drawer__link">Contact</a>
         </nav>
@@ -230,10 +247,10 @@
       </aside>
     </div>
 
+    <!-- ==================== MAIN CONTENT ==================== -->
     <main>
-      <!-- ==================== HERO ==================== -->
+      <!-- Hero -->
       <section class="hero" aria-labelledby="heroTitle">
-        <!-- غيّر المسار لصورة الهيرو بتاعتك -->
         <img
           class="hero__bg"
           src="images/hero tea.webp"
@@ -262,16 +279,16 @@
               <a href="products.html" class="btn btn--primary">
                 Shop Now <i class="fa-solid fa-arrow-right"></i>
               </a>
-              <a href="#categories" class="btn btn--outline"
-                >Explore Collections</a
-              >
+              <a href="#categories" class="btn btn--outline">
+                Explore Collections
+              </a>
             </div>
 
             <ul class="hero__features fade-in-up delay-700">
               <li class="hero__feature">
-                <span class="hero__feature-icon"
-                  ><i class="fa-solid fa-leaf"></i
-                ></span>
+                <span class="hero__feature-icon">
+                  <i class="fa-solid fa-leaf"></i>
+                </span>
                 <strong>100% Natural</strong>
                 <span>Pure &amp; Safe</span>
               </li>
@@ -283,9 +300,9 @@
                 <span>Finest Leaf Teas</span>
               </li>
               <li class="hero__feature">
-                <span class="hero__feature-icon"
-                  ><i class="fa-regular fa-heart"></i
-                ></span>
+                <span class="hero__feature-icon">
+                  <i class="fa-regular fa-heart"></i>
+                </span>
                 <strong>Good For You</strong>
                 <span>Health &amp; Wellness</span>
               </li>
@@ -301,7 +318,7 @@
         </div>
       </section>
 
-      <!-- ==================== CATEGORIES ==================== -->
+      <!-- Categories -->
       <section class="categories" id="categories" aria-label="Shop by category">
         <div class="container">
           <ul class="categories__card">
@@ -401,11 +418,10 @@
         </div>
       </section>
 
-      <!-- ==================== PROMO CARDS ==================== -->
+      <!-- Promo Cards -->
       <section class="promos" aria-label="Featured collections">
         <div class="container">
           <div class="promos__grid">
-            <!-- Card 1 -->
             <article class="promo promo--1">
               <img
                 class="promo__image"
@@ -424,7 +440,6 @@
               </div>
             </article>
 
-            <!-- Card 2 -->
             <article class="promo promo--2">
               <img
                 class="promo__image"
@@ -446,7 +461,6 @@
               </div>
             </article>
 
-            <!-- Card 3 -->
             <article class="promo promo--3">
               <img
                 class="promo__image"
@@ -470,7 +484,7 @@
         </div>
       </section>
 
-      <!-- ==================== BEST SELLERS ==================== -->
+      <!-- Best Sellers -->
       <section
         class="best-sellers"
         id="best-sellers"
@@ -496,7 +510,7 @@
         </div>
       </section>
 
-      <!-- ==================== SPECIAL OFFERS ==================== -->
+      <!-- Special Offers -->
       <section
         class="special-offers"
         id="special-offers"
@@ -545,12 +559,13 @@
         </div>
       </section>
 
-      <!-- ==================== REELS ==================== -->
+      <!-- Reels -->
       <section class="reels" id="reels" aria-labelledby="reelsTitle">
         <div class="container">
           <div class="section-head">
             <h2 class="section-head__title" id="reelsTitle">Tea Reels</h2>
           </div>
+
           <div class="reels__row">
             <article class="reel-card">
               <video
@@ -562,7 +577,7 @@
                 preload="metadata"
               ></video>
               <div class="reel-card__cap">
-                <strong>Brewing the perfect cup</strong
+                <strong>Brewing the perfect cup</strong>
               </div>
             </article>
 
@@ -575,7 +590,7 @@
                 preload="metadata"
               ></video>
               <div class="reel-card__cap">
-                <strong>Matcha morning ritual</strong
+                <strong>Matcha morning ritual</strong>
               </div>
             </article>
 
@@ -588,7 +603,7 @@
                 preload="metadata"
               ></video>
               <div class="reel-card__cap">
-                <strong>From leaf to cup</strong
+                <strong>From leaf to cup</strong>
               </div>
             </article>
 
@@ -601,19 +616,20 @@
                 preload="metadata"
               ></video>
               <div class="reel-card__cap">
-                <strong>Spices that warm you</strong
+                <strong>Spices that warm you</strong>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ==================== CONTACT ==================== -->
+      <!-- Contact -->
       <section class="contact" id="contact" aria-labelledby="contactTitle">
         <div class="container">
           <div class="section-head">
             <h2 class="section-head__title" id="contactTitle">Contact Us</h2>
           </div>
+
           <div class="contact__card">
             <div class="contact__info">
               <h3>Let's talk tea</h3>
@@ -623,42 +639,51 @@
               </p>
               <ul>
                 <li>
-                  <i class="fa-solid fa-location-dot"></i
-                  ><span>12 Tea Garden St, Cairo, Egypt</span>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>12 Tea Garden St, Cairo, Egypt</span>
                 </li>
                 <li>
-                  <i class="fa-solid fa-phone"></i><span>+20 100 000 0000</span>
+                  <i class="fa-solid fa-phone"></i>
+                  <span>+20 100 000 0000</span>
                 </li>
                 <li>
-                  <i class="fa-solid fa-envelope"></i
-                  ><span>hello@harvest.com</span>
+                  <i class="fa-solid fa-envelope"></i>
+                  <span>hello@harvest.com</span>
                 </li>
                 <li>
-                  <i class="fa-solid fa-clock"></i
-                  ><span>Every day, 9 AM - 10 PM</span>
+                  <i class="fa-solid fa-clock"></i>
+                  <span>Every day, 9 AM - 10 PM</span>
                 </li>
               </ul>
             </div>
+
             <form class="contact__form" id="contactForm">
-              <label
-                >Full Name<input
+              <label>
+                Full Name
+                <input
                   type="text"
                   name="name"
                   required
                   minlength="3"
                   placeholder="Your name"
                   autocomplete="name"
-              /></label>
-              <label
-                >Email<input
+                />
+              </label>
+
+              <label>
+                Email
+                <input
                   type="email"
                   name="email"
                   required
                   placeholder="you@example.com"
                   autocomplete="email"
-              /></label>
-              <label class="full"
-                >Message<textarea
+                />
+              </label>
+
+              <label class="full">
+                Message
+                <textarea
                   name="message"
                   rows="5"
                   required
@@ -666,6 +691,7 @@
                   placeholder="How can we help you?"
                 ></textarea>
               </label>
+
               <button type="submit" class="btn btn--primary full">
                 Send Message <i class="fa-solid fa-paper-plane"></i>
               </button>
@@ -679,7 +705,6 @@
     <footer class="site-footer">
       <div class="container">
         <div class="site-footer__grid">
-          <!-- Brand -->
           <div class="site-footer__brand">
             <a href="index.html" class="logo" aria-label="Harvest home">
               <span class="logo__text">HARVEST</span>
@@ -703,7 +728,6 @@
             </div>
           </div>
 
-          <!-- Shop -->
           <nav class="site-footer__col" aria-label="Shop">
             <h3 class="site-footer__title">Shop</h3>
             <ul>
@@ -715,7 +739,6 @@
             </ul>
           </nav>
 
-          <!-- Customer care -->
           <nav class="site-footer__col" aria-label="Customer care">
             <h3 class="site-footer__title">Customer Care</h3>
             <ul>
@@ -725,7 +748,6 @@
             </ul>
           </nav>
 
-          <!-- About -->
           <nav class="site-footer__col" aria-label="Explore">
             <h3 class="site-footer__title">Explore</h3>
             <ul>
@@ -736,29 +758,84 @@
           </nav>
         </div>
 
-        <!-- Bottom bar -->
         <div class="site-footer__bottom">
           <p>© 2026 Harvest. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
 
-    <div class="floating-links" aria-label="Page shortcuts">
-      <a
-        class="floating-link"
-        href="../page-4/index.html"
-        aria-label="Open page 2"
-      >
-        <i class="fa-solid fa-angle-left"></i>
-      </a>
+    <!-- ==================== SALE / OFFER POPUP ==================== -->
+    <div
+      class="sale-popup"
+      id="salePopup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="salePopupTitle"
+      hidden
+    >
+      <div class="sale-popup__backdrop" data-close-sale></div>
+      <div class="sale-popup__dialog">
+        <button
+          class="sale-popup__close"
+          type="button"
+          id="closeSalePopup"
+          data-close-sale
+          aria-label="Close special offer popup"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
 
-      <a
-        class="floating-link"
-        href="../page-2/index.html"
-        aria-label="Open page 5"
-      >
-        <i class="fa-solid fa-angle-right"></i>
-      </a>
+        <div class="sale-popup__media">
+          <span class="sale-popup__tag">Limited Offer • Save 25%</span>
+          <img
+            src="images/product 7.jpg"
+            alt="Harvest Seasonal Tea & Herbs Sale"
+          />
+        </div>
+
+        <div class="sale-popup__body">
+          <p class="sale-popup__eyebrow">Seasonal Harvest Sale</p>
+          <h2 class="sale-popup__title" id="salePopupTitle">
+            Fresh Loose Leaf &amp; Herbal Blends
+          </h2>
+          <p class="sale-popup__desc">
+            Enjoy up to <strong>25% off</strong> selected tea &amp; botanical
+            packs, plus <strong>Free Shipping</strong> on orders over 500 EGP.
+          </p>
+
+          <div class="sale-popup__code-box">
+            <span>Use code at checkout:</span>
+            <button
+              type="button"
+              class="sale-popup__code"
+              id="copySaleCodeBtn"
+              data-code="TEA10"
+              title="Click to copy code"
+            >
+              <strong>TEA10</strong>
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <div class="sale-popup__actions">
+            <a
+              href="products.html"
+              class="btn btn--primary"
+              id="saleShopNowBtn"
+            >
+              Shop The Sale <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <button
+              type="button"
+              class="btn btn--outline"
+              id="saleDismissBtn"
+              data-close-sale
+            >
+              Maybe Later
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ==================== WISHLIST PANEL ==================== -->
@@ -778,6 +855,24 @@
         </div>
         <div class="wl__list" id="wlList"></div>
       </aside>
+    </div>
+
+    <!-- ==================== FLOATING SHORTCUTS ==================== -->
+    <div class="floating-links" aria-label="Page shortcuts">
+      <a
+        class="floating-link"
+        href="../page-4/index.html"
+        aria-label="Open page 2"
+      >
+        <i class="fa-solid fa-angle-left"></i>
+      </a>
+      <a
+        class="floating-link"
+        href="../page-2/index.html"
+        aria-label="Open page 5"
+      >
+        <i class="fa-solid fa-angle-right"></i>
+      </a>
     </div>
 
     <script src="script.js"></script>

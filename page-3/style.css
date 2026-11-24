@@ -23,6 +23,7 @@
    20. Wishlist drawer, language switcher, reels & contact
    21. Single product detail & related products
    22. Special offers auto slider
+   23. Preloader & Sale Popup Modal
    ===================================================================== */
 
 /* =========================
@@ -3553,5 +3554,244 @@ summary::-webkit-details-marker {
 
   .offers-slider__arrow {
     display: none;
+  }
+}
+
+/* =====================================
+   23. Preloader & Sale Popup Modal
+======================================== */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  background: var(--light);
+  transition:
+    opacity 0.45s var(--ease),
+    visibility 0.45s;
+}
+
+.preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader__inner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 170px;
+  height: 170px;
+}
+
+.preloader__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--primary) 16%, transparent);
+  border-top-color: var(--primary);
+  animation: preloaderSpin 1s linear infinite;
+}
+
+.preloader__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--primary);
+}
+
+@keyframes preloaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Sale Popup ---- */
+.sale-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s var(--ease),
+    visibility 0.3s;
+}
+
+.sale-popup.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sale-popup__backdrop {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--secondary) 55%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+.sale-popup__dialog {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  display: grid;
+  grid-template-columns: minmax(240px, 0.92fr) minmax(0, 1.15fr);
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--light);
+  box-shadow: 0 24px 64px color-mix(in srgb, var(--secondary) 32%, transparent);
+  transform: translateY(18px) scale(0.97);
+  transition: transform 0.35s var(--ease);
+}
+
+.sale-popup.is-open .sale-popup__dialog {
+  transform: translateY(0) scale(1);
+}
+
+.sale-popup__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 4;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--light);
+  color: var(--secondary);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 14%, transparent);
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+
+.sale-popup__close:hover {
+  background: var(--primary);
+  color: var(--light);
+  transform: rotate(90deg);
+}
+
+.sale-popup__media {
+  position: relative;
+  min-height: 260px;
+  background: var(--soft);
+  overflow: hidden;
+}
+
+.sale-popup__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sale-popup__tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sale-popup__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: clamp(22px, 3.5vw, 36px);
+}
+
+.sale-popup__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.sale-popup__title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--secondary);
+}
+
+.sale-popup__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.sale-popup__desc strong {
+  color: var(--secondary);
+}
+
+.sale-popup__code-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px dashed color-mix(in srgb, var(--primary) 45%, transparent);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.sale-popup__code {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--soft);
+  color: var(--primary);
+  font-size: 13px;
+  transition: background-color 0.2s;
+}
+
+.sale-popup__code:hover {
+  background: color-mix(in srgb, var(--primary) 16%, var(--light));
+}
+
+.sale-popup__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.sale-popup__actions .btn--primary {
+  flex: 1;
+  min-width: 170px;
+}
+
+@media (max-width: 680px) {
+  .sale-popup__dialog {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sale-popup__media {
+    min-height: 185px;
+    max-height: 210px;
   }
 }
