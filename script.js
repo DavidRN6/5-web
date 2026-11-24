@@ -7,12 +7,14 @@
   4. Header state (transparent on home)
   5. Static links & Mobile Accordion
   6. Cart, Quick Order Modal & Notification
-  6.5 Auth Modal (UI Only)
   7. Search (open / close)
   8. Mobile menu (open / close)
-  9. Promo Banner Slider
-  10. Products Rendering (Home & Catalog Filter Page)
-  11. Checkout & Orders Logic
+  9. Auth Modal (UI Only)
+  10. Promo Banner Slider
+  11. Products Rendering (Home & Catalog Filter)
+  12. Checkout & Orders Logic
+  13. Contact Form Logic
+  14. Catalog layout switcher
 */
 
 (() => {
@@ -90,7 +92,7 @@
   }
 
   //=======================
-  // 3. Announcement marquee
+  // 3. Announcement marquee (clone)
   //=======================
   ["#marquee", "#brandsMarquee"].forEach((selector) => {
     const el = $(selector);
@@ -101,7 +103,7 @@
   });
 
   //=======================
-  // 4. Header state
+  // 4. Header state (transparent on home)
   //=======================
   const renderHeader = () => {
     if (!header) return;
@@ -145,6 +147,7 @@
   //=======================
   // 6. Cart, Quick Order Modal & Notification
   //=======================
+  // --- Cart state & drawer ---
   let cart = [];
   try {
     const saved = JSON.parse(localStorage.getItem("wandaCart"));
@@ -462,7 +465,7 @@
   ).forEach((el) => el.addEventListener("click", closeMenu));
 
   //=======================
-  // 6.5 Auth Modal (UI Only)
+  // 9. Auth Modal (UI Only)
   //=======================
   const authModal = $("#authModal");
   const authTriggerBtn = $("#authTriggerBtn");
@@ -536,7 +539,7 @@
     showNotification("Account created successfully!");
   });
 
-  // Escape key handler
+  // --- Global Escape key handler ---
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     if (mobileMenu?.classList.contains("open")) closeMenu();
@@ -547,9 +550,9 @@
     if (authModal?.classList.contains("is-open")) closeAuthModal();
   });
 
-  //=====================
-  // 9. Promo Banner Slider
-  //=====================
+  //=======================
+  // 10. Promo Banner Slider
+  //=======================
   (() => {
     const track = document.getElementById("promoTrack");
     const dots = document.querySelectorAll(".promo-dot");
@@ -590,7 +593,7 @@
   })();
 
   //=======================
-  // 10. Products Rendering (Home & Catalog Filter Page)
+  // 11. Products Rendering (Home & Catalog Filter)
   //=======================
   const products = window.WANDA_PRODUCTS || [];
 
@@ -973,8 +976,9 @@
   });
 
   //=======================
-  // 11. Checkout & Orders Logic
+  // 12. Checkout & Orders Logic
   //=======================
+  // --- Checkout form & order creation ---
   const checkoutForm = $("#checkoutForm");
   const checkoutItemsList = $("#checkoutItemsList");
 
@@ -1099,7 +1103,7 @@
   }
 
   //=======================
-  // 12. Contact Form Logic
+  // 13. Contact Form Logic
   //=======================
   const contactForm = $("#contactForm");
   if (contactForm) {
@@ -1111,16 +1115,16 @@
   }
 })();
 
-/* ======================
-  Catalog layout switcher
+/* ==============================
+  14. Catalog layout switcher
   بيغير عدد المنتجات فى الصف، والخيارات اللى مش ينفع تتعرض على الشاشة بتختفى
-========================= */
+================================ */
 (() => {
   const grid = document.getElementById("catalogGrid");
   const box = document.getElementById("layoutSwitch");
   if (!grid || !box) return;
 
-  const OPTIONS = [6, 5, 4, 3, 2, 1]; // 1 = list view
+  const OPTIONS = [6, 5, 4, 3, 2, 1];
   const KEY = "wanda_catalog_cols";
   const MIN_CARD = 216; // أقل عرض مريح للكارت + المسافة (px)
 

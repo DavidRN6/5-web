@@ -16,10 +16,110 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <!-- Style Sheet -->
+    <style>
+      :root {
+        --primary: #2563eb;
+        --secondary: #111827;
+        --light: #ffffff;
+        --rating: #f59e0b; /* review stars */
+      }
+    </style>
     <link href="style.css" rel="stylesheet" />
     <title>TechNova - My Orders</title>
   </head>
   <body>
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div
+      class="announcement-bar"
+      role="region"
+      aria-label="Promotions and offers"
+    >
+      <div class="announcement-bar__track">
+        <!-- المجموعة الأولى من العروض -->
+        <div class="announcement-bar__group">
+          <a
+            href="products.html?category=smartphones"
+            class="announcement-bar__item"
+          >
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+            <span>Up to <strong>25% OFF</strong> Flagship Smartphones</span>
+          </a>
+          <span class="announcement-bar__divider" aria-hidden="true">•</span>
+          <a
+            href="products.html?category=laptops"
+            class="announcement-bar__item"
+          >
+            <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+            <span
+              >Free Express Delivery on Laptops over
+              <strong>LE 30,000</strong></span
+            >
+          </a>
+          <span class="announcement-bar__divider" aria-hidden="true">•</span>
+          <a
+            href="products.html?category=headphones"
+            class="announcement-bar__item"
+          >
+            <i class="fa-solid fa-headphones" aria-hidden="true"></i>
+            <span
+              >Bundle &amp; Save <strong>LE 2,500</strong> on Pro Audio</span
+            >
+          </a>
+          <span class="announcement-bar__divider" aria-hidden="true">•</span>
+          <a href="products.html" class="announcement-bar__item">
+            <i class="fa-solid fa-fire" aria-hidden="true"></i>
+            <span
+              >Black Friday Tech Deals Are Live —
+              <strong>Shop Now</strong></span
+            >
+          </a>
+        </div>
+
+        <!-- نسخة مكررة للحركة المستمرة السلسة -->
+        <div class="announcement-bar__group" aria-hidden="true">
+          <a
+            href="products.html?category=smartphones"
+            class="announcement-bar__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+            <span>Up to <strong>25% OFF</strong> Flagship Smartphones</span>
+          </a>
+          <span class="announcement-bar__divider">•</span>
+          <a
+            href="products.html?category=laptops"
+            class="announcement-bar__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+            <span
+              >Free Express Delivery on Laptops over
+              <strong>LE 30,000</strong></span
+            >
+          </a>
+          <span class="announcement-bar__divider">•</span>
+          <a
+            href="products.html?category=headphones"
+            class="announcement-bar__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-headphones" aria-hidden="true"></i>
+            <span
+              >Bundle &amp; Save <strong>LE 2,500</strong> on Pro Audio</span
+            >
+          </a>
+          <span class="announcement-bar__divider">•</span>
+          <a href="products.html" class="announcement-bar__item" tabindex="-1">
+            <i class="fa-solid fa-fire" aria-hidden="true"></i>
+            <span
+              >Black Friday Tech Deals Are Live —
+              <strong>Shop Now</strong></span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- ==================== NAVBAR ==================== -->
     <header class="navbar" id="navbar">
       <div class="container">

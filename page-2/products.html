@@ -13,248 +13,330 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <!-- Style Sheet -->
+    <style>
+      :root {
+        --primary: #2563eb;
+        --secondary: #111827;
+        --light: #ffffff;
+        --rating: #f59e0b; /* review stars */
+      }
+    </style>
     <link href="style.css" rel="stylesheet" />
     <title>Products - TechNova</title>
   </head>
   <body>
-        <!-- ==================== NAVBAR ==================== -->
-        <header class="navbar" id="navbar">
-          <div class="container">
-            <div class="navbar__inner">
-              <!-- Logo + desktop links -->
-              <div class="navbar__start">
-                <a href="index.html" class="logo" aria-label="TechNova home">
-                  <span class="logo__mark"
-                    ><i class="fa-solid fa-bolt"></i
-                  ></span>
-                  <span class="logo__text">TechNova</span>
-                </a>
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div
+      class="announcement-bar"
+      role="region"
+      aria-label="Promotions and offers"
+    >
+      <div class="announcement-bar__track">
+        <!-- المجموعة الأولى من العروض -->
+        <div class="announcement-bar__group">
+          <a
+            href="products.html?category=smartphones"
+            class="announcement-bar__item"
+          >
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+            <span>Up to <strong>25% OFF</strong> Flagship Smartphones</span>
+          </a>
+          <span class="announcement-bar__divider" aria-hidden="true">•</span>
+          <a
+            href="products.html?category=laptops"
+            class="announcement-bar__item"
+          >
+            <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+            <span
+              >Free Express Delivery on Laptops over
+              <strong>LE 30,000</strong></span
+            >
+          </a>
+          <span class="announcement-bar__divider" aria-hidden="true">•</span>
+          <a
+            href="products.html?category=headphones"
+            class="announcement-bar__item"
+          >
+            <i class="fa-solid fa-headphones" aria-hidden="true"></i>
+            <span
+              >Bundle &amp; Save <strong>LE 2,500</strong> on Pro Audio</span
+            >
+          </a>
+          <span class="announcement-bar__divider" aria-hidden="true">•</span>
+          <a href="products.html" class="announcement-bar__item">
+            <i class="fa-solid fa-fire" aria-hidden="true"></i>
+            <span
+              >Black Friday Tech Deals Are Live —
+              <strong>Shop Now</strong></span
+            >
+          </a>
+        </div>
 
-                <nav class="navbar__links" aria-label="Main">
-                  <a href="index.html" class="navbar__link active">Home</a>
-                  <a href="products.html" class="navbar__link">All Tech</a>
+        <!-- نسخة مكررة للحركة المستمرة السلسة -->
+        <div class="announcement-bar__group" aria-hidden="true">
+          <a
+            href="products.html?category=smartphones"
+            class="announcement-bar__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+            <span>Up to <strong>25% OFF</strong> Flagship Smartphones</span>
+          </a>
+          <span class="announcement-bar__divider">•</span>
+          <a
+            href="products.html?category=laptops"
+            class="announcement-bar__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+            <span
+              >Free Express Delivery on Laptops over
+              <strong>LE 30,000</strong></span
+            >
+          </a>
+          <span class="announcement-bar__divider">•</span>
+          <a
+            href="products.html?category=headphones"
+            class="announcement-bar__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-headphones" aria-hidden="true"></i>
+            <span
+              >Bundle &amp; Save <strong>LE 2,500</strong> on Pro Audio</span
+            >
+          </a>
+          <span class="announcement-bar__divider">•</span>
+          <a href="products.html" class="announcement-bar__item" tabindex="-1">
+            <i class="fa-solid fa-fire" aria-hidden="true"></i>
+            <span
+              >Black Friday Tech Deals Are Live —
+              <strong>Shop Now</strong></span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
 
-                  <!-- Categories Dropdown -->
-                  <div class="nav-dropdown" id="navDropdown">
-                    <button
-                      class="navbar__link nav-dropdown__toggle"
-                      type="button"
-                      aria-expanded="false"
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar__inner">
+          <!-- Logo + desktop links -->
+          <div class="navbar__start">
+            <a href="index.html" class="logo" aria-label="TechNova home">
+              <span class="logo__mark"><i class="fa-solid fa-bolt"></i></span>
+              <span class="logo__text">TechNova</span>
+            </a>
+
+            <nav class="navbar__links" aria-label="Main">
+              <a href="index.html" class="navbar__link active">Home</a>
+              <a href="products.html" class="navbar__link">All Tech</a>
+
+              <!-- Categories Dropdown -->
+              <div class="nav-dropdown" id="navDropdown">
+                <button
+                  class="navbar__link nav-dropdown__toggle"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  Categories
+                  <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="nav-dropdown__menu">
+                  <div class="nav-dropdown__grid">
+                    <a
+                      href="products.html?category=smartphones"
+                      class="nav-dropdown__item"
                     >
-                      Categories
-                      <i
-                        class="fa-solid fa-chevron-down"
-                        aria-hidden="true"
-                      ></i>
-                    </button>
-                    <div class="nav-dropdown__menu">
-                      <div class="nav-dropdown__grid">
-                        <a
-                          href="products.html?category=smartphones"
-                          class="nav-dropdown__item"
-                        >
-                          <i class="fa-solid fa-mobile-screen"></i> Smartphones
-                        </a>
-                        <a
-                          href="products.html?category=laptops"
-                          class="nav-dropdown__item"
-                        >
-                          <i class="fa-solid fa-laptop"></i> Laptops
-                        </a>
-                        <a
-                          href="products.html?category=tablets"
-                          class="nav-dropdown__item"
-                        >
-                          <i class="fa-solid fa-tablet-screen-button"></i>
-                          Tablets
-                        </a>
-                        <a
-                          href="products.html?category=headphones"
-                          class="nav-dropdown__item"
-                        >
-                          <i class="fa-solid fa-headphones"></i> Headphones
-                        </a>
-                        <a
-                          href="products.html?category=smartwatches"
-                          class="nav-dropdown__item"
-                        >
-                          <i class="fa-solid fa-clock"></i> Smartwatches
-                        </a>
-                        <a
-                          href="products.html?category=gaming"
-                          class="nav-dropdown__item"
-                        >
-                          <i class="fa-solid fa-gamepad"></i> Gaming
-                        </a>
-                        <a
-                          href="products.html?category=cameras"
-                          class="nav-dropdown__item"
-                        >
-                          <i class="fa-solid fa-camera"></i> Cameras
-                        </a>
-                        <a
-                          href="products.html?category=accessories"
-                          class="nav-dropdown__item"
-                        >
-                          <i class="fa-solid fa-plug"></i> Accessories
-                        </a>
-                      </div>
-                    </div>
+                      <i class="fa-solid fa-mobile-screen"></i> Smartphones
+                    </a>
+                    <a
+                      href="products.html?category=laptops"
+                      class="nav-dropdown__item"
+                    >
+                      <i class="fa-solid fa-laptop"></i> Laptops
+                    </a>
+                    <a
+                      href="products.html?category=tablets"
+                      class="nav-dropdown__item"
+                    >
+                      <i class="fa-solid fa-tablet-screen-button"></i>
+                      Tablets
+                    </a>
+                    <a
+                      href="products.html?category=headphones"
+                      class="nav-dropdown__item"
+                    >
+                      <i class="fa-solid fa-headphones"></i> Headphones
+                    </a>
+                    <a
+                      href="products.html?category=smartwatches"
+                      class="nav-dropdown__item"
+                    >
+                      <i class="fa-solid fa-clock"></i> Smartwatches
+                    </a>
+                    <a
+                      href="products.html?category=gaming"
+                      class="nav-dropdown__item"
+                    >
+                      <i class="fa-solid fa-gamepad"></i> Gaming
+                    </a>
+                    <a
+                      href="products.html?category=cameras"
+                      class="nav-dropdown__item"
+                    >
+                      <i class="fa-solid fa-camera"></i> Cameras
+                    </a>
+                    <a
+                      href="products.html?category=accessories"
+                      class="nav-dropdown__item"
+                    >
+                      <i class="fa-solid fa-plug"></i> Accessories
+                    </a>
                   </div>
-
-                  <a href="orders.html" class="navbar__link">My Orders</a>
-                </nav>
-              </div>
-
-              <!-- Actions -->
-              <div class="navbar__actions">
-                <!-- Direct Search Input in Navbar -->
-                <div class="navbar__search-box">
-                  <i
-                    class="fa-solid fa-magnifying-glass"
-                    aria-hidden="true"
-                  ></i>
-                  <input
-                    type="search"
-                    id="navbarSearchInput"
-                    placeholder="Search products..."
-                    autocomplete="off"
-                  />
                 </div>
-
-                <!-- Mobile Search Icon -->
-                <button
-                  class="navbar__icon navbar__icon--search-mobile"
-                  type="button"
-                  id="mobileSearchTrigger"
-                  aria-label="Search"
-                >
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-
-                <!-- Account -->
-                <button
-                  class="navbar__icon navbar__icon--account"
-                  type="button"
-                  aria-label="Account"
-                >
-                  <i class="fa-regular fa-user"></i>
-                </button>
-
-                <!-- Wishlist Button -->
-                <button
-                  class="navbar__icon"
-                  type="button"
-                  id="wishlistBtn"
-                  aria-label="Wishlist"
-                >
-                  <i class="fa-regular fa-heart"></i>
-                  <span class="cart-badge" id="wishlistBadge" hidden>0</span>
-                </button>
-
-                <!-- Cart Button -->
-                <button
-                  class="navbar__icon"
-                  type="button"
-                  id="cartBtn"
-                  aria-label="Shopping cart"
-                >
-                  <i class="fa-solid fa-bag-shopping"></i>
-                  <span class="cart-badge" id="cartBadge" hidden>0</span>
-                </button>
-
-                <!-- Burger (mobile) -->
-                <button
-                  class="navbar__icon navbar__icon--burger"
-                  type="button"
-                  id="openMenu"
-                  aria-label="Open menu"
-                >
-                  <i class="fa-solid fa-bars"></i>
-                </button>
               </div>
+
+              <a href="orders.html" class="navbar__link">My Orders</a>
+            </nav>
+          </div>
+
+          <!-- Actions -->
+          <div class="navbar__actions">
+            <!-- Direct Search Input in Navbar -->
+            <div class="navbar__search-box">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input
+                type="search"
+                id="navbarSearchInput"
+                placeholder="Search products..."
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Mobile Search Icon -->
+            <button
+              class="navbar__icon navbar__icon--search-mobile"
+              type="button"
+              id="mobileSearchTrigger"
+              aria-label="Search"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <!-- Account -->
+            <button
+              class="navbar__icon navbar__icon--account"
+              type="button"
+              aria-label="Account"
+            >
+              <i class="fa-regular fa-user"></i>
+            </button>
+
+            <!-- Wishlist Button -->
+            <button
+              class="navbar__icon"
+              type="button"
+              id="wishlistBtn"
+              aria-label="Wishlist"
+            >
+              <i class="fa-regular fa-heart"></i>
+              <span class="cart-badge" id="wishlistBadge" hidden>0</span>
+            </button>
+
+            <!-- Cart Button -->
+            <button
+              class="navbar__icon"
+              type="button"
+              id="cartBtn"
+              aria-label="Shopping cart"
+            >
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="cart-badge" id="cartBadge" hidden>0</span>
+            </button>
+
+            <!-- Burger (mobile) -->
+            <button
+              class="navbar__icon navbar__icon--burger"
+              type="button"
+              id="openMenu"
+              aria-label="Open menu"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ Mobile drawer ============ -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer__backdrop" data-close-menu></div>
+
+      <aside class="drawer__panel">
+        <div class="drawer__head">
+          <a href="index.html" class="logo" aria-label="TechNova home">
+            <span class="logo__mark"><i class="fa-solid fa-bolt"></i></span>
+            <span class="logo__text">TechNova</span>
+          </a>
+          <button
+            class="navbar__icon"
+            type="button"
+            data-close-menu
+            aria-label="Close menu"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="drawer__links" aria-label="Mobile">
+          <a href="index.html" class="drawer__link active">Home</a>
+          <a href="products.html" class="drawer__link">All Tech</a>
+          <div class="drawer__accordion">
+            <button class="drawer__link drawer__accordion-toggle" type="button">
+              Categories <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="drawer__sublinks">
+              <a href="products.html?category=smartphones" class="drawer__link"
+                >Smartphones</a
+              >
+              <a href="products.html?category=laptops" class="drawer__link"
+                >Laptops</a
+              >
+              <a href="products.html?category=tablets" class="drawer__link"
+                >Tablets</a
+              >
+              <a href="products.html?category=headphones" class="drawer__link"
+                >Headphones</a
+              >
+              <a href="products.html?category=smartwatches" class="drawer__link"
+                >Smartwatches</a
+              >
+              <a href="products.html?category=gaming" class="drawer__link"
+                >Gaming</a
+              >
+              <a href="products.html?category=cameras" class="drawer__link"
+                >Cameras</a
+              >
+              <a href="products.html?category=accessories" class="drawer__link"
+                >Accessories</a
+              >
             </div>
           </div>
-        </header>
+          <a href="orders.html" class="drawer__link">My Orders</a>
+        </nav>
 
-        <!-- ============ Mobile drawer ============ -->
-        <div class="drawer" id="drawer" aria-hidden="true">
-          <div class="drawer__backdrop" data-close-menu></div>
-
-          <aside class="drawer__panel">
-            <div class="drawer__head">
-              <a href="index.html" class="logo" aria-label="TechNova home">
-                <span class="logo__mark"><i class="fa-solid fa-bolt"></i></span>
-                <span class="logo__text">TechNova</span>
-              </a>
-              <button
-                class="navbar__icon"
-                type="button"
-                data-close-menu
-                aria-label="Close menu"
-              >
-                <i class="fa-solid fa-xmark"></i>
-              </button>
-            </div>
-
-            <nav class="drawer__links" aria-label="Mobile">
-              <a href="index.html" class="drawer__link active">Home</a>
-              <a href="products.html" class="drawer__link">All Tech</a>
-              <div class="drawer__accordion">
-                <button
-                  class="drawer__link drawer__accordion-toggle"
-                  type="button"
-                >
-                  Categories <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="drawer__sublinks">
-                  <a
-                    href="products.html?category=smartphones"
-                    class="drawer__link"
-                    >Smartphones</a
-                  >
-                  <a href="products.html?category=laptops" class="drawer__link"
-                    >Laptops</a
-                  >
-                  <a href="products.html?category=tablets" class="drawer__link"
-                    >Tablets</a
-                  >
-                  <a
-                    href="products.html?category=headphones"
-                    class="drawer__link"
-                    >Headphones</a
-                  >
-                  <a
-                    href="products.html?category=smartwatches"
-                    class="drawer__link"
-                    >Smartwatches</a
-                  >
-                  <a href="products.html?category=gaming" class="drawer__link"
-                    >Gaming</a
-                  >
-                  <a href="products.html?category=cameras" class="drawer__link"
-                    >Cameras</a
-                  >
-                  <a
-                    href="products.html?category=accessories"
-                    class="drawer__link"
-                    >Accessories</a
-                  >
-                </div>
-              </div>
-              <a href="orders.html" class="drawer__link">My Orders</a>
-            </nav>
-
-            <div class="drawer__foot">
-              <a href="#" class="drawer__account">
-                <i class="fa-regular fa-user"></i> My Account
-              </a>
-              <a href="#" class="drawer__account" id="drawerWishlist">
-                <i class="fa-regular fa-heart"></i> Wishlist
-              </a>
-            </div>
-          </aside>
+        <div class="drawer__foot">
+          <a href="#" class="drawer__account">
+            <i class="fa-regular fa-user"></i> My Account
+          </a>
+          <a href="#" class="drawer__account" id="drawerWishlist">
+            <i class="fa-regular fa-heart"></i> Wishlist
+          </a>
         </div>
+      </aside>
+    </div>
 
     <!-- ==================== SIDEBAR CART & WISHLIST DRAWERS ==================== -->
     <div class="side-drawer-overlay" id="sideDrawerOverlay" hidden></div>
@@ -364,6 +446,28 @@
             </select>
           </div>
         </div>
+
+        <!-- Slim Horizontal Brand Strip (shown when a specific category is selected) -->
+        <section
+          class="brand-strip brand-strip--hidden"
+          id="brandStrip"
+          aria-label="Filter by brand"
+        >
+          <div class="brand-strip__head">
+            <span class="brand-strip__label" id="brandStripTitle">Brands</span>
+            <button
+              type="button"
+              class="brand-strip__clear"
+              id="clearBrandBtn"
+              hidden
+            >
+              All Brands
+            </button>
+          </div>
+          <div class="brand-strip__list" id="brandStripList">
+            <!-- Slim brand chips/circles injected via script.js -->
+          </div>
+        </section>
 
         <div class="catalog-layout">
           <!-- Sidebar Filters -->

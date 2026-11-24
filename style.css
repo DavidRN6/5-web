@@ -1,37 +1,35 @@
 /* ======================
   table of contents
 =========================
-  1. Variables & reset                      25
-  2. Utilities (container, animations)      85
-  3. Preloader                              195
-  4. Announcement bar                       256
-  5. Header & Dropdown                      309
-  6. Search panel                           633
-  7. Mobile menu & Accordion                682
-  8. Sale Modal Popup                       851
-  9. Hero                                   1031
-  10. Shop by Category                      1430
-  11. Reduced motion                        1535
-  12. Promo Slider Section                  1548
-  13. Best Sellers & Product Cards          1704
-  14. Campaign Banner                       1983
-  15. New Arrivals                          2090
-  16. Footer                                2150
-  17. Order Modal, Cart Drawer & Toast      2252
-  18. Products Catalog Page & Filters       2746
-  19. AUTH MODAL (LOGIN & REGISTER)         2874
-  20. CHECKOUT & ORDERS PAGES STYLING
-  21. CONTACT PAGE STYLING
+  1. Variables & reset                      30
+  2. Utilities (container, animations)      86
+  3. Preloader                              198
+  4. Announcement bar                       259
+  5. Header & Dropdown                      312
+  6. Search panel                           636
+  7. Mobile menu & Accordion                684
+  8. Sale Modal Popup                       853
+  9. Hero                                   1033
+  10. Shop by Category                      1432
+  11. Brands Marquee Strip                  1527
+  12. Reduced motion                        1605
+  13. Promo Slider Section                  1616
+  14. Best Sellers & Product Cards          1772
+  15. Campaign Banner                       2078
+  16. New Arrivals                          2158
+  17. Footer                                2218
+  18. Order Modal, Cart Drawer & Toast      2320
+  19. Products Catalog Page & Filters       2814
+  20. Catalog Layout Switcher               2942
+  21. Auth Modal (Login & Register)         3098
+  22. Checkout & Orders Pages Styling       3255
+  23. Contact Page Styling                  3480
 */
 
 /* =========================
    1. Variables & reset
 ========================= */
 :root {
-  --primary: #00173e;
-  --secondary: #0f0d0d;
-  --light: #ffffff;
-
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Playfair Display", Georgia, serif;
 
@@ -85,7 +83,7 @@ img {
 }
 
 /* =========================
-   2. Utilities
+   2. Utilities (container, animations)
 ========================= */
 .container {
   width: 100%;
@@ -106,6 +104,7 @@ img {
   }
 }
 
+/* Animations */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -150,6 +149,7 @@ img {
   animation-delay: 1s;
 }
 
+/* Floating action links */
 .floating-links {
   position: fixed;
   z-index: 100;
@@ -1292,6 +1292,7 @@ body[data-page="home"] .header-spacer {
   }
 }
 
+/* Hero buttons */
 .btn {
   display: flex;
   align-items: center;
@@ -1366,6 +1367,7 @@ body[data-page="home"] .header-spacer {
   color: var(--secondary);
 }
 
+/* Hero scroll indicator & bottom fade */
 .hero-scroll {
   display: none;
   position: absolute;
@@ -1430,7 +1432,7 @@ body[data-page="home"] .header-spacer {
 }
 
 /* =========================
-   10. SHOP BY CATEGORY
+   10. Shop by Category
 ========================= */
 .shop-categories {
   padding: 48px 0 24px;
@@ -1534,20 +1536,7 @@ body[data-page="home"] .header-spacer {
 }
 
 /* =========================
-   11. Reduced motion
-========================= */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* =========================
-   10.5 Brands Marquee Strip
+   11. Brands Marquee Strip
 ========================= */
 .brands-marquee-section {
   position: relative;
@@ -1625,9 +1614,22 @@ body[data-page="home"] .header-spacer {
   }
 }
 
-/* ===========================
-   12. PROMO SLIDER SECTION
-============================== */
+/* =========================
+   12. Reduced motion
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================
+   13. Promo Slider Section
+========================= */
 .promo-slider-section {
   padding: 24px 0 48px;
   background: var(--light);
@@ -1740,6 +1742,7 @@ body[data-page="home"] .header-spacer {
   transform: translateY(-2px);
 }
 
+/* Slider pagination dots */
 .promo-dots {
   position: absolute;
   bottom: 20px;
@@ -1782,7 +1785,7 @@ body[data-page="home"] .header-spacer {
 }
 
 /* =========================
-   13. BEST SELLERS & PRODUCT CARDS
+   14. Best Sellers & Product Cards
 ========================= */
 .best-sellers {
   margin-top: 30px;
@@ -1843,6 +1846,7 @@ body[data-page="home"] .header-spacer {
   scroll-snap-align: start;
 }
 
+/* Product Card */
 .product-card {
   display: flex;
   flex-direction: column;
@@ -1932,6 +1936,7 @@ body[data-page="home"] .header-spacer {
   font-weight: 700;
 }
 
+/* Color swatches & toggle buttons */
 .product-card__colors {
   display: flex;
   min-height: 44px;
@@ -1987,6 +1992,7 @@ body[data-page="home"] .header-spacer {
   border-color: var(--primary);
 }
 
+/* Add to cart button */
 .product-card__add-to-cart {
   display: block;
   width: 100%;
@@ -2009,6 +2015,7 @@ body[data-page="home"] .header-spacer {
   transform: scale(1.02);
 }
 
+/* Carousel navigation arrows */
 .best-sellers__arrow {
   position: absolute;
   z-index: 2;
@@ -2064,7 +2071,7 @@ body[data-page="home"] .header-spacer {
 }
 
 /* =========================
-   14. CAMPAIGN BANNER
+   15. Campaign Banner
 ========================= */
 .campaign-banner {
   position: relative;
@@ -2171,7 +2178,7 @@ body[data-page="home"] .header-spacer {
 }
 
 /* =========================
-   15. NEW ARRIVALS
+   16. New Arrivals
 ========================= */
 .new-arrivals {
   margin-top: 30px;
@@ -2231,7 +2238,7 @@ body[data-page="home"] .header-spacer {
 }
 
 /* =========================
-   16. FOOTER
+   17. Footer
 ========================= */
 .site-footer {
   margin-top: 48px;
@@ -2333,7 +2340,7 @@ body[data-page="home"] .header-spacer {
 }
 
 /* =========================
-   17. ORDER MODAL, CART DRAWER & TOAST
+   18. Order Modal, Cart Drawer & Toast
 ========================= */
 .order-modal {
   position: fixed;
@@ -2826,9 +2833,9 @@ body[data-page="home"] .header-spacer {
   color: var(--light);
 }
 
-/* =======================================
-   18. PRODUCTS CATALOG PAGE & FILTERS
-========================================== */
+/* =========================
+   19. Products Catalog Page & Filters
+========================= */
 .catalog-hero {
   padding: 40px 0 28px;
   text-align: center;
@@ -2859,6 +2866,7 @@ body[data-page="home"] .header-spacer {
   color: color-mix(in srgb, var(--secondary) 60%, transparent);
 }
 
+/* Filter pills & sort toolbar */
 .catalog-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -2926,6 +2934,7 @@ body[data-page="home"] .header-spacer {
   border-color: var(--primary);
 }
 
+/* Catalog grid */
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2961,7 +2970,223 @@ body[data-page="home"] .header-spacer {
 }
 
 /* =========================
-   19. AUTH MODAL (LOGIN & REGISTER)
+   20. Catalog Layout Switcher
+========================= */
+.catalog-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin-inline-start: auto;
+}
+.layout-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.layout-btn {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 36px;
+  border: 1px solid color-mix(in srgb, var(--secondary) 16%, transparent);
+  border-radius: 6px;
+  background: var(--light);
+  color: color-mix(in srgb, var(--secondary) 28%, var(--light));
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background-color 0.2s;
+}
+.layout-btn[hidden] {
+  display: none;
+}
+.layout-btn:hover {
+  border-color: var(--secondary);
+  color: color-mix(in srgb, var(--secondary) 55%, var(--light));
+}
+.layout-btn.is-active {
+  border-color: var(--secondary);
+  background: var(--secondary);
+  color: var(--light);
+}
+.layout-btn.is-active .layout-ico i {
+  background: var(--light);
+}
+.layout-ico {
+  display: flex;
+  gap: 2px;
+  width: 28px;
+  height: 16px;
+}
+.layout-ico i {
+  flex: 1;
+  border-radius: 1px;
+  background: currentColor;
+}
+.layout-btn:not(.is-active) .layout-ico i {
+  background: color-mix(in srgb, var(--secondary) 28%, var(--light));
+}
+.layout-ico.is-list {
+  flex-direction: column;
+  justify-content: space-between;
+}
+.layout-ico.is-list i {
+  flex: 0 0 3px;
+}
+
+/* Dynamic columns controlled via --cols */
+.catalog-grid[data-cols] {
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+}
+.catalog-grid .product-card__image-wrap {
+  height: auto;
+  aspect-ratio: 1 / 1.1;
+}
+
+/* 5 & 6 columns: compact cards */
+.catalog-grid[data-cols="5"],
+.catalog-grid[data-cols="6"] {
+  gap: 14px;
+}
+.catalog-grid[data-cols="5"] .product-card,
+.catalog-grid[data-cols="6"] .product-card {
+  padding: 10px 10px 14px;
+}
+.catalog-grid[data-cols="5"] .product-card__name,
+.catalog-grid[data-cols="6"] .product-card__name {
+  margin: 10px 0 6px;
+  min-height: 34px;
+  font-size: 12px;
+}
+.catalog-grid[data-cols="5"] .product-card__price,
+.catalog-grid[data-cols="6"] .product-card__price {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.catalog-grid[data-cols="5"] .product-card__colors,
+.catalog-grid[data-cols="6"] .product-card__colors {
+  min-height: 30px;
+  margin-bottom: 10px;
+  gap: 4px;
+}
+.catalog-grid[data-cols="5"] .product-card__color,
+.catalog-grid[data-cols="6"] .product-card__color {
+  flex-basis: 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+}
+.catalog-grid[data-cols="5"] .product-card__more-colors,
+.catalog-grid[data-cols="6"] .product-card__more-colors {
+  padding: 4px 7px;
+  font-size: 11px;
+}
+.catalog-grid[data-cols="5"] .product-card__add-to-cart,
+.catalog-grid[data-cols="6"] .product-card__add-to-cart {
+  min-height: 36px;
+  font-size: 12px;
+}
+
+/* 2 columns on mobile: slightly compact cards */
+@media (max-width: 599px) {
+  .catalog-grid[data-cols="2"] {
+    gap: 12px;
+  }
+  .catalog-grid[data-cols="2"] .product-card {
+    padding: 10px 10px 14px;
+  }
+  .catalog-grid[data-cols="2"] .product-card__name {
+    margin: 10px 0 6px;
+    min-height: 36px;
+    font-size: 13px;
+  }
+  .catalog-grid[data-cols="2"] .product-card__price {
+    margin-bottom: 10px;
+  }
+  .catalog-grid[data-cols="2"] .product-card__color {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+  .catalog-grid[data-cols="2"] .product-card__colors {
+    min-height: 36px;
+    margin-bottom: 10px;
+  }
+  .catalog-grid[data-cols="2"] .product-card__add-to-cart {
+    min-height: 38px;
+    font-size: 13px;
+  }
+  .catalog-tools {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* 1 column = list view (image on left, details on right) */
+.catalog-grid[data-cols="1"] {
+  gap: 14px;
+  max-width: 920px;
+  margin-inline: auto;
+}
+.catalog-grid[data-cols="1"] .product-card {
+  display: grid;
+  grid-template-columns: clamp(110px, 34%, 240px) minmax(0, 1fr);
+  grid-template-rows: auto;
+  align-content: center;
+  column-gap: 20px;
+  text-align: start;
+  padding: 14px;
+}
+.catalog-grid[data-cols="1"] .product-card__image-wrap {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  aspect-ratio: 4 / 5;
+}
+.catalog-grid[data-cols="1"] .product-card > :not(.product-card__image-wrap) {
+  grid-column: 2;
+}
+.catalog-grid[data-cols="1"] .product-card__name {
+  margin: 0 0 8px;
+  min-height: 0;
+  align-self: end;
+  font-size: 15px;
+}
+.catalog-grid[data-cols="1"] .product-card__price {
+  justify-content: flex-start;
+  margin: 0 0 12px;
+}
+.catalog-grid[data-cols="1"] .product-card__colors {
+  justify-content: flex-start;
+  min-height: 0;
+  margin-bottom: 14px;
+}
+.catalog-grid[data-cols="1"] .product-card__add-to-cart {
+  width: auto;
+  justify-self: start;
+  padding: 0 32px;
+  align-self: start;
+}
+@media (max-width: 599px) {
+  .catalog-grid[data-cols="1"] .product-card {
+    column-gap: 14px;
+    padding: 10px;
+  }
+  .catalog-grid[data-cols="1"] .product-card__color {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+  .catalog-grid[data-cols="1"] .product-card__add-to-cart {
+    padding: 0 20px;
+    min-height: 40px;
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   21. Auth Modal (Login & Register)
 ========================= */
 .dropdown-user {
   display: block;
@@ -3065,6 +3290,7 @@ body[data-page="home"] .header-spacer {
   color: color-mix(in srgb, var(--secondary) 65%, transparent);
 }
 
+/* Auth tabs */
 .auth-tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3089,6 +3315,7 @@ body[data-page="home"] .header-spacer {
   box-shadow: 0 2px 6px color-mix(in srgb, var(--secondary) 8%, transparent);
 }
 
+/* Auth form & fields */
 .auth-form {
   display: flex;
   flex-direction: column;
@@ -3154,9 +3381,9 @@ body[data-page="home"] .header-spacer {
   transform: translateY(-1px);
 }
 
-/* =======================================
-   20. CHECKOUT & ORDERS PAGES STYLING
-========================================== */
+/* =========================
+   22. Checkout & Orders Pages Styling
+========================= */
 .checkout-page-main {
   padding: 40px 16px;
   max-width: 1100px;
@@ -3255,6 +3482,7 @@ body[data-page="home"] .header-spacer {
   background: none;
 }
 
+/* Promo code */
 .promo-code-box {
   display: flex;
   align-items: flex-end;
@@ -3294,6 +3522,7 @@ body[data-page="home"] .header-spacer {
   color: #dc2626;
 }
 
+/* Checkout totals */
 .checkout-item-meta {
   display: block;
   font-size: 11px;
@@ -3313,7 +3542,7 @@ body[data-page="home"] .header-spacer {
   color: var(--primary);
 }
 
-/* Orders Page Styling */
+/* Orders page */
 .orders-page-main {
   max-width: 800px;
   padding: 40px 16px;
@@ -3387,9 +3616,9 @@ body[data-page="home"] .header-spacer {
   background: color-mix(in srgb, var(--primary) 85%, var(--light));
 }
 
-/* =======================================
-   21. CONTACT PAGE STYLING
-========================================== */
+/* =========================
+   23. Contact Page Styling
+========================= */
 .contact-page-main {
   max-width: 1100px;
   padding: 48px 16px;
@@ -3406,6 +3635,7 @@ body[data-page="home"] .header-spacer {
     color-mix(in srgb, var(--secondary) 8%, transparent);
 }
 
+/* Contact form */
 .contact-form-side {
   padding: 44px 40px;
   display: flex;
@@ -3449,6 +3679,7 @@ body[data-page="home"] .header-spacer {
   margin-top: 8px;
 }
 
+/* Contact media */
 .contact-image-side {
   position: relative;
   min-height: 100%;
@@ -3473,221 +3704,5 @@ body[data-page="home"] .header-spacer {
   .contact-image-side {
     height: 280px;
     order: -1;
-  }
-}
-
-/* ==============================
-   CATALOG LAYOUT SWITCHER
-   ============================== */
-.catalog-tools {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px;
-  margin-inline-start: auto;
-}
-.layout-switch {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.layout-btn {
-  display: grid;
-  place-items: center;
-  width: 46px;
-  height: 36px;
-  border: 1px solid color-mix(in srgb, var(--secondary) 16%, transparent);
-  border-radius: 6px;
-  background: var(--light);
-  color: color-mix(in srgb, var(--secondary) 28%, var(--light));
-  cursor: pointer;
-  transition:
-    border-color 0.2s,
-    color 0.2s,
-    background-color 0.2s;
-}
-.layout-btn[hidden] {
-  display: none;
-}
-.layout-btn:hover {
-  border-color: var(--secondary);
-  color: color-mix(in srgb, var(--secondary) 55%, var(--light));
-}
-.layout-btn.is-active {
-  border-color: var(--secondary);
-  background: var(--secondary);
-  color: var(--light);
-}
-.layout-btn.is-active .layout-ico i {
-  background: var(--light);
-}
-.layout-ico {
-  display: flex;
-  gap: 2px;
-  width: 28px;
-  height: 16px;
-}
-.layout-ico i {
-  flex: 1;
-  border-radius: 1px;
-  background: currentColor;
-}
-.layout-btn:not(.is-active) .layout-ico i {
-  background: color-mix(in srgb, var(--secondary) 28%, var(--light));
-}
-.layout-ico.is-list {
-  flex-direction: column;
-  justify-content: space-between;
-}
-.layout-ico.is-list i {
-  flex: 0 0 3px;
-}
-
-/* الجريد بيتحكم فيه --cols من الـ JS */
-.catalog-grid[data-cols] {
-  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-}
-.catalog-grid .product-card__image-wrap {
-  height: auto;
-  aspect-ratio: 1 / 1.1;
-}
-
-/* 5 و 6 أعمدة: كروت أصغر */
-.catalog-grid[data-cols="5"],
-.catalog-grid[data-cols="6"] {
-  gap: 14px;
-}
-.catalog-grid[data-cols="5"] .product-card,
-.catalog-grid[data-cols="6"] .product-card {
-  padding: 10px 10px 14px;
-}
-.catalog-grid[data-cols="5"] .product-card__name,
-.catalog-grid[data-cols="6"] .product-card__name {
-  margin: 10px 0 6px;
-  min-height: 34px;
-  font-size: 12px;
-}
-.catalog-grid[data-cols="5"] .product-card__price,
-.catalog-grid[data-cols="6"] .product-card__price {
-  margin-bottom: 10px;
-  font-size: 12px;
-}
-.catalog-grid[data-cols="5"] .product-card__colors,
-.catalog-grid[data-cols="6"] .product-card__colors {
-  min-height: 30px;
-  margin-bottom: 10px;
-  gap: 4px;
-}
-.catalog-grid[data-cols="5"] .product-card__color,
-.catalog-grid[data-cols="6"] .product-card__color {
-  flex-basis: 28px;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-}
-.catalog-grid[data-cols="5"] .product-card__more-colors,
-.catalog-grid[data-cols="6"] .product-card__more-colors {
-  padding: 4px 7px;
-  font-size: 11px;
-}
-.catalog-grid[data-cols="5"] .product-card__add-to-cart,
-.catalog-grid[data-cols="6"] .product-card__add-to-cart {
-  min-height: 36px;
-  font-size: 12px;
-}
-
-/* 2 أعمدة على الموبايل: كروت مضغوطة شوية */
-@media (max-width: 599px) {
-  .catalog-grid[data-cols="2"] {
-    gap: 12px;
-  }
-  .catalog-grid[data-cols="2"] .product-card {
-    padding: 10px 10px 14px;
-  }
-  .catalog-grid[data-cols="2"] .product-card__name {
-    margin: 10px 0 6px;
-    min-height: 36px;
-    font-size: 13px;
-  }
-  .catalog-grid[data-cols="2"] .product-card__price {
-    margin-bottom: 10px;
-  }
-  .catalog-grid[data-cols="2"] .product-card__color {
-    flex-basis: 32px;
-    width: 32px;
-    height: 32px;
-  }
-  .catalog-grid[data-cols="2"] .product-card__colors {
-    min-height: 36px;
-    margin-bottom: 10px;
-  }
-  .catalog-grid[data-cols="2"] .product-card__add-to-cart {
-    min-height: 38px;
-    font-size: 13px;
-  }
-  .catalog-tools {
-    width: 100%;
-    justify-content: space-between;
-  }
-}
-
-/* 1 = list view (صورة على الشمال والتفاصيل على اليمين) */
-.catalog-grid[data-cols="1"] {
-  gap: 14px;
-  max-width: 920px;
-  margin-inline: auto;
-}
-.catalog-grid[data-cols="1"] .product-card {
-  display: grid;
-  grid-template-columns: clamp(110px, 34%, 240px) minmax(0, 1fr);
-  grid-template-rows: auto;
-  align-content: center;
-  column-gap: 20px;
-  text-align: start;
-  padding: 14px;
-}
-.catalog-grid[data-cols="1"] .product-card__image-wrap {
-  grid-column: 1;
-  grid-row: 1 / span 4;
-  aspect-ratio: 4 / 5;
-}
-.catalog-grid[data-cols="1"] .product-card > :not(.product-card__image-wrap) {
-  grid-column: 2;
-}
-.catalog-grid[data-cols="1"] .product-card__name {
-  margin: 0 0 8px;
-  min-height: 0;
-  align-self: end;
-  font-size: 15px;
-}
-.catalog-grid[data-cols="1"] .product-card__price {
-  justify-content: flex-start;
-  margin: 0 0 12px;
-}
-.catalog-grid[data-cols="1"] .product-card__colors {
-  justify-content: flex-start;
-  min-height: 0;
-  margin-bottom: 14px;
-}
-.catalog-grid[data-cols="1"] .product-card__add-to-cart {
-  width: auto;
-  justify-self: start;
-  padding: 0 32px;
-  align-self: start;
-}
-@media (max-width: 599px) {
-  .catalog-grid[data-cols="1"] .product-card {
-    column-gap: 14px;
-    padding: 10px;
-  }
-  .catalog-grid[data-cols="1"] .product-card__color {
-    flex-basis: 32px;
-    width: 32px;
-    height: 32px;
-  }
-  .catalog-grid[data-cols="1"] .product-card__add-to-cart {
-    padding: 0 20px;
-    min-height: 40px;
-    font-size: 13px;
   }
 }
