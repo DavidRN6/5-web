@@ -3214,13 +3214,19 @@ body[data-theme="pearl"] .deal-card.is-active {
   margin-top: 16px;
 }
 
+@media (max-width: 959px) {
+  .pd-layout .pd-gallery {
+    order: -1;
+    position: static;
+  }
+}
+
 @media (min-width: 960px) {
   .pd-layout {
     grid-template-columns: 1.05fr 1.15fr;
     gap: 44px;
   }
 }
-
 /* ---- Right Column: Product Info & Options ---- */
 .pd-info {
   display: flex;
@@ -3534,37 +3540,6 @@ body[data-theme="pearl"] .deal-card.is-active {
   transition:
     opacity 0.25s ease,
     transform 0.35s var(--ease);
-}
-
-.pd-gallery__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--sec-border);
-  background: color-mix(in srgb, var(--sec-bg) 85%, transparent);
-  color: var(--sec-ink);
-  backdrop-filter: blur(6px);
-  transition:
-    background-color 0.2s,
-    color 0.2s;
-}
-
-.pd-gallery__nav:hover {
-  background: var(--sec-accent);
-  color: var(--sec-accent-ink);
-}
-
-.pd-gallery__nav--prev {
-  right: 14px;
-}
-
-.pd-gallery__nav--next {
-  left: 14px;
 }
 
 .pd-thumbs {

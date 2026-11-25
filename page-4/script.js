@@ -1638,25 +1638,7 @@ window.STORE_PRODUCTS = [
     <!-- الشمال: معرض الصور مع التبديل -->
     <div class="pd-gallery">
       <div class="pd-gallery__main">
-        <button
-          type="button"
-          class="pd-gallery__nav pd-gallery__nav--prev"
-          id="pdPrevImg"
-          aria-label="الصورة السابقة"
-        >
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-
         <img id="pdMainImg" src="${galleryImages[0]}" alt="${product.name}" />
-
-        <button
-          type="button"
-          class="pd-gallery__nav pd-gallery__nav--next"
-          id="pdNextImg"
-          aria-label="الصورة التالية"
-        >
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
       </div>
 
       <div class="pd-thumbs" id="pdThumbsWrap">
