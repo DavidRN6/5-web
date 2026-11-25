@@ -13,6 +13,67 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <style>
+      html {
+        /* ألوان الهيرو والثيم الافتراضي (Carbon) */
+        --bg-from: #2a2c32;
+        --bg-to: #0b0c0e;
+        --accent: #f59e0b;
+        --ink: #ffffff;
+        --ink-inverse: #111111;
+
+        /* ألوان سكاشن المتجر الثابتة */
+        --sec-bg: #0b0c0e;
+        --sec-ink: #ffffff;
+        --sec-accent: #f59e0b;
+        --sec-accent-ink: #111111;
+        --sec-on-accent: #111111;
+        --sec-danger: #ef4444;
+
+        /* درجات مشتقة لسكاشن المتجر */
+        --sec-surface: color-mix(in srgb, var(--sec-ink) 4%, var(--sec-bg));
+        --sec-surface-hover: color-mix(
+          in srgb,
+          var(--sec-ink) 8%,
+          var(--sec-bg)
+        );
+        --sec-border: color-mix(in srgb, var(--sec-ink) 9%, transparent);
+        --sec-muted: color-mix(in srgb, var(--sec-ink) 66%, transparent);
+        --sec-accent-soft: color-mix(
+          in srgb,
+          var(--sec-accent) 12%,
+          transparent
+        );
+        --sec-accent-border: color-mix(
+          in srgb,
+          var(--sec-accent) 45%,
+          transparent
+        );
+      }
+
+      /* ثيمات الهيرو المتغيرة حسب data-theme على body */
+      body[data-theme="racing-red"] {
+        --bg-from: #c81d25;
+        --bg-to: #59060a;
+        --accent: #ffffff;
+        --ink-inverse: #990a11;
+      }
+
+      body[data-theme="pearl"] {
+        --bg-from: #f8fafc;
+        --bg-to: #cbd5e1;
+        --accent: #dc2626;
+        --ink: #0f172a;
+        --ink-inverse: #ffffff;
+      }
+
+      body[data-theme="midnight-blue"] {
+        --bg-from: #1d4ed8;
+        --bg-to: #091534;
+        --accent: #38bdf8;
+        --ink-inverse: #091534;
+      }
+    </style>
     <link href="style.css" rel="stylesheet" />
     <title>APEX AUTO — تفاصيل المنتج</title>
   </head>

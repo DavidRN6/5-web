@@ -2,10 +2,6 @@
    COLORS & THEME SYSTEM  (غيّر الـ 3 الأولانيين بس والباقى مشتق)
    ===================================================================== */
 :root {
-  --primary: #c9184a;
-  --secondary: #f7f2ef;
-  --ink: #1f1a1c;
-
   --primary-hover: color-mix(in srgb, var(--primary) 88%, black);
   --primary-dark: color-mix(in srgb, var(--primary) 76%, black);
   --primary-light: color-mix(in srgb, var(--primary) 22%, var(--surface));
