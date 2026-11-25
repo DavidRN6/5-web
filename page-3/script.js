@@ -12,6 +12,7 @@
   9. Single product & related products (product.html)
   10. Cart page & checkout in grams (cart.html)
   11. Wishlist drawer, language switcher, reels & contact form
+  12. Preloader & Sale Popup
 */
 
 /* =========================

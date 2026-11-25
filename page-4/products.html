@@ -18,6 +18,77 @@
   </head>
 
   <body data-theme="carbon" class="catalog-body">
+    <!-- ==================== ANNOUNCEMENT BAR (MARQUEE) ==================== -->
+    <div
+      class="announcement"
+      id="announcementBar"
+      role="region"
+      aria-label="إعلانات وعروض APEX AUTO"
+    >
+      <div class="announcement__track" id="announcementTrack">
+        <!-- المجموعة الأولى -->
+        <div class="announcement__group">
+          <a href="products.html?cat=cars" class="announcement__item">
+            <i class="fa-solid fa-fire"></i>
+            <span>عروض حصرية حتى 20% على السيارات الرياضية والـ SUV</span>
+          </a>
+          <span class="announcement__sep" aria-hidden="true">•</span>
+          <a
+            href="products.html?cat=parts&sub=brakes"
+            class="announcement__item"
+          >
+            <i class="fa-solid fa-wrench"></i>
+            <span>خصم 25% على أطقم الفرامل الرياضية Brembo شامل التركيب</span>
+          </a>
+          <span class="announcement__sep" aria-hidden="true">•</span>
+          <a href="products.html?cat=wheels" class="announcement__item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>شحن مجاني على طلبات قطع الغيار والجنوط فوق 15,000 ج.م</span>
+          </a>
+          <span class="announcement__sep" aria-hidden="true">•</span>
+          <a href="#services" class="announcement__item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>فحص إلكتروني شامل وضمان معتمد على جميع القطع الأصلية</span>
+          </a>
+        </div>
+
+        <!-- نسخة مكررة لاستمرارية الحركة بدون انقطاع -->
+        <div class="announcement__group" aria-hidden="true">
+          <a
+            href="products.html?cat=cars"
+            class="announcement__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-fire"></i>
+            <span>عروض حصرية حتى 20% على السيارات الرياضية والـ SUV</span>
+          </a>
+          <span class="announcement__sep">•</span>
+          <a
+            href="products.html?cat=parts&sub=brakes"
+            class="announcement__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-wrench"></i>
+            <span>خصم 25% على أطقم الفرامل الرياضية Brembo شامل التركيب</span>
+          </a>
+          <span class="announcement__sep">•</span>
+          <a
+            href="products.html?cat=wheels"
+            class="announcement__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>شحن مجاني على طلبات قطع الغيار والجنوط فوق 15,000 ج.م</span>
+          </a>
+          <span class="announcement__sep">•</span>
+          <a href="#services" class="announcement__item" tabindex="-1">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>فحص إلكتروني شامل وضمان معتمد على جميع القطع الأصلية</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- ==================== NAVBAR ==================== -->
     <header class="navbar navbar--solid" id="navbar">
       <div class="container">
@@ -274,6 +345,42 @@
             <span class="catalog-count" id="catalogCount">0 منتج</span>
           </div>
 
+          <!-- شريط الفلترة بالبراندات -->
+          <div class="brand-filter" aria-label="تصفية حسب البراند">
+            <div class="brand-filter__head">
+              <span class="brand-filter__label">
+                <i class="fa-solid fa-car-side"></i> تصفية حسب البراند:
+              </span>
+            </div>
+            <div class="brand-pills" id="brandFilter">
+              <button
+                class="brand-pill is-active"
+                type="button"
+                data-brand="all"
+              >
+                <span>كل البراندات</span>
+              </button>
+              <button class="brand-pill" type="button" data-brand="bmw">
+                <span>BMW</span>
+              </button>
+              <button class="brand-pill" type="button" data-brand="kia">
+                <span>Kia</span>
+              </button>
+              <button class="brand-pill" type="button" data-brand="nissan">
+                <span>Nissan</span>
+              </button>
+              <button class="brand-pill" type="button" data-brand="brembo">
+                <span>Brembo</span>
+              </button>
+              <button class="brand-pill" type="button" data-brand="bbs">
+                <span>BBS</span>
+              </button>
+              <button class="brand-pill" type="button" data-brand="garrett">
+                <span>Garrett</span>
+              </button>
+            </div>
+          </div>
+
           <!-- شريط الفلترة والبحث -->
           <div class="catalog-toolbar">
             <!-- فلتر القسم الرئيسي -->
@@ -439,8 +546,6 @@
       </footer>
     </main>
 
-    <script src="products-data.js"></script>
-    <script src="cart.js"></script>
-    <script src="products-page.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

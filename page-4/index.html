@@ -29,6 +29,86 @@
 
   <!-- data-theme: carbon | racing-red | pearl | midnight-blue -->
   <body data-theme="carbon">
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__inner">
+        <div class="preloader__ring"></div>
+        <div class="preloader__brand">APEX<span>AUTO</span></div>
+        <span class="preloader__sub">عروض السيارات وقطع الغيار</span>
+      </div>
+    </div>
+
+    <!-- ==================== ANNOUNCEMENT BAR (MARQUEE) ==================== -->
+    <div
+      class="announcement"
+      id="announcementBar"
+      role="region"
+      aria-label="إعلانات وعروض APEX AUTO"
+    >
+      <div class="announcement__track" id="announcementTrack">
+        <!-- المجموعة الأولى -->
+        <div class="announcement__group">
+          <a href="products.html?cat=cars" class="announcement__item">
+            <i class="fa-solid fa-fire"></i>
+            <span>عروض حصرية حتى 20% على السيارات الرياضية والـ SUV</span>
+          </a>
+          <span class="announcement__sep" aria-hidden="true">•</span>
+          <a
+            href="products.html?cat=parts&sub=brakes"
+            class="announcement__item"
+          >
+            <i class="fa-solid fa-wrench"></i>
+            <span>خصم 25% على أطقم الفرامل الرياضية Brembo شامل التركيب</span>
+          </a>
+          <span class="announcement__sep" aria-hidden="true">•</span>
+          <a href="products.html?cat=wheels" class="announcement__item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>شحن مجاني على طلبات قطع الغيار والجنوط فوق 15,000 ج.م</span>
+          </a>
+          <span class="announcement__sep" aria-hidden="true">•</span>
+          <a href="#services" class="announcement__item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>فحص إلكتروني شامل وضمان معتمد على جميع القطع الأصلية</span>
+          </a>
+        </div>
+
+        <!-- نسخة مكررة لاستمرارية الحركة بدون انقطاع -->
+        <div class="announcement__group" aria-hidden="true">
+          <a
+            href="products.html?cat=cars"
+            class="announcement__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-fire"></i>
+            <span>عروض حصرية حتى 20% على السيارات الرياضية والـ SUV</span>
+          </a>
+          <span class="announcement__sep">•</span>
+          <a
+            href="products.html?cat=parts&sub=brakes"
+            class="announcement__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-wrench"></i>
+            <span>خصم 25% على أطقم الفرامل الرياضية Brembo شامل التركيب</span>
+          </a>
+          <span class="announcement__sep">•</span>
+          <a
+            href="products.html?cat=wheels"
+            class="announcement__item"
+            tabindex="-1"
+          >
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>شحن مجاني على طلبات قطع الغيار والجنوط فوق 15,000 ج.م</span>
+          </a>
+          <span class="announcement__sep">•</span>
+          <a href="#services" class="announcement__item" tabindex="-1">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>فحص إلكتروني شامل وضمان معتمد على جميع القطع الأصلية</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- ==================== NAVBAR ==================== -->
     <header class="navbar" id="navbar">
       <div class="container">
@@ -696,6 +776,72 @@
       </footer>
     </div>
 
+    <!-- ==================== SALE POPUP MODAL ==================== -->
+    <div
+      class="sale-modal"
+      id="saleModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="saleModalTitle"
+      hidden
+    >
+      <div class="sale-modal__backdrop" data-close-sale></div>
+
+      <div class="sale-modal__dialog">
+        <button
+          class="sale-modal__close"
+          type="button"
+          id="closeSaleModal"
+          data-close-sale
+          aria-label="إغلاق نافذة العروض"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="sale-modal__media">
+          <span class="sale-modal__tag">خصم حتى 25%</span>
+          <img src="images/brembo-kit.png" alt="عروض وخصومات APEX AUTO" />
+        </div>
+
+        <div class="sale-modal__body">
+          <span class="sale-modal__eyebrow">
+            <i class="fa-solid fa-bolt"></i> عروض الموسم الحصرية
+          </span>
+          <h2 class="sale-modal__title" id="saleModalTitle">
+            تجهيزات الأداء العالي وقطع الغيار الأصلية
+          </h2>
+          <p class="sale-modal__desc">
+            استفد بخصومات تصل إلى <strong>25%</strong> على أطقم الفرامل،
+            التيربو، والجنوط الرياضية، مع إمكانية التركيب والشحن السريع.
+          </p>
+
+          <div class="sale-modal__coupon">
+            <span>كود الخصم:</span>
+            <button
+              type="button"
+              class="sale-modal__code-btn"
+              id="copySaleCode"
+              data-code="APEX25"
+              title="اضغط لنسخ الكود"
+            >
+              <strong id="saleCodeText">APEX25</strong>
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+
+          <div class="sale-modal__actions">
+            <a href="products.html" class="sale-modal__cta" id="saleExploreBtn">
+              <span>تصفح العروض الآن</span>
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <button type="button" class="sale-modal__later" data-close-sale>
+              لاحقاً
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ======= Arrows ======= -->
     <div class="floating-links" aria-label="Page shortcuts">
       <a
@@ -715,8 +861,6 @@
       </a>
     </div>
 
-    <script src="products-data.js"></script>
-    <script src="cart.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
