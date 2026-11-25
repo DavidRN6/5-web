@@ -1,20 +1,31 @@
-/* ======================
-  table of contents
-=========================
-  1. Variables & themes
-  2. Reset & utilities
-  3. Navbar
-  4. Drawer (Mobile dropdowns)
-  5. Hero (Dynamic Deals)
-  6. Deal cards slider
-  7. Reduced motion
-  8. Categories & Products Sections
-  9. Services Section & Footer
-*/
+/* ==========================================================================
+   Table of Contents
+   ==========================================================================
+   01. Variables & Themes
+   02. Reset & Utilities (Includes Floating Links)
+   03. Announcement Bar (Marquee)
+   04. Navbar & Dropdowns
+   05. Drawer (Mobile Navigation & Dropdowns)
+   06. Hero (Dynamic Deals)
+   07. Deal Cards Slider
+   08. Reduced Motion
+   09. About Section (Home)
+   10. Categories Section
+   11. Products Section
+   12. Services Section
+   13. Footer
+   14. Catalog Page (products.html) & Brand Filters
+   15. Slide-Out Cart Drawer
+   16. Cart Toast Notification
+   17. Cart Checkout Form
+   18. About Page (about.html)
+   19. Preloader & Sale Popup Modal
+   20. Product Details Page (product-details.html)
+   ========================================================================== */
 
-/* =========================
-   1. Variables & themes
-========================= */
+/* ==========================================================================
+   01. Variables & Themes
+   ========================================================================== */
 @property --bg-from {
   syntax: "<color>";
   inherits: true;
@@ -42,9 +53,9 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --announcement-h: 38px;
 }
-/* =========================
-   2. Reset & utilities
-========================= */
+/* ==========================================================================
+   02. Reset & Utilities (Includes Floating Links)
+   ========================================================================== */
 *,
 *::before,
 *::after {
@@ -128,8 +139,7 @@ img {
   }
 }
 
-/* Slider */
-
+/* ---- Floating Links ---- */
 .floating-links {
   position: fixed;
   z-index: 100;
@@ -176,9 +186,9 @@ img {
   }
 }
 
-/* =========================
-   Announcement Bar (Marquee)
-========================= */
+/* ==========================================================================
+   03. Announcement Bar (Marquee)
+   ========================================================================== */
 :root {
   --announcement-h: 38px;
 }
@@ -293,9 +303,9 @@ img {
   }
 }
 
-/* =========================
-   3. Navbar
-========================= */
+/* ==========================================================================
+   04. Navbar & Dropdowns
+   ========================================================================== */
 .logo {
   display: inline-flex;
   align-items: center;
@@ -433,7 +443,7 @@ img {
   transform: rotate(180deg);
 }
 
-/* Dropdown */
+/* ---- Dropdown Menu ---- */
 .menu {
   position: absolute;
   top: 100%;
@@ -492,9 +502,9 @@ body[data-theme="pearl"] .menu {
   background: color-mix(in srgb, var(--ink) 8%, transparent);
 }
 
-/* =========================
-   4. Drawer (Mobile dropdowns)
-========================= */
+/* ==========================================================================
+   05. Drawer (Mobile Navigation & Dropdowns)
+   ========================================================================== */
 .drawer {
   position: fixed;
   inset: 0;
@@ -681,9 +691,9 @@ body[data-theme="pearl"] .drawer__panel {
   background: color-mix(in srgb, var(--ink) 10%, transparent);
 }
 
-/* =========================
-   5. Hero (Dynamic Deals)
-========================= */
+/* ==========================================================================
+   06. Hero (Dynamic Deals)
+   ========================================================================== */
 .hero {
   position: relative;
   display: flex;
@@ -959,9 +969,9 @@ body[data-theme="pearl"] .hero__shadow {
   }
 }
 
-/* =========================
-   6. Deal cards slider
-========================= */
+/* ==========================================================================
+   07. Deal Cards Slider
+   ========================================================================== */
 .hero__slider {
   position: relative;
   z-index: 2;
@@ -1106,9 +1116,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--accent);
 }
 
-/* =========================
-   7. Reduced motion
-========================= */
+/* ==========================================================================
+   08. Reduced Motion
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1119,9 +1129,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   }
 }
 
-/* =====================
-   8. About Section 
-======================== */
+/* ==========================================================================
+   09. About Section (Home)
+   ========================================================================== */
 .about-sec {
   position: relative;
   display: flex;
@@ -1280,9 +1290,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   }
 }
 
-/* ==================
-   9. Categories
-===================== */
+/* ==========================================================================
+   10. Categories Section
+   ========================================================================== */
 .store-sections {
   position: relative;
   z-index: 5;
@@ -1409,9 +1419,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-muted);
 }
 
-/* ==================
-   10. Products
-===================== */
+/* ==========================================================================
+   11. Products Section
+   ========================================================================== */
 .products-sec {
   padding: 50px 0 96px;
 }
@@ -1625,7 +1635,7 @@ body[data-theme="pearl"] .deal-card.is-active {
   filter: brightness(1.08);
 }
 
-/* See More Button */
+/* ---- See More Button ---- */
 .products-more {
   display: flex;
   justify-content: center;
@@ -1664,9 +1674,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   transform: rotate(180deg);
 }
 
-/* =========================
-   11. Services Section
-========================= */
+/* ==========================================================================
+   12. Services Section
+   ========================================================================== */
 .services-sec {
   padding: 20px 0 88px;
   background-color: var(--sec-bg);
@@ -1757,9 +1767,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-muted);
 }
 
-/* =================
-   10. Footer
-==================== */
+/* ==========================================================================
+   13. Footer
+   ========================================================================== */
 .footer {
   background-color: var(--sec-bg);
   border-top: 1px solid var(--sec-border);
@@ -1903,9 +1913,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-ink);
 }
 
-/* =========================
-   11. Catalog Page (products.html)
-========================= */
+/* ==========================================================================
+   14. Catalog Page (products.html) & Brand Filters
+   ========================================================================== */
 .catalog-body {
   background: #0b0c0e;
 }
@@ -2049,9 +2059,7 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-muted);
 }
 
-/* =========================
-   Brand Filter Pills
-========================= */
+/* ---- Brand Filter Pills ---- */
 .brand-filter {
   display: flex;
   flex-direction: column;
@@ -2118,9 +2126,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-accent-ink);
 }
 
-/* =========================
-   12. Slide-Out Cart Drawer
-========================= */
+/* ==========================================================================
+   15. Slide-Out Cart Drawer
+   ========================================================================== */
 .cart-drawer {
   position: fixed;
   inset: 0;
@@ -2417,9 +2425,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   transform: scale(1.14);
 }
 
-/* =========================
-   13. Cart Toast Notification
-========================= */
+/* ==========================================================================
+   16. Cart Toast Notification
+   ========================================================================== */
 .cart-toast {
   position: fixed;
   bottom: 24px;
@@ -2509,9 +2517,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   }
 }
 
-/* =========================
-   14. Cart Checkout Form
-========================= */
+/* ==========================================================================
+   17. Cart Checkout Form
+   ========================================================================== */
 .cart-checkout {
   display: flex;
   flex: 1;
@@ -2626,9 +2634,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   background: var(--sec-surface);
 }
 
-/* =========================
-   15. About Page (about.html)
-========================= */
+/* ==========================================================================
+   18. About Page (about.html)
+   ========================================================================== */
 .about-page {
   min-height: calc(100vh - 80px);
 }
@@ -2765,7 +2773,7 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-muted);
 }
 
-/* Pillars */
+/* ---- Pillars ---- */
 .about-pillars {
   padding: 24px 0 64px;
 }
@@ -2824,7 +2832,7 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-muted);
 }
 
-/* Milestones */
+/* ---- Milestones ---- */
 .about-milestones {
   padding: 16px 0 88px;
 }
@@ -2887,9 +2895,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   color: var(--sec-muted);
 }
 
-/* =========================
-   Preloader & Sale Popup Modal
-========================= */
+/* ==========================================================================
+   19. Preloader & Sale Popup Modal
+   ========================================================================== */
 .preloader {
   position: fixed;
   inset: 0;
@@ -3186,9 +3194,9 @@ body[data-theme="pearl"] .deal-card.is-active {
   }
 }
 
-/* =========================
-   Product Details Page (product-details.html)
-========================= */
+/* ==========================================================================
+   20. Product Details Page (product-details.html)
+   ========================================================================== */
 .pd-page {
   min-height: calc(100vh - 80px);
 }
