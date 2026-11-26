@@ -1913,3 +1913,69 @@ const renderProductCard = (p) => {
     }
   });
 })();
+
+/* ======================
+  Shop layout switcher
+  بيغير عدد المنتجات فى الصف، والأيقونات اللى مش ينفع تتعرض على عرض الصفحة بتختفى
+========================= */
+(() => {
+  const grid = document.getElementById("grid");
+  const box = document.getElementById("layoutSwitch");
+  if (!grid || !box) return;
+
+  const OPTIONS = [6, 5, 4, 3, 2, 1]; // 1 = list view
+  const KEY = "harvest_shop_cols";
+  const MIN_CARD = 155; // أقل عرض مريح للكارت (px)
+  const GAP = 14;
+
+  let wanted = 3;
+  try {
+    wanted = Number(localStorage.getItem(KEY)) || 3;
+  } catch (e) {}
+
+  // أكبر عدد أعمدة ينفع يتعرض على عرض منطقة المنتجات الفعلى (بعد الـ sidebar)
+  const maxCols = () => {
+    const width = grid.parentElement.clientWidth || window.innerWidth;
+    return Math.max(
+      2,
+      Math.min(6, Math.floor((width + GAP) / (MIN_CARD + GAP))),
+    );
+  };
+
+  box.innerHTML = OPTIONS.map(
+    (n) => `
+      <button type="button" class="layout-btn" data-cols="${n}"
+        aria-label="${n === 1 ? "List view" : n + " products per row"}" aria-pressed="false">
+        <span class="layout-ico${n === 1 ? " is-list" : ""}">${"<i></i>".repeat(n === 1 ? 3 : n)}</span>
+      </button>`,
+  ).join("");
+
+  const apply = () => {
+    const max = maxCols();
+    const cols = Math.min(wanted, max); // الاختيار بيرجع لوحده لما المساحة تكبر
+    box.querySelectorAll(".layout-btn").forEach((btn) => {
+      const n = Number(btn.dataset.cols);
+      const on = n === cols;
+      btn.hidden = n > max;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+    grid.style.setProperty("--cols", cols);
+    grid.dataset.cols = cols;
+  };
+
+  box.addEventListener("click", (e) => {
+    const btn = e.target.closest(".layout-btn");
+    if (!btn) return;
+    wanted = Number(btn.dataset.cols);
+    try {
+      localStorage.setItem(KEY, wanted);
+    } catch (err) {}
+    apply();
+  });
+
+  window.addEventListener("resize", apply);
+  if ("ResizeObserver" in window)
+    new ResizeObserver(apply).observe(grid.parentElement);
+  apply();
+})();
